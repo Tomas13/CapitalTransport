@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listentries" translatable="false">
+        <item>Google Map</item>
+        <item>Open Street Map</item>
+    </string-array>
+    <string-array name="listvalues" translatable="false">
+        <item>google</item>
+        <item>osm</item>
+    </string-array>
+</resources>

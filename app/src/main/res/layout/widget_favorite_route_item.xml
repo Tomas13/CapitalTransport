@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rl_widget_item_root"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:descendantFocusability="blocksDescendants"
+        android:background="@drawable/list_item_bg_selector">
+
+    <TextView android:id="@+id/tv_route_number"
+              android:layout_alignParentLeft="true"
+              android:layout_centerVertical="true"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:gravity="center"
+              android:layout_gravity="center_vertical"
+              android:textSize="@dimen/item_route_number_text_size"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:textColor="@color/route_list_item_text1_selector"
+              android:background="@drawable/route_number_shape"
+              android:layout_weight="1"
+              android:text="100"/>
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_toLeftOf="@+id/tbtn_favorite"
+                  android:layout_toRightOf="@+id/tv_route_number"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:layout_centerVertical="true">
+
+        <TextView android:id="@+id/tv_point_from"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:maxLines="1"
+                  android:textColor="@color/route_list_item_text2_selector"
+                  android:text="point from"/>
+
+        <TextView android:id="@+id/tv_point_to"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+
+                  android:textSize="14sp"
+                  android:maxLines="1"
+                  android:textColor="@color/route_list_item_text2_selector"
+                  android:text="point to"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

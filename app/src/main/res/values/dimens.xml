@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="slide_menu_width">240dp</dimen>
+    <dimen name="tab_text_size">13sp</dimen>
+    <dimen name="slide_menu_button_size">100dip</dimen>
+    <dimen name="slide_menu_vertical_line_width">1dip</dimen>
+
+    <dimen name="forecast_table_header_text_size">14sp</dimen>
+    <dimen name="bus_stop_window_button_text_size">18sp</dimen>
+    <dimen name="item_route_number_text_size">16sp</dimen>
+
+    <item name="page_indicator_weight" format="float" type="dimen">1</item>
+
+    <dimen name="padding_from">35dp</dimen>
+    <dimen name="padding_to">35dp</dimen>
+
+    <dimen name="complaint_image_height">200dp</dimen>
+</resources>

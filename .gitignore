@@ -1,0 +1,13 @@
+/out/
+/gen/
+/.idea/
+/bin/
+*.DS_Store
+com_crashlytics_export_strings.xml
+/proguard_logs/
+*.apk
+/app/crashlytics.properties
+/build
+/.gradle
+/app/build
+/app/build/

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">Astana Bus Free</string>
+    <string name="empty" translatable="false"></string>
+    <string name="routes">Маршруты</string>
+    <string name="bus_stops">Остановки</string>
+    <string name="augmented_reality">Дополненная реальность</string>
+    <string name="hide_radar">Убрать радар</string>
+    <string name="hide_zoom_bar">Убрать zoom</string>
+    <string name="show_radar">Показать радар</string>
+    <string name="show_zoom_bar">Показать zoom</string>
+    <string name="select_route">Выберите маршрут</string>
+    <string name="select_route_for_widget">Выберите маршрут для виджета</string>
+    <string name="select_bus_stop">Выберите остановку</string>
+    <string name="first_select_route">Сначала выберите маршрут</string>
+    <string name="search">Поиск</string>
+    <string name="favorites">Избранные</string>
+    <string name="all">Все</string>
+    <string name="history">История</string>
+    <string name="route">Маршрут</string>
+    <string name="next1">Ближайший</string>
+    <string name="next2">Следующий</string>
+    <string name="no_internet_connection">Нет интернет соединения</string>
+    <string name="server_request_error">Сервер вернул неверные данные. Обратитесь к разработчикам</string>
+    <string name="nearest_bus_stops">Ближайшие остановки</string>
+    <string name="nearest_bus_stops_on_map">Ближайшие остановки на карте</string>
+    <string name="nearest_bus_stops_not_found">Не удалось найти остановки рядом с Вами в радиусе 1000 метров</string>
+    <string name="your_location_undefined">"Не удалось определить Ваше местоположение"</string>
+    <string name="aside">В сторону:</string>
+    <string name="click_on_map">Отметьте на карте место, чтобы увидеть ближайшие остановки</string>
+    <string name="selected_location">Выбранное местоположение</string>
+    <string name="no_information">Нет информации</string>
+    <string name="less_one_minute">\u003c 1 мин.</string>
+    <string name="minute"> мин.</string>
+    <string name="about">Около </string>
+    <string name="about_bus_stop">Около остановки</string>
+    <string name="departure_expected">Ожидается отправление</string>
+    <string name="calc_forecast">Рассчитать прогноз</string>
+    <string name="repeat">Повторить</string>
+    <string name="check_internet_connection">Не удается загрузить данные, проверьте интернет соединение и нажмите кнопку \"Повторить\"</string>
+    <string name="welcome_message">Поздравляем! \nТеперь Вы знаете, как пользоваться приложением! \nУдачных поездок!</string>
+    <string name="attention">Внимание</string>
+    <string name="ok">OK</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="not_ask">Не спрашивать</string>
+    <string name="you_not_have_gms">На Вашем телефоне не установлены Сервисы Google Play или используется устаревшая версия.
+        Нажмите ОК, чтобы перейти в Google Play</string>
+    <string name="select_several_routes">Выберите маршруты</string>
+    <string name="max_select_routes">Нельзя выбирать больше трёх маршрутов одновременно</string>
+    <string name="show">Показать</string>
+    <string name="need_select_route">Необходимо выбрать маршрут</string>
+    <string name="start_app">Запустить приложение</string>
+    <string name="start_app_first">Для правильной работы виджета, сначала необходимо запустить приложение, чтобы загрузить данные о маршрутах</string>
+    <string name="vote_application">Понравилось наше приложение? Пожалуйста, оцените его в Google Play :)</string>
+    <string name="vote">Оценить</string>
+    <string name="later">Позже</string>
+    <string name="widget_empty_text">Добавьте маршруты в список избранных, чтобы они появились здесь</string>
+    <string name="server_not_available">Похоже, что сервер не доступен в данный момент :(</string>
+    <string name="version">Версия:</string>
+    <string name="about_app">О программе</string>
+    <string name="km_hour">км/ч</string>
+
+    <string name="author">Автор идеи:</string>
+    <string name="author_name"> - - - </string>
+    <string name="developer">Разработка:</string>
+    <string name="design">Дизайн:</string>
+    <string name="design_name">Дария Азизова</string>
+    <string name="developer_name">Аскар Сыздыков</string>
+
+    <string name="mail">Написать письмо</string>
+    <string name="share">Поделиться</string>
+    <string name="share_text">Я пользуюсь приложением AstanaBus https://play.google.com/store/apps/details?id=kz.itsolutions.businformator_paid, теперь я знаю, когда нужно выходить на остановку</string>
+    <string name="vote_message">Поставьте оценку и оставьте комментарий</string>
+    <string name="mail_message">Отправляйте замечания и пожелания нам на почту</string>
+    <string name="share_message">Расскажите о приложении своим друзьям в социальных сетях</string>
+    <string name="like_app">Понравилось приложение?</string>
+    <string name="search_routes_from_to">Поиск маршрутов (от → до)</string>
+    <string name="display_bus_stops">Показывать остановки</string>
+    <string name="search_routes">Поиск маршрутов</string>
+    <string name="set_point_from">Укажите на карте место отправления</string>
+    <string name="set_point_to">Укажите на карте место прибытия</string>
+    <string name="from">От</string>
+    <string name="from_colon">От:</string>
+    <string name="to">До</string>
+    <string name="to_colon">До:</string>
+    <string name="type_bus_stop_name">Начните вводить название остановки</string>
+    <string name="type_complaint_text">Жалоба...</string>
+    <string name="need_complaint">Необходимо ввести текст</string>
+    <string name="email">Email</string>
+    <string name="enter_email">Введите корректный email</string>
+    <string name="select_points_from_to">Укажите точки на карте или начните вводить для поиска остановки</string>
+    <string name="find">Найти</string>
+    <string name="point_a">Точка А</string>
+    <string name="point_b">Точка Б</string>
+    <string name="my_location">Мое местоположение</string>
+    <string name="choice_picture">Из галереи</string>
+    <string name="make_photo">Сфотографировать</string>
+    <string name="reporting_problem">Сообщение о проблеме</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="complaint_sent">Жалоба отправлена</string>
+    <string name="loading">Загрузка</string>
+    <string name="temperature">Cейчас %s °С</string>
+
+    <string name="edit_route">Редактировать маршрут</string>
+    <string name="make_complaint">Подать жалобу</string>
+    <string name="save">Сохранить</string>
+    <string name="remove_marker">Удалить маркер</string>
+    <string name="use_map">Основная карта</string>
+    <string name="use_map_summary">Карта, которая будет отображена в главном окне</string>
+    <string name="map_changed_need_restart_app">Для вступления настроек в силу, необходимо перезапустить приложение</string>
+    <string name="add_marker">Добавить маркер</string>
+    <string name="select_markers_to_remove">Выберите маркеры для удаления</string>
+    <string name="select_two_markers_for_add_marker">Выберите два маркера для добавления маркера между ними</string>
+    <string name="click_on_map_for_add_marker">Нажмите на место на карте, чтобы добавить новый маркер</string>
+    <string name="select_second_marker">Выберите второй маркер</string>
+    <string name="selected_markers_equals">Выбранные маркеры одинаковы, выберите второй маркер заново</string>
+    <string name="settings">Настройки</string>
+    <string name="alarm">Будильник</string>
+    <string name="send">Отправить</string>
+
+    <string formatted="false" name="buses_count_avg_speed">Автобусов: %s. Ср. скорость: %s км\ч </string>
+    <string formatted="false" name="bus_marker_text">Маршрут: %s\nСкорость: %s км/ч \nДанные получены: %s</string>
+
+    <string name="key_route_statistic" translatable="false">key_route_statistic</string>
+    <string name="key_map" translatable="false">key_map</string>
+    <string name="show_route_statistic">Показывать статистику маршрутов</string>
+    <string name="show_route_statistic_sub">Количество автобусов, средняя скорость</string>
+    <string name="data_preparation">Подготовка данных...</string>
+
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-8798922455311766/6446971132</string>
+    <string name="buy">Без рекламы</string>
+    <string name="buy_message">Получить приложение без рекламы</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="splash_bg">#ecece8</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="action_bar_bg">#3ac5da</color>
+    <color name="yellow">#f4cb3a</color>
+    <color name="drawer_bg">#f2f2f1</color>
+    <color name="route_number_text_color">#616161</color>
+    <color name="route_statistic_text_color">#919191</color>
+    <color name="divider_color">#c3c3c3</color>
+    <color name="tab_selected">#298e9d</color>
+    <color name="list_item">#f2f2f1</color>
+    <color name="red">#ffff4444</color>
+    <color name="forecast_item_bg1">#f2f2f1</color>
+    <color name="forecast_item_bg2">#e6e6d7</color>
+    <color name="forecast_header_bottom_line">#c9c9c9</color>
+    <color name="semitransparent_white">#AAffffff</color>
+    <color name="semitransparent_near_button_bg">#AA3ac5da</color>
+    <color name="semitransparent_welcome_message_bg">#EE3d3d3d</color>
+    <color name="red_dark">#ffcc0000</color>
+</resources>

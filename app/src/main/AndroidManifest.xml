@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="kz.itsolutions.businformator"
+    >
+
+    <permission
+        android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"
+        />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"
+        />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE"/>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- For parse.com library-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <!--
+          IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
+          to match your app's package name + ".permission.C2D_MESSAGE".
+        -->
+    <permission
+        android:protectionLevel="signature"
+        android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE"
+        />
+    <uses-permission android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE"/>
+
+    <application
+        android:name=".AstanaBusApplication"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme"
+        >
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar"
+            android:label="@string/app_name"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.MapGoogleActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme"
+            />
+
+        <activity
+            android:name=".activities.MapOsmActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme"
+            />
+
+        <activity
+            android:name=".activities.ForecastActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme"
+            />
+
+        <activity
+            android:name=".activities.TrainingActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar"
+            >
+
+        </activity>
+
+        <activity
+            android:name=".activities.AugmentedRealityActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape"
+            >
+        </activity>
+
+        <activity
+            android:name=".activities.WidgetConfigActivity"
+            android:theme="@style/AppTheme"
+            >
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE">
+                </action>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.AboutAppActivity"/>
+
+        <activity android:name=".activities.RoutesActivity"/>
+
+        <activity
+            android:name=".activities.EditRouteActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".activities.PrefsActivity"
+            android:label="@string/settings"
+            />
+
+        <activity
+            android:name=".activities.ComplaintActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".activities.FeedbackActivity"
+            android:windowSoftInputMode="stateVisible"
+            />
+
+        <!--Include the AdActivity configChanges and theme. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent"
+            />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBIa8LzttwAlTwXVZbsoXwccfEotav4A7Y"
+            />
+        <!--PAID Debug key-->
+        <!--AIzaSyCL7nM3Bh92jsIMXTyOh3STC37UnlQTFBQ-->
+        <!--PAID Public key-->
+        <!--AIzaSyD3I-iq9DrgUTUWuJgTujFtsvQlRZM6oxs-->
+
+
+        <!--Debug key-->
+        <!--AIzaSyDTECmDS_3Y6Webh5COi-W-ZqFKNkKvVL0-->
+        <!--Public key-->
+        <!--AIzaSyBIa8LzttwAlTwXVZbsoXwccfEotav4A7Y-->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"
+            />
+
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="39e2f6e7cbf7dab7107416360950809ffd8c9291"
+            />
+
+        <receiver
+            android:name=".widgets.SingleWidget"
+            android:icon="@drawable/ic_launcher"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="true"
+            android:label="@string/app_name"
+            >
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+                <action
+                    android:name="kz.itsolutions.businformator.WIDGET_BUTTON">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_metadata"
+                >
+            </meta-data>
+        </receiver>
+
+        <service
+            android:name=".widgets.MyService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            >
+        </service>
+        <receiver
+            android:name=".widgets.MyProvider">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_favorites_metadata"
+                >
+            </meta-data>
+        </receiver>
+
+        <!-- Parse.com-->
+        <service android:name="com.parse.PushService"/>
+
+        <receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+
+                <!--
+                  IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
+                -->
+                <category android:name="kz.itsolutions.businformator"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- replace @drawable/push_icon with your push icon identifier -->
+        <meta-data
+            android:name="com.parse.push.notification_icon"
+            android:resource="@drawable/ic_launcher"
+            />
+    </application>
+</manifest> 

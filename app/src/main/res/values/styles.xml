@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="AppTheme" parent="Theme.Sherlock.Light.DarkActionBar">
+        <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+
+        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+
+    </style>
+
+    <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/action_bar_bg</item>
+        <item name="android:background">@color/action_bar_bg</item>
+
+        <item name="android:titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
+        <item name="titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
+
+        <item name="android:subtitleTextStyle">@style/AppTheme.ActionBar.SubTitleTextStyle</item>
+        <item name="subtitleTextStyle">@style/AppTheme.ActionBar.SubTitleTextStyle</item>
+
+        <!--   <item name="backgroundSplit">@drawable/bg_striped_split</item>
+           <item name="android:backgroundSplit">@drawable/bg_striped_split</item>-->
+    </style>
+
+    <style name="AppTheme.ActionBar.TitleTextStyle" parent="TextAppearance.Sherlock.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.SubTitleTextStyle" parent="TextAppearance.Sherlock.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="CustomTabPageIndicator">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/tab_bg_selector</item>
+        <item name="android:textAppearance">@style/TextAppearance.TabPageIndicator</item>
+        <item name="android:textSize">@dimen/tab_text_size</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="GenericButton">
+        <item name="android:background">@drawable/button_generic_bg_selector</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:textColor">@color/button_generic_text_color_selector</item>
+    </style>
+</resources>
