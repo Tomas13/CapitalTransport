@@ -39,8 +39,8 @@ android {
         }
     }
     dexOptions {
-        javaMaxHeapSize "4g"
-        jumboMode = true
+        //javaMaxHeapSize "4g"
+        //jumboMode = true
     }
 
     productFlavors {

@@ -11,3 +11,6 @@ com_crashlytics_export_strings.xml
 /.gradle
 /app/build
 /app/build/
+*.iml
+/app/*.iml
+
