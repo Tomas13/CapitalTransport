@@ -55,6 +55,15 @@ public class Bus {
     @DatabaseField(columnName = FIELD_Z, generatedId = true)
     private int z;
 
+    private double longitude;
+
+    private double latitude;
+
+
+    public Bus() {
+
+    }
+
     public Bus(long id, String name, long serverId, long time, double speed, int z) {
         this.id = id;
         this.name = name;
@@ -64,7 +73,7 @@ public class Bus {
         this.z = z;
     }
 
-    private Bus(long id, int routeNumber, int routeId, String name, long serverId, long time, double speed, double lat, double lon, int z) {
+    public Bus(long id, int routeNumber, int routeId, String name, long serverId, long time, double speed, double lat, double lon, int z) {
         this.id = id;
         this.routeNumber = routeNumber;
         this.name = name;
@@ -88,6 +97,9 @@ public class Bus {
         double speed = jsonObject.getDouble("s");
         return new Bus(0, routeNumber, routeId, busName, serverBusId, time, speed, y, x, z);
     }
+
+
+
 
     public static Bus fromInfoBusJson(Route route, JSONObject jsonObject) throws JSONException {
         long serverBusId = jsonObject.getLong("imei");
@@ -199,4 +211,39 @@ public class Bus {
         return ctx.getResources().getIdentifier(drawableName, "drawable", ctx.getPackageName());
     }
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setServerId(long serverId) {
+        this.serverId = serverId;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public void setRouteNumber(int routeNumber) {
+        this.routeNumber = routeNumber;
+    }
+
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
+    }
 }

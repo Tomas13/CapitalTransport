@@ -12,11 +12,15 @@ public class Consts {
     public static final String API_SERVER_URL = "http://" + serverUrl + "/astana/?n=" + packageName + "&v=" +
             packageVersion + "&city=" + city + "&";
 
+
+
     // кол-во маршрутов, которые можно выбрать в режиме MultiSelect
     public static short MAX_ROUTES_ON_MAP = 3;
 
     // интервал запроса списка автобусов для маршрута, мс
-    public static short BUS_TIMER_INTERVAL = 5000;
+    public static short BUS_TIMER_INTERVAL = 4000;
+    public static String BUS_POSITIONS_URL = "http://astrabus.otgroup.kz/api/";
+
 
     // интервал запроса статистика по маршрутам, мс
     public static short ROUTES_STATISTIC_TIMER_INTERVAL = 10000;
@@ -29,5 +33,7 @@ public class Consts {
 
     //KEYS
     public static final String KEY_ROUTES_ID = "routeIds";
+
+
 
 }

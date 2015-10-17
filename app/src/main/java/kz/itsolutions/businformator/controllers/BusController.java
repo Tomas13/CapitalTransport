@@ -1,6 +1,9 @@
 package kz.itsolutions.businformator.controllers;
 
+import android.content.Context;
+import android.os.Debug;
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.apache.http.HttpException;
 import org.json.JSONArray;
@@ -8,7 +11,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import kz.itsolutions.businformator.model.Bus;
@@ -48,6 +55,64 @@ public class BusController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return buses;
+    }
+
+    public static List<Bus> getRouteBusesDaniyar(Route route) throws HttpException, IOException, JSONException{
+        ArrayList<Bus> buses = new ArrayList<>();
+        HttpHelper httpHelper = new HttpHelper();
+        JSONObject params = new JSONObject();
+
+
+
+        try {
+            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
+            //Log.d("DANIYAR", response);
+            JSONObject jsonObject = new JSONObject(response);
+
+            for (Iterator<String> iter = jsonObject.keys(); iter.hasNext();) {
+                String key = iter.next();
+              //  Log.d("DANIYAR", key);
+
+
+
+                JSONObject busJson = jsonObject.getJSONObject(key);
+
+                String routeNumberStr = busJson.getString("route");
+                int routeNumber = Integer.parseInt(routeNumberStr);
+
+                if (routeNumber != route.getNumber()) {
+                    continue;
+                }
+
+
+                String latitudeStr = busJson.getString("latitude");
+                double latitude = Double.parseDouble(latitudeStr);
+
+                String longitudeStr = busJson.getString("longitude");
+                double longitude = Double.parseDouble(longitudeStr);
+
+                String timeStr = busJson.getString("time");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                Date time = format.parse(timeStr);
+
+                Bus bus = new Bus(0, routeNumber, (int) route.getId(), "", /*Long.parseLong(key)*/ 0, time.getTime(), 0.0, latitude, longitude, 0);
+
+                buses.add(bus);
+            }
+
+
+        } catch (HttpException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         return buses;
     }
 

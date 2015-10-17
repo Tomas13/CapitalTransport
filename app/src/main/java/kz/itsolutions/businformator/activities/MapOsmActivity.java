@@ -763,7 +763,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                     busStopsMarkersOverlay.setEnabled(false);
                 } else {
                     if (busStopsMarkersOverlay.getItems().size() == 0){
-                        drawRouteBusStops(mSelectedRoute, false);
+                       // drawRouteBusStops(mSelectedRoute, false);
                     }
                     busStopsMarkersOverlay.setEnabled(true);
                 }
@@ -955,7 +955,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                         mSelectedRoute.linkedRoute.getServerId()));
             }
         }
-        drawRouteBusStops(mSelectedRoute, true);
+        //drawRouteBusStops(mSelectedRoute, true);
         drawRouteLineGoogle(mSelectedRoute, removeFindMarkers);
         updateLastSeenDate(route);
         manualMarkersOverlay.removeAllItems();
@@ -1206,7 +1206,8 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                 stopBusTimer();
                 return;
             }
-            mBuses = BusController.getRouteBuses(route);
+           // mBuses = BusController.getRouteBuses(route);
+            mBuses = BusController.getRouteBusesDaniyar(route);
             this.runOnUiThread(BusTimerTick);
         } catch (HttpException e) {
             e.printStackTrace();
@@ -1249,6 +1250,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
     private void TimerMethod(List<Route> routes) {
         try {
             mBuses = BusController.getBusInfoForRoutes(routes);
+
         } catch (HttpException e) {
             e.printStackTrace();
             mBuses = null;
