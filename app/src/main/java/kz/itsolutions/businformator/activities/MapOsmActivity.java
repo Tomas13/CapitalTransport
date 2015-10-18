@@ -736,16 +736,16 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                     mDrawerLayout.closeDrawer(mRightDrawer);
                 mDrawerLayout.closeDrawer(mLeftDrawer);
                 return true;
-            case R.id.menu_augmented_reality:
-                if (mSelectedRoute == null) {
-                    showToast(getString(R.string.first_select_route));
-                    mDrawerLayout.openDrawer(mRightDrawer);
-                    return true;
-                }
-                Intent i = new Intent(MapOsmActivity.this, AugmentedRealityActivity.class);
-                i.putExtra(AugmentedRealityActivity.KEY_SELECTED_ROUTE_ID, mSelectedRoute.getServerId());
-                startActivity(i);
-                return true;
+//            case R.id.menu_augmented_reality:
+//                if (mSelectedRoute == null) {
+//                    showToast(getString(R.string.first_select_route));
+//                    mDrawerLayout.openDrawer(mRightDrawer);
+//                    return true;
+//                }
+//                Intent i = new Intent(MapOsmActivity.this, AugmentedRealityActivity.class);
+//                i.putExtra(AugmentedRealityActivity.KEY_SELECTED_ROUTE_ID, mSelectedRoute.getServerId());
+//                startActivity(i);
+//                return true;
             case R.id.menu_about:
                 startActivity(new Intent(this, AboutAppActivity.class));
                 break;

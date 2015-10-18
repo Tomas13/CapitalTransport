@@ -30,9 +30,9 @@
           android:title="@string/display_bus_stops"
           android:showAsAction="never" />
 
-    <item android:id="@+id/menu_augmented_reality"
-          android:title="@string/augmented_reality"
-          android:showAsAction="never" />
+    <!--<item android:id="@+id/menu_augmented_reality"-->
+          <!--android:title="@string/augmented_reality"-->
+          <!--android:showAsAction="never" />-->
 
     <item android:id="@+id/menu_edit_route"
           android:visible="false"
