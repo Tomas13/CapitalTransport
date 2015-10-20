@@ -148,7 +148,7 @@ public class SplashActivity extends Activity implements View.OnClickListener {
                 return;
             }
             String useMap = PreferenceManager.getDefaultSharedPreferences(
-                    SplashActivity.this).getString(getString(R.string.key_map), "google");
+                    SplashActivity.this).getString(getString(R.string.key_map), "osm");
             Class mapActivityClass = MapGoogleActivity.class;
             if (useMap.equals("osm")) {
                 mapActivityClass = MapOsmActivity.class;
