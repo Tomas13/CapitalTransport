@@ -28,6 +28,7 @@ public class Consts {
     // координаты города Астана
     public static final LatLng DEFAULT_CITY_LOCATION = new LatLng(51.1666667, 71.43333329);
     public static final GeoPoint DEFAULT_CITY_LOCATION_OSM = new GeoPoint(51.157600, 71.435165);
+    public static final GeoPoint DEFAULT_CAMERA_POSITION = new GeoPoint(51.297118, 71.198858);
 
     public static final boolean IS_FREE = true;
 

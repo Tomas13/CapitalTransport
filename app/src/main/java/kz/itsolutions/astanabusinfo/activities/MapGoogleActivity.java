@@ -1413,7 +1413,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                     marker.remove();
                 }
             } else {
-                Crashlytics.log("markers == null in drawBusesGoogle(ArrayList<Bus> buses)");
+               // Crashlytics.log("markers == null in drawBusesGoogle(ArrayList<Bus> buses)");
             }
             tvInternetStatus.setVisibility(View.VISIBLE);
             return;

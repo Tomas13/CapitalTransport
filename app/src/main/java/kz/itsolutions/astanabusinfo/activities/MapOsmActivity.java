@@ -475,7 +475,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
 
         mController = (MapController) mMapView.getController();
         mMapView.setMinZoomLevel(10);
-        mMapView.setScrollableAreaLimit(new BoundingBoxE6(51.261781, 71.630859, 50.825755, 71.229858));
+        //mMapView.setScrollableAreaLimit(new BoundingBoxE6(51.261781, 71.630859, 50.825755, 71.229858));
 
         compassOverlay = new CompassOverlay(this, mMapView);
         compassOverlay.enableCompass();
@@ -667,8 +667,9 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
     }
 
     private void setDefaultCameraPosition() {
-        mController.setCenter(Consts.DEFAULT_CITY_LOCATION_OSM);
         mController.setZoom(11);
+        mController.setCenter(Consts.DEFAULT_CITY_LOCATION_OSM);
+        mController.animateTo(Consts.DEFAULT_CAMERA_POSITION);
     }
 
     @Override
@@ -680,11 +681,11 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
             switch (requestCode) {
                 case FORECAST_CODE:
                     if (data.getExtras() == null || !data.getExtras().containsKey(Consts.KEY_ROUTES_ID)) {
-                        Crashlytics.log("!data.getExtras().containsKey(Consts.KEY_ROUTES_ID)");
+                      //  Crashlytics.log("!data.getExtras().containsKey(Consts.KEY_ROUTES_ID)");
                         return;
                     }
                     if (mAdapter == null) {
-                        Crashlytics.log("mAdapter == null");
+                     //   Crashlytics.log("mAdapter == null");
                         return;
                     }
                     closeInfoWindow();
@@ -1062,7 +1063,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
     public void onStart() {
         super.onStart();
         //Crashlytics.start(this);
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         //EasyTracker.getInstance().activityStart(this);
     }
 
@@ -1070,7 +1071,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
     public void onStop() {
         super.onStop();
         //Crashlytics.start(this);
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         //EasyTracker.getInstance().activityStop(this);
     }
 
@@ -1428,7 +1429,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                     marker.remove();
                 }*/
             } else {
-                Crashlytics.log("markers == null in drawBusesGoogle(ArrayList<Bus> buses)");
+               // Crashlytics.log("markers == null in drawBusesGoogle(ArrayList<Bus> buses)");
             }
             tvInternetStatus.setVisibility(View.VISIBLE);
             return;

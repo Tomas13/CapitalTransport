@@ -68,7 +68,7 @@ public class SplashActivity extends Activity implements View.OnClickListener {
     public void onStart() {
         super.onStart();
         //Crashlytics.start(this);
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
     }
 
     @Override
