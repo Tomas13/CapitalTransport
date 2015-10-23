@@ -35,7 +35,7 @@
         android:layout_above="@+id/indicator"
         />
 
-    <kz.itsolutions.businformator.widgets.tabPageIndicator.TabPageIndicator
+    <kz.itsolutions.astanabusinfo.widgets.tabPageIndicator.TabPageIndicator
         android:id="@+id/indicator"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"

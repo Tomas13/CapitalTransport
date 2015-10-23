@@ -7,17 +7,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import com.jwetherell.augmented_reality.ui.IconMarker;
 import com.jwetherell.augmented_reality.ui.Marker;
-import kz.itsolutions.businformator.R;
-import kz.itsolutions.businformator.controllers.BusController;
-import kz.itsolutions.businformator.model.Bus;
-import kz.itsolutions.businformator.model.BusStop;
-import kz.itsolutions.businformator.model.Route;
-import org.apache.http.HttpException;
+import kz.itsolutions.astanabusinfo.R;
+import kz.itsolutions.astanabusinfo.model.BusStop;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
