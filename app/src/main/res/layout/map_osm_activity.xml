@@ -61,7 +61,7 @@
 
     </RelativeLayout>
 
-    <include layout="@layout/left_drawer"/>
+    <!--<include layout="@layout/left_drawer"/>-->
 
     <include layout="@layout/right_drawer"/>
 

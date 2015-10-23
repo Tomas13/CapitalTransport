@@ -9,7 +9,7 @@
     <ListPreference
         android:key="@string/key_map"
         android:title="@string/use_map"
-        android:defaultValue="google"
+        android:defaultValue="osm"
         android:summary="@string/use_map_summary"
         android:entries="@array/listentries"
         android:entryValues="@array/listvalues" />

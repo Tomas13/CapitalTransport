@@ -12,11 +12,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.crashlytics.android.Crashlytics;
 import com.parse.ParseAnalytics;
 import com.parse.ParseInstallation;
 
-import io.fabric.sdk.android.Fabric;
 import kz.itsolutions.astanabusinfo.R;
 import kz.itsolutions.astanabusinfo.db.DBHelper;
 import kz.itsolutions.astanabusinfo.model.Route;

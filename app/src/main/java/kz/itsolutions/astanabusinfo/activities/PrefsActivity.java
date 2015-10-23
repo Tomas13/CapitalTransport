@@ -20,7 +20,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         addPreferencesFromResource(R.xml.preferences);
 
         oldMap = PreferenceManager.getDefaultSharedPreferences(
-                this).getString(getString(R.string.key_map), "google");
+                this).getString(getString(R.string.key_map), "osm");
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setIcon(R.drawable.ic_menu_bus);
@@ -31,7 +31,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
     protected void onDestroy() {
         super.onDestroy();
         if (!oldMap.equals(PreferenceManager.getDefaultSharedPreferences(
-                this).getString(getString(R.string.key_map), "google"))) {
+                this).getString(getString(R.string.key_map), "osm"))) {
             Toast.makeText(this, getString(R.string.map_changed_need_restart_app), Toast.LENGTH_LONG).show();
         }
     }

@@ -156,10 +156,10 @@
             android:value="@integer/google_play_services_version"
             />
 
-        <meta-data
-            android:name="com.crashlytics.ApiKey"
-            android:value="39e2f6e7cbf7dab7107416360950809ffd8c9291"
-            />
+        <!--<meta-data-->
+            <!--android:name="com.crashlytics.ApiKey"-->
+            <!--android:value="39e2f6e7cbf7dab7107416360950809ffd8c9291"-->
+            <!--/>-->
 
         <receiver
             android:name="kz.itsolutions.astanabusinfo.widgets.SingleWidget"

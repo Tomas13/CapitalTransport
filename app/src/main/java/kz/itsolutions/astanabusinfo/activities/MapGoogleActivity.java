@@ -46,7 +46,6 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
-import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -77,8 +76,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import io.fabric.sdk.android.Fabric;
 import kz.itsolutions.astanabusinfo.R;
 import kz.itsolutions.astanabusinfo.adapters.BusStopsAdapter;
 import kz.itsolutions.astanabusinfo.adapters.MyPagerAdapter;
@@ -653,11 +650,11 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
             switch (requestCode) {
                 case REQUEST_FORECAST_CODE:
                     if (data.getExtras() == null || !data.getExtras().containsKey(Consts.KEY_ROUTES_ID)) {
-                        Crashlytics.log("!data.getExtras().containsKey(Consts.KEY_ROUTES_ID)");
+                        //Crashlytics.log("!data.getExtras().containsKey(Consts.KEY_ROUTES_ID)");
                         return;
                     }
                     if (mAdapter == null) {
-                        Crashlytics.log("mAdapter == null");
+                        //Crashlytics.log("mAdapter == null");
                         return;
                     }
                     ArrayList<Integer> selectedRouteNumbers = (ArrayList<Integer>) data.getSerializableExtra(Consts.KEY_ROUTES_ID);
@@ -1062,7 +1059,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
     public void onStart() {
         super.onStart();
         //Crashlytics.start(this);
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         //EasyTracker.getInstance().activityStart(this);
     }
 
@@ -1070,7 +1067,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
     public void onStop() {
         super.onStop();
         //Crashlytics.start(this);
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         //EasyTracker.getInstance().activityStop(this);
     }
 
