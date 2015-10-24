@@ -275,7 +275,9 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
             }
         });
 
-        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        //mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, findViewById(R.id.left_drawer));
 
         listViewFoundRoutes = (ListView) findViewById(R.id.lv_routes);
 
