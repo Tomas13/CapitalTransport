@@ -65,6 +65,7 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -1454,7 +1455,11 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                     Marker marker = hashMapBusMarkers.get(bus.getServerId());
                     isInfoWindowShown = lastSelectedMarker != null && lastSelectedMarker.equals(marker);
                     marker.setPosition(bus.getPointOsm());
-                    marker.setSnippet(String.format(getString(R.string.bus_marker_text), bus.getRouteNumber(), bus.getSpeed(), bus.getTime("HH:mm:ss")));
+                    //marker.setSnippet(String.format(getString(R.string.bus_marker_text_2), bus.getRouteNumber(), new Date(bus.getTime()).toString()));
+                    Date currentDate = new Date(bus.getTime());
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+                    marker.setSnippet("Маршрут №" + bus.getRouteNumber() + "\n Данные получены: " + dateFormat.format(currentDate));
+                    //Log.d("TIME TIME", new Date(bus.getTime()).toString());
                     marker.setIcon(getResources().getDrawable(Bus.getDirectionIcon(MapOsmActivity.this, bus.getZ(), routeLineColor)));
                     // для обновления сниппета переоткрываю всплывающее окно
                     if (isInfoWindowShown) {
@@ -1478,7 +1483,11 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                 routeLineColor = hashMapRouteLineColors.get(bus.getRouteNumber());
             Marker marker = new Marker(mMapView);
             marker.setTitle(String.format("№ %s", bus.getName()));
-            marker.setSubDescription(String.valueOf(String.format(getString(R.string.bus_marker_text), bus.getRouteNumber(), bus.getSpeed(), bus.getTime("HH:mm:ss"))));
+           // marker.setSubDescription(String.valueOf(String.format(getString(R.string.bus_marker_text_2), bus.getRouteNumber(), bus.getTime("HH:mm:ss"))));
+            Date currentDate = new Date(bus.getTime());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+            marker.setSubDescription("Маршрут №" + bus.getRouteNumber() + "\n Данные получены: " + dateFormat.format(currentDate));
+
             marker.setSnippet(String.valueOf(bus.getServerId()));
             marker.setIcon(getResources().getDrawable(Bus.getDirectionIcon(MapOsmActivity.this, bus.getZ(), routeLineColor)));
             marker.setInfoWindow(infoWindow);

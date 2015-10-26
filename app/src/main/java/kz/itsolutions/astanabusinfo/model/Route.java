@@ -23,6 +23,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -374,10 +375,30 @@ public class Route implements Comparable<Route>, Serializable {
         Dao<Route, Integer> dao = dbHelper.getRouteDao();
         try {
             result = dao.queryBuilder().groupBy(FIELD_ROUTE_NUMBER).query();
+            for (Iterator<Route> it = result.iterator(); it.hasNext();) {
+                Route currentRoute = it.next();
+                if (currentRoute.getNumber() == 104 ||
+                        currentRoute.getNumber() == 109 ||
+                        currentRoute.getNumber() == 112 ||
+                        currentRoute.getNumber() == 126 ||
+                        currentRoute.getNumber() == 129 ||
+                        currentRoute.getNumber() == 130 ||
+                        currentRoute.getNumber() == 53) {
+                    it.remove();
+                }
+
+                if (currentRoute.getNumber() == 54)
+                    currentRoute.setNumber(105);
+            }
         } catch (SQLException e) {
             Log.e("routes", "SQLException", e);
         }
         return result;
+    }
+
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public static List<Route> getFavorites(DBHelper dbHelper) {

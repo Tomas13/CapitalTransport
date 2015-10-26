@@ -1,6 +1,7 @@
 package kz.itsolutions.astanabusinfo.controllers;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.apache.http.HttpException;
 import org.json.JSONArray;
@@ -94,7 +95,7 @@ public class BusController {
                 String timeStr = busJson.getString("time");
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 Date time = format.parse(timeStr);
-
+                //Log.d("TIME TIME", time.toString());
                 Bus bus = new Bus(0, routeNumber, (int) route.getId(), "", /*Long.parseLong(key)*/ myMonkeyId, time.getTime(), 0.0, latitude, longitude, 0);
 
                 myMonkeyId++;

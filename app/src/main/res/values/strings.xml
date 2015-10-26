@@ -122,6 +122,7 @@
 
     <string formatted="false" name="buses_count_avg_speed">Автобусов: %s. Ср. скорость: %s км\ч </string>
     <string formatted="false" name="bus_marker_text">Маршрут: %s\nСкорость: %s км/ч \nДанные получены: %s</string>
+    <string formatted="false" name="bus_marker_text_2">Маршрут: %s\nДанные получены: %s</string>
 
     <string name="key_route_statistic" translatable="false">key_route_statistic</string>
     <string name="key_map" translatable="false">key_map</string>

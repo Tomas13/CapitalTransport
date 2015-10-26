@@ -26,8 +26,8 @@ android {
         applicationId "kz.itsolutions.astanabusinfo"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 20150106
-        versionName "1.96"
+        versionCode 20150108
+        versionName "1.98"
     }
     buildTypes {
         release {
