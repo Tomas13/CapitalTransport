@@ -58,61 +58,61 @@
                 </LinearLayout>
 
 
-                <LinearLayout android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:layout_marginBottom="5dp">
+                <!--<LinearLayout android:layout_width="wrap_content"-->
+                              <!--android:layout_height="wrap_content"-->
+                              <!--android:layout_marginBottom="5dp">-->
 
-                    <TextView
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/author"/>
+                    <!--<TextView-->
+                            <!--android:textStyle="bold"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="@string/author"/>-->
 
-                    <TextView
-                            android:textColor="@color/route_number_text_color"
-                            android:layout_marginLeft="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/author_name"/>
+                    <!--<TextView-->
+                            <!--android:textColor="@color/route_number_text_color"-->
+                            <!--android:layout_marginLeft="5dp"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="@string/author_name"/>-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-                <LinearLayout android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:layout_marginBottom="5dp">
+                <!--<LinearLayout android:layout_width="wrap_content"-->
+                              <!--android:layout_height="wrap_content"-->
+                              <!--android:layout_marginBottom="5dp">-->
 
-                    <TextView
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/developer"/>
+                    <!--<TextView-->
+                            <!--android:textStyle="bold"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="@string/developer"/>-->
 
-                    <TextView
-                            android:textColor="@color/route_number_text_color"
-                            android:layout_marginLeft="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/developer_name"/>
+                    <!--<TextView-->
+                            <!--android:textColor="@color/route_number_text_color"-->
+                            <!--android:layout_marginLeft="5dp"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="@string/developer_name"/>-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-                <LinearLayout android:layout_width="wrap_content"
-                              android:layout_height="wrap_content">
+                <!--<LinearLayout android:layout_width="wrap_content"-->
+                              <!--android:layout_height="wrap_content">-->
 
-                    <TextView
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/design"/>
+                    <!--<TextView-->
+                            <!--android:textStyle="bold"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="@string/design"/>-->
 
-                    <TextView
-                            android:textColor="@color/route_number_text_color"
-                            android:layout_marginLeft="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/design_name"/>
+                    <!--<TextView-->
+                            <!--android:textColor="@color/route_number_text_color"-->
+                            <!--android:layout_marginLeft="5dp"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="@string/design_name"/>-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
             </LinearLayout>
         </LinearLayout>
 
