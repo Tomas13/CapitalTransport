@@ -62,6 +62,7 @@ public class RoutesAdapter extends ArrayAdapter<Route> {
             holder.tvPointTo = (TextView) row.findViewById(R.id.tv_point_to);
             holder.tvNumber = (TextView) row.findViewById(R.id.tv_route_number);
             holder.tbtnFavorite = (ImageButton) row.findViewById(R.id.tbtn_favorite);
+            holder.tbtnFavorite.setVisibility(View.INVISIBLE);
             holder.tbtnFavorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -97,8 +98,9 @@ public class RoutesAdapter extends ArrayAdapter<Route> {
         }
 
         Route route = data.get(position);
-        holder.tvPointFrom.setText(route.getPointFrom());
-        holder.tvPointTo.setText(route.getPointTo());
+        holder.tvPointFrom.setText("Автобус №" + route.getNumber());
+        //holder.tvPointTo.setText(route.getPointTo());
+        holder.tvPointTo.setText("");
         holder.tvNumber.setText(String.valueOf(route.getNumber()));
         holder.tbtnFavorite.setTag(position);
         holder.tbtnFavorite.setImageDrawable(context.getResources().getDrawable(route.isFavorite() ?

@@ -544,7 +544,7 @@ public class Route implements Comparable<Route>, Serializable {
     }
 
     // for InfoBus routes
-    private Route(int routeNumber, String routeName, int busReportRouteId, String trackInfoBus) throws JSONException {
+    public Route(int routeNumber, String routeName, int busReportRouteId, String trackInfoBus) throws JSONException {
         this.number = routeNumber;
         String[] fromTo = routeName.split("-");
         this.serverId = busReportRouteId;

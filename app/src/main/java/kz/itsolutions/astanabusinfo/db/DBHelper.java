@@ -13,12 +13,15 @@ import com.j256.ormlite.misc.TransactionManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import org.apache.http.HttpException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -28,6 +31,8 @@ import kz.itsolutions.astanabusinfo.model.BusStop;
 import kz.itsolutions.astanabusinfo.model.Route;
 import kz.itsolutions.astanabusinfo.model.RouteBusStop;
 import kz.itsolutions.astanabusinfo.utils.AssetFile;
+import kz.itsolutions.astanabusinfo.utils.Consts;
+import kz.itsolutions.astanabusinfo.utils.HttpHelper;
 
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 
@@ -36,7 +41,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "astanabus.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 20;
 
     //Hashed daos
     private HashMap<Class<?>, Dao<?, ?>> daos = new HashMap<Class<?>, Dao<?, ?>>();
@@ -159,6 +164,97 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
                 updateRoutes(new JSONArray(data));
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateRoutesFromInternetDaniyar() {
+        HttpHelper httpHelper = new HttpHelper();
+        JSONObject params = new JSONObject();
+
+        try {
+            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
+
+           // Log.d("DANIYAR", "result: " +  response);
+
+            updateRoutesDaniyar(new JSONObject(response));
+
+           // Log.d("DANIYAR", "DATABASE IS CALLED");
+        } catch (HttpException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void updateRoutesDaniyar(final JSONObject jsonObject) throws JSONException {
+        DBHelper dbHelper = DBHelper.getHelper();
+        Dao<Route, Integer> dao = dbHelper.getRouteDao();
+
+        String segmentsString = AssetFile.readFromFile("segments.json", context);
+        JSONArray segmentsJson = new JSONArray(segmentsString);
+
+        int myMonkeyId = 0;
+        try {
+            for (Iterator<String> iter = jsonObject.keys(); iter.hasNext();) {
+                String key = iter.next();
+
+                JSONObject currentJsonObject = jsonObject.getJSONObject(key);
+                int routeNumber = currentJsonObject.getInt("route");
+
+                Route route = Route.getByNumber(dbHelper, routeNumber);
+
+                if (route == null) {
+                    String name = "Автобус №" + routeNumber;
+                    int routeId = myMonkeyId;
+                    String location = "";
+
+                    for (int i = 0; i < segmentsJson.length(); i++) {
+                        JSONObject currentRouteElement = segmentsJson.getJSONObject(i);
+
+                        String field2 = currentRouteElement.getString("FIELD2");
+                        if (field2.contains("B"))
+                            continue;
+
+                        if (currentRouteElement.getInt("FIELD2") == routeNumber) {
+                            location += currentRouteElement.getString("FIELD4") + " " + currentRouteElement.getString("FIELD3") + ", ";
+                        }
+                    }
+
+                    if (location.length() > 2) {
+                        location = location.substring(0, location.length() - 2);
+                    }
+
+                    if (location.length() == 0) {
+                        String secondarySegments = AssetFile.readFromFile("ib_routes.json", context);
+                        JSONArray secondaryJsonArray = new JSONArray(secondarySegments);
+
+                        for (int i = 0; i < secondaryJsonArray.length(); i++) {
+                            JSONObject currJsonObject = secondaryJsonArray.getJSONObject(i);
+
+                            if (Integer.parseInt(currJsonObject.getString("routeNumber")) == routeNumber) {
+                                location = currJsonObject.getString("location");
+                                break;
+                            }
+                        }
+                    }
+
+                    route = new Route(routeNumber, name, routeId, location);
+                    Log.d("DANIYAR", routeNumber + " " + location);
+                    createRecord(route, Route.class);
+
+                    location = "";
+                }
+
+                myMonkeyId++;
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

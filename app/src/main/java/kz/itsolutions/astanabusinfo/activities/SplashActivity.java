@@ -108,13 +108,15 @@ public class SplashActivity extends Activity implements View.OnClickListener {
         @Override
         protected Void doInBackground(Void... params) {
             if (Route.hasRecords(DBHelper.getHelper()) && prefs.getBoolean(KEY_NEED_UPDATE_FROM_IB, true)) {
-                DBHelper.getHelper().updateRoutesFromAssets();
+             //   DBHelper.getHelper().updateRoutesFromAssets();
+                DBHelper.getHelper().updateRoutesFromInternetDaniyar();
                 prefs.edit().putBoolean(KEY_NEED_UPDATE_FROM_IB, false).apply();
             }
             if (Route.hasRecords(DBHelper.getHelper()))
                 return null;
-            DBHelper.getHelper().populateFromAssets(this);
-            DBHelper.getHelper().updateRoutesFromAssets();
+            //DBHelper.getHelper().populateFromAssets(this);
+            //DBHelper.getHelper().updateRoutesFromAssets();
+            DBHelper.getHelper().updateRoutesFromInternetDaniyar();
             prefs.edit().putBoolean(KEY_NEED_UPDATE_FROM_IB, false).apply();
             return null;
         }
