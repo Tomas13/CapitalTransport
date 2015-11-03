@@ -25,10 +25,10 @@
           android:title="@string/search_routes_from_to"
           android:showAsAction="never" />
 
-    <item android:id="@+id/menu_display_bus_stops"
-          android:checkable="true"
-          android:title="@string/display_bus_stops"
-          android:showAsAction="never" />
+    <!--<item android:id="@+id/menu_display_bus_stops"-->
+          <!--android:checkable="true"-->
+          <!--android:title="@string/display_bus_stops"-->
+          <!--android:showAsAction="never" />-->
 
     <!--<item android:id="@+id/menu_augmented_reality"-->
           <!--android:title="@string/augmented_reality"-->
@@ -39,13 +39,13 @@
           android:title="@string/edit_route"
           android:showAsAction="never" />
 
-    <item android:id="@+id/menu_make_complaint"
-          android:title="@string/make_complaint"
-          android:showAsAction="never" />
+    <!--<item android:id="@+id/menu_make_complaint"-->
+          <!--android:title="@string/make_complaint"-->
+          <!--android:showAsAction="never" />-->
 
-    <item android:id="@+id/menu_preferences"
-          android:title="@string/settings"
-          android:showAsAction="never" />
+    <!--<item android:id="@+id/menu_preferences"-->
+          <!--android:title="@string/settings"-->
+          <!--android:showAsAction="never" />-->
 
     <item android:id="@+id/menu_alarm"
           android:visible="false"

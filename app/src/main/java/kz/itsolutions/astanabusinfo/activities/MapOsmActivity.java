@@ -727,9 +727,9 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
-        MenuItem item = menu.findItem(R.id.menu_display_bus_stops);
+        //MenuItem item = menu.findItem(R.id.menu_display_bus_stops);
         showBusStopsForRoute = mSharedPreferences.getBoolean(MapGoogleActivity.KEY_SHOW_BUS_STOPS, true);
-        item.setChecked(showBusStopsForRoute);
+        //item.setChecked(showBusStopsForRoute);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -760,22 +760,22 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                 mDrawerLayout.closeDrawer(mRightDrawer);
                 //mDrawerLayout.openDrawer(mLeftDrawer);
                 break;
-            case R.id.menu_display_bus_stops:
-                item.setChecked(!item.isChecked());
-                showBusStopsForRoute = item.isChecked();
-                SharedPreferences.Editor editor = mSharedPreferences.edit();
-                editor.putBoolean(MapGoogleActivity.KEY_SHOW_BUS_STOPS, showBusStopsForRoute);
-                editor.commit();
-                if (!showBusStopsForRoute) {
-                    busStopsMarkersOverlay.setEnabled(false);
-                } else {
-                    if (busStopsMarkersOverlay.getItems().size() == 0){
-                       // drawRouteBusStops(mSelectedRoute, false);
-                    }
-                    busStopsMarkersOverlay.setEnabled(true);
-                }
-                mMapView.invalidate();
-                break;
+//            case R.id.menu_display_bus_stops:
+//                item.setChecked(!item.isChecked());
+//                showBusStopsForRoute = item.isChecked();
+//                SharedPreferences.Editor editor = mSharedPreferences.edit();
+//                editor.putBoolean(MapGoogleActivity.KEY_SHOW_BUS_STOPS, showBusStopsForRoute);
+//                editor.commit();
+//                if (!showBusStopsForRoute) {
+//                    busStopsMarkersOverlay.setEnabled(false);
+//                } else {
+//                    if (busStopsMarkersOverlay.getItems().size() == 0){
+//                       // drawRouteBusStops(mSelectedRoute, false);
+//                    }
+//                    busStopsMarkersOverlay.setEnabled(true);
+//                }
+//                mMapView.invalidate();
+//                break;
 //            case android.R.id.home:
 //                if (mDrawerLayout.isDrawerOpen(mLeftDrawer)) {
 //                    mDrawerLayout.closeDrawer(mLeftDrawer);
@@ -787,12 +787,12 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
             case R.id.menu_edit_route:
                 startActivity(new Intent(this, RoutesActivity.class));
                 break;
-            case R.id.menu_preferences:
-                startActivity(new Intent(this, PrefsActivity.class));
-                break;
-            case R.id.menu_make_complaint:
-                ComplaintActivity.start(this, mSelectedRoute);
-                break;
+//            case R.id.menu_preferences:
+//                startActivity(new Intent(this, PrefsActivity.class));
+//                break;
+//            case R.id.menu_make_complaint:
+//                ComplaintActivity.start(this, mSelectedRoute);
+//                break;
             case R.id.menu_alarm:
                 if (mSelectedRoute == null) {
                     showToast(getString(R.string.first_select_route));

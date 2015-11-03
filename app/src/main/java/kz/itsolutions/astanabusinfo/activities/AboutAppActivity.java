@@ -30,50 +30,50 @@ public class AboutAppActivity extends SherlockActivity {
             e.printStackTrace();
         }
 
-        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
-                sendIntent.setType("text/plain");
-                startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share)));
-            }
-        });
+//        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent sendIntent = new Intent();
+//                sendIntent.setAction(Intent.ACTION_SEND);
+//                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
+//                sendIntent.setType("text/plain");
+//                startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share)));
+//            }
+//        });
 
-        View btnGetPaidVersion = findViewById(R.id.btn_get_paid_version);
-        btnGetPaidVersion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String appPackageName = getPackageName() + "_paid";
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                }
-            }
-        });
-        btnGetPaidVersion.setVisibility(Consts.IS_FREE ? View.VISIBLE : View.GONE);
+//        View btnGetPaidVersion = findViewById(R.id.btn_get_paid_version);
+//        btnGetPaidVersion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String appPackageName = getPackageName() + "_paid";
+//                try {
+//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+//                } catch (android.content.ActivityNotFoundException anfe) {
+//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+//                }
+//            }
+//        });
+//        btnGetPaidVersion.setVisibility(Consts.IS_FREE ? View.VISIBLE : View.GONE);
 
-        findViewById(R.id.btn_vote).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String appPackageName = getPackageName();
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                }
-            }
-        });
+//        findViewById(R.id.btn_vote).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String appPackageName = getPackageName();
+//                try {
+//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+//                } catch (android.content.ActivityNotFoundException anfe) {
+//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+//                }
+//            }
+//        });
 
-        findViewById(R.id.btn_mail).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(AboutAppActivity.this, FeedbackActivity.class));
-                sendMail("astanabus01@gmail.com");
-            }
-        });
+//        findViewById(R.id.btn_mail).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //startActivity(new Intent(AboutAppActivity.this, FeedbackActivity.class));
+//                sendMail("astanabus01@gmail.com");
+//            }
+//        });
     }
 
     @Override
