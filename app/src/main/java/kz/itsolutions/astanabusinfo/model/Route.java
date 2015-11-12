@@ -383,7 +383,8 @@ public class Route implements Comparable<Route>, Serializable {
                         currentRoute.getNumber() == 126 ||
                         currentRoute.getNumber() == 129 ||
                         currentRoute.getNumber() == 130 ||
-                        currentRoute.getNumber() == 53) {
+                        currentRoute.getNumber() == 53 ||
+                        currentRoute.getNumber() == 13) {
                     it.remove();
                 }
 

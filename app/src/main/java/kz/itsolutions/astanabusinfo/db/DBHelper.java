@@ -41,7 +41,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "astanabus.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 22;
+    private static final int DATABASE_VERSION = 25;
 
     //Hashed daos
     private HashMap<Class<?>, Dao<?, ?>> daos = new HashMap<Class<?>, Dao<?, ?>>();
@@ -194,7 +194,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         DBHelper dbHelper = DBHelper.getHelper();
         Dao<Route, Integer> dao = dbHelper.getRouteDao();
 
-        String segmentsString = AssetFile.readFromFile("segments.json", context);
+        String segmentsString = AssetFile.readFromFile("segments2.json", context);
         JSONArray segmentsJson = new JSONArray(segmentsString);
 
         int myMonkeyId = 0;
