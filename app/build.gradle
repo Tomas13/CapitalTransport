@@ -23,11 +23,11 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
     defaultConfig {
-        applicationId "kz.itsolutions.astanabusinfo"
-        minSdkVersion 14
+        applicationId "kz.itsolutions.businformator"
+        minSdkVersion 17
         targetSdkVersion 24
-        versionCode 20150109
-        versionName "1.99"
+        versionCode 20150112
+        versionName "2.02"
     }
     buildTypes {
         release {

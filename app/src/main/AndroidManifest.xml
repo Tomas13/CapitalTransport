@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="kz.itsolutions.astanabusinfo"
+          package="kz.itsolutions.businformator"
     >
 
     <permission
-        android:name="kz.itsolutions.astanabusinfo.permission.MAPS_RECEIVE"
+        android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE"
         android:protectionLevel="signature"
         />
 
@@ -37,19 +37,19 @@
         -->
     <permission
         android:protectionLevel="signature"
-        android:name="kz.itsolutions.astanabusinfo.permission.C2D_MESSAGE"
+        android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE"
         />
     <uses-permission android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE"/>
 
     <application
-        android:name="kz.itsolutions.astanabusinfo.AstanaBusApplication"
+        android:name="kz.itsolutions.businformator.AstanaBusApplication"
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme"
         >
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.SplashActivity"
+            android:name="kz.itsolutions.businformator.activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Sherlock.Light.NoActionBar"
             android:label="@string/app_name"
@@ -61,41 +61,45 @@
         </activity>
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.MapGoogleActivity"
+            android:name="kz.itsolutions.businformator.activities.MapGoogleActivity"
             android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             />
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.MapOsmActivity"
+            android:name="kz.itsolutions.businformator.activities.MapOsmActivity"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             />
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.ForecastActivity"
+            android:name="kz.itsolutions.businformator.activities.ForecastActivity"
             android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             />
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.TrainingActivity"
+            android:name="kz.itsolutions.businformator.activities.TrainingActivity"
             android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Sherlock.Light.NoActionBar"
             >
 
         </activity>
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.AugmentedRealityActivity"
+            android:name="kz.itsolutions.businformator.activities.AugmentedRealityActivity"
             android:theme="@style/AppTheme"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             >
         </activity>
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.WidgetConfigActivity"
+            android:name="kz.itsolutions.businformator.activities.WidgetConfigActivity"
             android:theme="@style/AppTheme"
             >
             <intent-filter>
@@ -105,28 +109,33 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="kz.itsolutions.astanabusinfo.activities.AboutAppActivity"/>
+        <activity android:name="kz.itsolutions.businformator.activities.AboutAppActivity"
+            android:screenOrientation="portrait"
+            />
 
-        <activity android:name="kz.itsolutions.astanabusinfo.activities.RoutesActivity"/>
+        <activity android:name="kz.itsolutions.businformator.activities.RoutesActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.EditRouteActivity"
+            android:name="kz.itsolutions.businformator.activities.EditRouteActivity"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.PrefsActivity"
+            android:name="kz.itsolutions.businformator.activities.PrefsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/settings"
             />
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.ComplaintActivity"
+            android:name="kz.itsolutions.businformator.activities.ComplaintActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name="kz.itsolutions.astanabusinfo.activities.FeedbackActivity"
+            android:name="kz.itsolutions.businformator.activities.FeedbackActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible"
             />
 
@@ -134,6 +143,7 @@
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent"
             />
 
@@ -162,7 +172,7 @@
             <!--/>-->
 
         <receiver
-            android:name="kz.itsolutions.astanabusinfo.widgets.SingleWidget"
+            android:name="kz.itsolutions.businformator.widgets.SingleWidget"
             android:icon="@drawable/ic_launcher"
             android:permission="android.permission.BIND_REMOTEVIEWS"
             android:exported="true"
@@ -184,12 +194,12 @@
         </receiver>
 
         <service
-            android:name="kz.itsolutions.astanabusinfo.widgets.MyService"
+            android:name="kz.itsolutions.businformator.widgets.MyService"
             android:permission="android.permission.BIND_REMOTEVIEWS"
             >
         </service>
         <receiver
-            android:name="kz.itsolutions.astanabusinfo.widgets.MyProvider">
+            android:name="kz.itsolutions.businformator.widgets.MyProvider">
             <intent-filter>
                 <action
                     android:name="android.appwidget.action.APPWIDGET_UPDATE">

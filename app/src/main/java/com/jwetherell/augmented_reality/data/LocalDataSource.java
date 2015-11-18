@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import com.jwetherell.augmented_reality.ui.IconMarker;
 import com.jwetherell.augmented_reality.ui.Marker;
-import kz.itsolutions.astanabusinfo.R;
+import kz.itsolutions.businformator.R;
 
 import java.util.ArrayList;
 import java.util.List;

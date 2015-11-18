@@ -7,8 +7,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import com.jwetherell.augmented_reality.ui.IconMarker;
 import com.jwetherell.augmented_reality.ui.Marker;
-import kz.itsolutions.astanabusinfo.R;
-import kz.itsolutions.astanabusinfo.model.BusStop;
+import kz.itsolutions.businformator.R;
+import kz.itsolutions.businformator.model.BusStop;
 
 import org.json.JSONArray;
 import org.json.JSONException;
