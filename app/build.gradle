@@ -26,8 +26,8 @@ android {
         applicationId "kz.itsolutions.businformator"
         minSdkVersion 17
         targetSdkVersion 24
-        versionCode 20150112
-        versionName "2.02"
+        versionCode 20150114
+        versionName "2.04"
     }
     buildTypes {
         release {

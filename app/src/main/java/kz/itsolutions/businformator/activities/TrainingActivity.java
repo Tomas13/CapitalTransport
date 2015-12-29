@@ -59,7 +59,8 @@ public class TrainingActivity extends FragmentActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.btn_next_step:
                 if (mPager.getCurrentItem() == mAdapter.getCount() - 1) {
-                    Intent intent = new Intent(TrainingActivity.this, MapGoogleActivity.class);
+                    //Intent intent = new Intent(TrainingActivity.this, MapGoogleActivity.class);
+                    Intent intent = new Intent(TrainingActivity.this, MapOsmActivity.class);
                     intent.putExtra(MapGoogleActivity.KEY_SHOW_WELCOME_MESSAGE, true);
                     startActivity(intent);
                     finish();

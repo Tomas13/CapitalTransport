@@ -61,7 +61,8 @@ public class BusController {
         JSONObject params = new JSONObject();
 
         try {
-            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
+            //String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
+            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW);
             //Log.d("DANIYAR", response);
             JSONObject jsonObject = new JSONObject(response);
 

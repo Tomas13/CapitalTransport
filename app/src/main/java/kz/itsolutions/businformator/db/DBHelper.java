@@ -41,7 +41,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "astanabus.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 29;
+    private static final int DATABASE_VERSION = 30;
 
     //Hashed daos
     private HashMap<Class<?>, Dao<?, ?>> daos = new HashMap<Class<?>, Dao<?, ?>>();
@@ -173,8 +173,8 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         JSONObject params = new JSONObject();
 
         try {
-            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
-
+            //String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
+            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW);
            // Log.d("DANIYAR", "result: " +  response);
 
             updateRoutesDaniyar(new JSONObject(response));
