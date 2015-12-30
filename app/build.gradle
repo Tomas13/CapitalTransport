@@ -29,13 +29,32 @@ android {
         versionCode 20150114
         versionName "2.04"
     }
+    signingConfigs {
+        // It's not necessary to specify, but I like to keep the debug keystore
+        // in SCM so all our debug builds (on all workstations) use the same
+        // key for convenience
+        debug {
+            storeFile file("../bus_informator.keystore.jks")
+            storePassword "1q2w3e4R"
+            keyAlias "bus_informator"
+            keyPassword "1q2w3e4R"
+        }
+        release {
+            storeFile file("../bus_informator.keystore.jks")
+            storePassword "1q2w3e4R"
+            keyAlias "bus_informator"
+            keyPassword "1q2w3e4R"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         debug {
             debuggable true
+            signingConfig signingConfigs.release
         }
     }
     dexOptions {
