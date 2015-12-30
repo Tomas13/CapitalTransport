@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">Astana Bus Free</string>
+    <string name="app_name" translatable="false">Astrabus</string>
     <string name="empty" translatable="false"></string>
     <string name="routes">Маршруты</string>
     <string name="bus_stops">Остановки</string>
