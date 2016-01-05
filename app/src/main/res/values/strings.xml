@@ -10,7 +10,7 @@
     <string name="hide_zoom_bar">Убрать zoom</string>
     <string name="show_radar">Показать радар</string>
     <string name="show_zoom_bar">Показать zoom</string>
-    <string name="select_route">Выберите маршрут</string>
+    <string name="select_route">Маршруты</string>
     <string name="select_route_for_widget">Выберите маршрут для виджета</string>
     <string name="select_bus_stop">Выберите остановку</string>
     <string name="first_select_route">Сначала выберите маршрут</string>
