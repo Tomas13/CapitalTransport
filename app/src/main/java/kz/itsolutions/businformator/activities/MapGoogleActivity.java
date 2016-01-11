@@ -1522,11 +1522,11 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         for (int i = 0; i < busStops.size(); i++) {
             int resourceId = R.drawable.road_sign;
             BusStop busStop = busStops.get(i);
-          /*  if (i == 0) {
+            if (i == 0) {
                 resourceId = R.drawable.road_sign_start;
             } else if (i == busStops.size() - 1) {
                 resourceId = R.drawable.road_sign_start;
-            }*/
+            }
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(busStop.getPointGoogle())
                     .title(busStop.getName())

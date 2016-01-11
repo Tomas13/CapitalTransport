@@ -298,14 +298,14 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
             if (!TextUtils.isEmpty(data)) {
                 populateBusStops(new JSONArray(data));
             }
-//            For now just comment this stuff...  may it will be useful in future.
-//            if (mAsyncTask != null) {
-//                mAsyncTask.publishProgress(R.string.data_preparation, -1);
-//            }
-//            data = AssetFile.readFromFile("routes.json", context);
-//            if (!TextUtils.isEmpty(data)) {
-//                populateRoutes(new JSONArray(data));
-//            }
+
+            if (mAsyncTask != null) {
+                mAsyncTask.publishProgress(R.string.data_preparation, -1);
+            }
+            data = AssetFile.readFromFile("routes.json", context);
+            if (!TextUtils.isEmpty(data)) {
+                populateRoutes(new JSONArray(data));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
