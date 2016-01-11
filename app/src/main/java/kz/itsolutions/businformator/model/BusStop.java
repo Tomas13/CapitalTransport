@@ -211,4 +211,14 @@ public class BusStop implements Serializable {
         this.latitude = json.getDouble(FIELD_LAT);
         this.longitude = json.getDouble(FIELD_LON);
     }
+
+    public static boolean hasRecords(DBHelper dbHelper) {
+        Dao<BusStop, Integer> dao = dbHelper.getBusStopDao();
+        try {
+            return dao.queryBuilder().queryForFirst() != null;
+        } catch (SQLException e) {
+            Log.e("routes", "SQLException", e);
+        }
+        return false;
+    }
 }
