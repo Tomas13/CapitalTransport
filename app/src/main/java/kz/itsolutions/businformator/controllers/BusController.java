@@ -77,7 +77,16 @@ public class BusController {
                 JSONObject busJson = jsonObject.getJSONObject(key);
 
                 String routeNumberStr = busJson.getString("route");
-                int routeNumber = Integer.parseInt(routeNumberStr);
+
+                int routeNumber = -1;
+
+                try {
+                    routeNumberStr = routeNumberStr.replace("\"","");
+                    routeNumber = Integer.parseInt(routeNumberStr);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    continue;
+                }
 
                 if (routeNumber != route.getNumber()) {
                     continue;
@@ -90,11 +99,14 @@ public class BusController {
                 String longitudeStr = busJson.getString("longitude");
                 double longitude = Double.parseDouble(longitudeStr);
 
+                String angleStr = busJson.getString("angle");
+                int angle = Integer.valueOf(angleStr);
+
                 String timeStr = busJson.getString("time");
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 Date time = format.parse(timeStr);
                 //Log.d("TIME TIME", time.toString());
-                Bus bus = new Bus(0, routeNumber, (int) route.getId(), "", /*Long.parseLong(key)*/ myMonkeyId, time.getTime(), 0.0, latitude, longitude, 0);
+                Bus bus = new Bus(0, routeNumber, (int) route.getId(), "", /*Long.parseLong(key)*/ myMonkeyId, time.getTime(), 0.0, latitude, longitude, angle);
 
                 myMonkeyId++;
 

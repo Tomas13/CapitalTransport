@@ -96,7 +96,7 @@ import kz.itsolutions.businformator.widgets.tabPageIndicator.TabPageIndicator;
 
 public class MapGoogleActivity extends SherlockFragmentActivity implements View.OnClickListener,
         View.OnLongClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMapClickListener,
-        Weather.WeatherInterface, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener,
+        Weather.WeatherInterface, GoogleMap.OnInfoWindowClickListener,
         GoogleMap.OnCameraChangeListener {
 
     private String LOG_TAG = "astana_bus";
@@ -482,55 +482,56 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                 .findFragmentById(R.id.map));
         setMapTransparent((ViewGroup) mMapFragment.getView());
         mMap = mMapFragment.getMap();
+        mMap.getUiSettings().setRotateGesturesEnabled(false);
         mMap.setOnMarkerDragListener(this);
         mMap.setOnMapClickListener(this);
-        mMap.setOnMarkerClickListener(this);
+//        mMap.setOnMarkerClickListener(this);
         mMap.setOnInfoWindowClickListener(this);
         mMap.setMyLocationEnabled(true);
         mMap.setOnCameraChangeListener(this);
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-            @Override
-            public View getInfoWindow(Marker marker) {
-                return null;
-            }
-
-            @Override
-            public View getInfoContents(Marker marker) {
-                if (mSelectedRoute != null || mSelectedRoutes != null) {
-                    if (hashMapMarkerBusStops != null
-                            && hashMapMarkerBusStops.containsKey(marker)) {
-                        mBusStopInfoWindowShowed = hashMapMarkerBusStops.get(marker);
-                        tvBusStopTitle.setText(mBusStopInfoWindowShowed.getName());
-                        tvBusStopDescription.setText(getString(R.string.aside) + " " + mBusStopInfoWindowShowed.getDescription());
-                        return busStopInfoWindowView;
-                    } else {
-                        mBusStopInfoWindowShowed = null;
-                        tvBusTitle.setText(marker.getTitle());
-                        tvBusDescription.setText(marker.getSnippet());
-                        return busInfoWindowView;
-                    }
-                }
-                // остановка
-                int busStopServerId = -1;
-                try {
-                    busStopServerId = Integer.valueOf(marker.getSnippet());
-                } catch (NumberFormatException ex) {
-                    mBuses = null;
-                }
-                if (busStopServerId == -1)
-                    return null;
-                if (!TextUtils.isEmpty(marker.getSnippet()) && ((mSelectedBusStop == null) || mSelectedBusStop.getServerId() != busStopServerId)) {
-                    mSelectedBusStop = BusStop.getByServerId(mDbHelper, busStopServerId);
-                }
-                // маркер, который установил пользователь для показа ближайших остановок
-                if (mSelectedBusStop == null || TextUtils.isEmpty(marker.getSnippet()))
-                    return null;
-                mBusStopInfoWindowShowed = mSelectedBusStop;
-                tvBusStopTitle.setText(mBusStopInfoWindowShowed.getName());
-                tvBusStopDescription.setText(getString(R.string.aside) + " " + mBusStopInfoWindowShowed.getDescription());
-                return busStopInfoWindowView;
-            }
-        });
+//        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+//            @Override
+//            public View getInfoWindow(Marker marker) {
+//                return null;
+//            }
+//
+//            @Override
+//            public View getInfoContents(Marker marker) {
+//                if (mSelectedRoute != null || mSelectedRoutes != null) {
+//                    if (hashMapMarkerBusStops != null
+//                            && hashMapMarkerBusStops.containsKey(marker)) {
+//                        mBusStopInfoWindowShowed = hashMapMarkerBusStops.get(marker);
+//                        tvBusStopTitle.setText(mBusStopInfoWindowShowed.getName());
+//                        tvBusStopDescription.setText(getString(R.string.aside) + " " + mBusStopInfoWindowShowed.getDescription());
+//                        return busStopInfoWindowView;
+//                    } else {
+//                        mBusStopInfoWindowShowed = null;
+//                        tvBusTitle.setText(marker.getTitle());
+//                        tvBusDescription.setText(marker.getSnippet());
+//                        return busInfoWindowView;
+//                    }
+//                }
+//                // остановка
+//                int busStopServerId = -1;
+//                try {
+//                    busStopServerId = Integer.valueOf(marker.getSnippet());
+//                } catch (NumberFormatException ex) {
+//                    mBuses = null;
+//                }
+//                if (busStopServerId == -1)
+//                    return null;
+//                if (!TextUtils.isEmpty(marker.getSnippet()) && ((mSelectedBusStop == null) || mSelectedBusStop.getServerId() != busStopServerId)) {
+//                    mSelectedBusStop = BusStop.getByServerId(mDbHelper, busStopServerId);
+//                }
+//                // маркер, который установил пользователь для показа ближайших остановок
+//                if (mSelectedBusStop == null || TextUtils.isEmpty(marker.getSnippet()))
+//                    return null;
+//                mBusStopInfoWindowShowed = mSelectedBusStop;
+//                tvBusStopTitle.setText(mBusStopInfoWindowShowed.getName());
+//                tvBusStopDescription.setText(getString(R.string.aside) + " " + mBusStopInfoWindowShowed.getDescription());
+//                return busStopInfoWindowView;
+//            }
+//        });
 
         setDefaultCameraPosition();
         Bundle bundle = getIntent().getExtras();
@@ -576,7 +577,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         }
 
         if (Consts.IS_FREE) {
-            initAd();
+//            initAd();
         }
     }
 
@@ -831,15 +832,15 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         }
     }
 
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        if (hashMapMarkerBusStops.containsKey(marker)) {
-            mAlarmBusStop = hashMapMarkerBusStops.get(marker);
-            ignoreBusList.clear();
-        }
-        isMarkerClicked = true;
-        return false;
-    }
+//    @Override
+//    public boolean onMarkerClick(Marker marker) {
+//        if (hashMapMarkerBusStops.containsKey(marker)) {
+//            mAlarmBusStop = hashMapMarkerBusStops.get(marker);
+//            ignoreBusList.clear();
+//        }
+//        isMarkerClicked = true;
+//        return false;
+//    }
 
     @Override
     public void onInfoWindowClick(Marker marker) {
@@ -1207,7 +1208,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                 stopBusTimer();
                 return;
             }
-            mBuses = BusController.getRouteBuses(route);
+            mBuses = BusController.getRouteBusesDaniyar(route);
             this.runOnUiThread(BusTimerTick);
         } catch (HttpException | IOException e) {
             e.printStackTrace();

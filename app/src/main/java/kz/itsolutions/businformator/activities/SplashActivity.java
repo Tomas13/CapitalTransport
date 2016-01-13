@@ -153,13 +153,13 @@ public class SplashActivity extends Activity implements View.OnClickListener {
                 mapActivityClass = MapOsmActivity.class;
             }
             Intent intent = new Intent(SplashActivity.this, mapActivityClass);
-            if (!prefs.contains(KEY_IS_FIRST_LAUNCH)) {
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putBoolean(KEY_IS_FIRST_LAUNCH, false);
-                editor.putBoolean(MapGoogleActivity.KEY_NOT_SHOW_VOTE_DIALOG, false);
-                editor.apply();
-                intent = new Intent(SplashActivity.this, TrainingActivity.class);
-            }
+//            if (!prefs.contains(KEY_IS_FIRST_LAUNCH)) {
+//                SharedPreferences.Editor editor = prefs.edit();
+//                editor.putBoolean(KEY_IS_FIRST_LAUNCH, false);
+//                editor.putBoolean(MapGoogleActivity.KEY_NOT_SHOW_VOTE_DIALOG, false);
+//                editor.apply();
+//                intent = new Intent(SplashActivity.this, TrainingActivity.class);
+//            }
             startActivity(intent);
             finish();
         }
