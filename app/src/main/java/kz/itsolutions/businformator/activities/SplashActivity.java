@@ -17,6 +17,7 @@ import com.parse.ParseInstallation;
 
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.db.DBHelper;
+import kz.itsolutions.businformator.model.BusStop;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.utils.Consts;
 
@@ -108,15 +109,13 @@ public class SplashActivity extends Activity implements View.OnClickListener {
         @Override
         protected Void doInBackground(Void... params) {
             if (Route.hasRecords(DBHelper.getHelper()) && prefs.getBoolean(KEY_NEED_UPDATE_FROM_IB, true)) {
-             //   DBHelper.getHelper().updateRoutesFromAssets();
-                DBHelper.getHelper().updateRoutesFromInternetDaniyar();
+//                DBHelper.getHelper().updateRoutesFromAssets();
                 prefs.edit().putBoolean(KEY_NEED_UPDATE_FROM_IB, false).apply();
             }
             if (Route.hasRecords(DBHelper.getHelper()))
                 return null;
-            //DBHelper.getHelper().populateFromAssets(this);
-            //DBHelper.getHelper().updateRoutesFromAssets();
-            DBHelper.getHelper().updateRoutesFromInternetDaniyar();
+            DBHelper.getHelper().populateFromAssets(this);
+//            DBHelper.getHelper().updateRoutesFromAssets();
             prefs.edit().putBoolean(KEY_NEED_UPDATE_FROM_IB, false).apply();
             return null;
         }
@@ -148,19 +147,19 @@ public class SplashActivity extends Activity implements View.OnClickListener {
                 return;
             }
             String useMap = PreferenceManager.getDefaultSharedPreferences(
-                    SplashActivity.this).getString(getString(R.string.key_map), "osm");
+                    SplashActivity.this).getString(getString(R.string.key_map), "google");
             Class mapActivityClass = MapGoogleActivity.class;
             if (useMap.equals("osm")) {
                 mapActivityClass = MapOsmActivity.class;
             }
             Intent intent = new Intent(SplashActivity.this, mapActivityClass);
-            if (!prefs.contains(KEY_IS_FIRST_LAUNCH)) {
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putBoolean(KEY_IS_FIRST_LAUNCH, false);
-                editor.putBoolean(MapGoogleActivity.KEY_NOT_SHOW_VOTE_DIALOG, false);
-                editor.apply();
-                intent = new Intent(SplashActivity.this, TrainingActivity.class);
-            }
+//            if (!prefs.contains(KEY_IS_FIRST_LAUNCH)) {
+//                SharedPreferences.Editor editor = prefs.edit();
+//                editor.putBoolean(KEY_IS_FIRST_LAUNCH, false);
+//                editor.putBoolean(MapGoogleActivity.KEY_NOT_SHOW_VOTE_DIALOG, false);
+//                editor.apply();
+//                intent = new Intent(SplashActivity.this, TrainingActivity.class);
+//            }
             startActivity(intent);
             finish();
         }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="splash_bg">#ecece8</color>
+    <color name="splash_bg">#d90721</color>
     <color name="holo_blue_dark">#ff0099cc</color>
-    <color name="action_bar_bg">#3ac5da</color>
+    <color name="action_bar_bg">#d90721</color>
     <color name="yellow">#f4cb3a</color>
-    <color name="drawer_bg">#f2f2f1</color>
+    <color name="drawer_bg">#2d333f</color>
     <color name="route_number_text_color">#616161</color>
     <color name="route_statistic_text_color">#919191</color>
     <color name="divider_color">#c3c3c3</color>
@@ -18,4 +18,7 @@
     <color name="semitransparent_near_button_bg">#AA3ac5da</color>
     <color name="semitransparent_welcome_message_bg">#EE3d3d3d</color>
     <color name="red_dark">#ffcc0000</color>
+
+    <color name="route_pressed">#404550</color>
+    <color name="app_white">#ffffff</color>
 </resources>

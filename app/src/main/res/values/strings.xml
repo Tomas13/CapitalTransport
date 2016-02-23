@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">Astana Bus Free</string>
+    <string name="app_name" translatable="false">Astrabus</string>
     <string name="empty" translatable="false"></string>
     <string name="routes">Маршруты</string>
     <string name="bus_stops">Остановки</string>
@@ -10,7 +10,7 @@
     <string name="hide_zoom_bar">Убрать zoom</string>
     <string name="show_radar">Показать радар</string>
     <string name="show_zoom_bar">Показать zoom</string>
-    <string name="select_route">Выберите маршрут</string>
+    <string name="select_route">Маршруты</string>
     <string name="select_route_for_widget">Выберите маршрут для виджета</string>
     <string name="select_bus_stop">Выберите остановку</string>
     <string name="first_select_route">Сначала выберите маршрут</string>
