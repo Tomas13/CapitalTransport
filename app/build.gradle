@@ -26,8 +26,8 @@ android {
         applicationId "kz.itsolutions.businformator"
         minSdkVersion 17
         targetSdkVersion 24
-        versionCode 20150114
-        versionName "2.04"
+        versionCode 20160128
+        versionName "2.06"
     }
     signingConfigs {
         // It's not necessary to specify, but I like to keep the debug keystore

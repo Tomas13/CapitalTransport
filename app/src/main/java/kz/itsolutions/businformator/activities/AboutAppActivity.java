@@ -17,7 +17,7 @@ public class AboutAppActivity extends SherlockActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_acivity);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setIcon(R.drawable.ic_menu_bus);
+        actionBar.setIcon(R.drawable.ic_launcher);
         actionBar.setDisplayHomeAsUpEnabled(true);
         try {
             ((TextView) findViewById(R.id.tv_version))

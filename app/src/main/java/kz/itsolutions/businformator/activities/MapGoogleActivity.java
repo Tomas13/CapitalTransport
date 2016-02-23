@@ -99,6 +99,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         Weather.WeatherInterface, GoogleMap.OnInfoWindowClickListener,
         GoogleMap.OnCameraChangeListener {
 
+    float maxZoom = 15.0f;
     private String LOG_TAG = "astana_bus";
     public final static String MAIN_PREFS = "main_prefs";
     public static final String KEY_SELECTED_BUS_STOP_ID = "selected_bus_stop_id";
@@ -862,6 +863,9 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
             params.setMargins(80, 5, 0, 0);
         }
         parent.setLayoutParams(params);
+
+        if (cameraPosition.zoom > maxZoom)
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(maxZoom));
     }
 
     @Override
