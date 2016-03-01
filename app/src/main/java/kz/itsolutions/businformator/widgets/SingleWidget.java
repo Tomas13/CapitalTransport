@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class SingleWidget extends AppWidgetProvider {
 
     final String LOG_TAG = "myLogs";
-    public static String WIDGET_BUTTON = "kz.itsolutions.businformator.WIDGET_BUTTON";
+    public static String WIDGET_BUTTON = "kz.itsolutions.businformatorDraft.WIDGET_BUTTON";
     public static String WIDGET_ROUTE_NUMBER = "widget_route_number_id";
 
     @Override

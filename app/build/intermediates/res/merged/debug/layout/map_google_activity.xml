@@ -1,0 +1,91 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_action_bar_line"
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:layout_alignParentTop="true"
+            android:background="@color/tab_selected"
+            android:orientation="horizontal" />
+
+        <!--<com.google.android.gms.ads.AdView-->
+        <!--android:id="@+id/adView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:visibility="gone"-->
+        <!--ads:adSize="SMART_BANNER"-->
+        <!--ads:adUnitId="@string/banner_ad_unit_id"-->
+        <!-->-->
+        <!--</com.google.android.gms.ads.AdView>-->
+
+
+        <!--Эта строка относится к нижнему фрагменту-->
+        <!--android:layout_above="@+id/adView"-->
+        <fragment
+
+            android:id="@+id/map"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll_action_bar_line" />
+
+        <include
+            layout="@layout/weather_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/ll_action_bar_line"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp" />
+
+        <ImageButton
+            android:id="@+id/btn_show_nearest_bus_stops_for_custom_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_near_bg_selector"
+            android:padding="5dp"
+            android:src="@drawable/ic_near_stations" />
+
+        <TextView
+            android:id="@+id/tv_internet_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:background="@color/semitransparent_welcome_message_bg"
+            android:gravity="center"
+            android:text="@string/no_internet_connection"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <include layout="@layout/welcome_view" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/left_drawer" />
+
+    <!--<include layout="@layout/from_point_to_point"/>-->
+
+    <include layout="@layout/right_drawer" />
+
+</android.support.v4.widget.DrawerLayout>
+<!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/map_google_activity.xml -->

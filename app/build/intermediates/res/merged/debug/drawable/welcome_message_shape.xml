@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <corners android:radius="10dp"/>
+            <solid android:color="@color/semitransparent_welcome_message_bg"/>
+        </shape>
+    </item>
+
+</selector><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/drawable/welcome_message_shape.xml -->

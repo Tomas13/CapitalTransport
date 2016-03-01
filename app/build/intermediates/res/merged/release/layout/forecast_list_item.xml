@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:descendantFocusability="blocksDescendants">
+
+    <TextView android:id="@+id/tv_route_number"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:gravity="center"
+              android:layout_gravity="center_vertical"
+              android:textSize="16sp"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:textColor="@color/forecast_list_item_text1_selector"
+              android:background="@drawable/forecast_number_shape"
+              android:text="100"/>
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_weight="6"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:layout_centerVertical="true">
+
+        <TextView android:id="@+id/tv_point_from"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:maxLines="1"
+                  android:textColor="@color/forecast_list_item_text2_selector"
+                  android:text="point from"/>
+
+        <TextView android:id="@+id/tv_point_to"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:maxLines="1"
+                  android:textColor="@color/forecast_list_item_text2_selector"
+                  android:text="point to"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_marginRight="1dp"
+                  android:layout_weight="3"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:layout_centerVertical="true">
+
+        <TextView android:id="@+id/tv_next_bus1_time"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="13sp"
+                  android:maxLines="2"
+                  android:textColor="@color/forecast_list_item_text2_selector"
+                  android:text="point from"/>
+
+        <TextView android:id="@+id/tv_next_bus1_distance"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="13sp"
+                  android:maxLines="1"
+                  android:textColor="@color/forecast_list_item_text2_selector"
+                  android:text="point to"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_marginRight="2dp"
+                  android:layout_weight="3"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:layout_centerVertical="true">
+
+        <TextView android:id="@+id/tv_next_bus2_time"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="13sp"
+                  android:maxLines="2"
+                  android:textColor="@color/forecast_list_item_text2_selector"
+                  android:text="point from"/>
+
+        <TextView android:id="@+id/tv_next_bus2_distance"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="13sp"
+                  android:maxLines="1"
+                  android:textColor="@color/forecast_list_item_text2_selector"
+                  android:text="point to"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/forecast_list_item.xml -->

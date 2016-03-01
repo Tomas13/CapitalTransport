@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@android:id/empty"
+              android:orientation="vertical"
+              android:gravity="center"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView android:layout_marginBottom="7dp"
+              android:gravity="center_horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/check_internet_connection"/>
+
+    <Button android:id="@+id/btn_repeat_load_forecast"
+            style="@style/GenericButton"
+            android:text="@string/repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</LinearLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/forecast_empty_view.xml -->

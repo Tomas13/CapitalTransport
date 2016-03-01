@@ -5,7 +5,7 @@ import org.osmdroid.util.GeoPoint;
 
 public class Consts {
     static String serverUrl = "sapi.i-t.kz";
-    static String packageName = "com.itsolutions.businformator";
+    static String packageName = "com.itsolutions.businformatorDraft";
     static String packageVersion = "20";
     static String city = "astana";
 

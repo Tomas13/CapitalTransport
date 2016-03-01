@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="8dp"
+        android:descendantFocusability="blocksDescendants"
+        android:background="@drawable/list_item_bg_selector">
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:layout_centerVertical="true">
+
+        <TextView android:id="@+id/tv_bus_stop_title"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:maxLines="1"
+                  android:textStyle="bold"
+                  android:textSize="14sp"
+                  android:textColor="@color/route_list_item_text2_selector"
+                  android:text="point from"/>
+
+        <TextView android:id="@+id/tv_bus_stop_description"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:maxLines="2"
+                  android:textColor="@color/route_list_item_text2_selector"
+                  android:text="point to"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/bus_stops_list_item.xml -->
