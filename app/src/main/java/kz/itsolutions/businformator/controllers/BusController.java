@@ -207,4 +207,75 @@ public class BusController {
         }
         return buses;
     }
+
+
+
+    //getting a info on list of buses, when we choose a several routes
+    public static List<Bus> getSeveralRouteBuses(List<Route> route) throws HttpException, IOException, JSONException{
+        ArrayList<Bus> buses = new ArrayList<>();
+        HttpHelper httpHelper = new HttpHelper();
+
+        try {
+            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW);
+            JSONObject jsonObject = new JSONObject(response);
+
+            long myMonkeyId = 0;
+
+            for (Iterator<String> iter = jsonObject.keys(); iter.hasNext();) {
+                String key = iter.next();
+
+                JSONObject busJson = jsonObject.getJSONObject(key);
+
+                String routeNumberStr = busJson.getString("route");
+
+                int routeNumber = -1;
+
+                try {
+                    routeNumberStr = routeNumberStr.replace("\"","");
+                    routeNumber = Integer.parseInt(routeNumberStr);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    continue;
+                }
+
+                for(Route route2 : route){
+                    if (routeNumber == route2.getNumber()) {
+                        String latitudeStr = busJson.getString("latitude");
+                        double latitude = Double.parseDouble(latitudeStr);
+
+                        String longitudeStr = busJson.getString("longitude");
+                        double longitude = Double.parseDouble(longitudeStr);
+
+                        String angleStr = busJson.getString("angle");
+                        int angle = Integer.valueOf(angleStr);
+
+                        String timeStr = busJson.getString("time");
+                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        Date time = format.parse(timeStr);
+                        //Log.d("TIME TIME", time.toString());
+                        Bus bus = null;
+
+                        bus = new Bus(0, routeNumber, (int) route2.getId(), "", /*Long.parseLong(key)*/ myMonkeyId, time.getTime(), 0.0, latitude, longitude, angle);
+
+                        myMonkeyId++;
+
+                        buses.add(bus);
+                    }
+
+                }
+
+            }
+
+        } catch (HttpException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return buses;
+    }
 }

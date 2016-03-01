@@ -17,7 +17,6 @@ import com.parse.ParseInstallation;
 
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.db.DBHelper;
-import kz.itsolutions.businformator.model.BusStop;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.utils.Consts;
 

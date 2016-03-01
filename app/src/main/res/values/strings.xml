@@ -133,4 +133,5 @@
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-8798922455311766/6446971132</string>
     <string name="buy">Без рекламы</string>
     <string name="buy_message">Получить приложение без рекламы</string>
+    <string name="max5_select_routes">Нельзя показывать больше пяти маршрутов одновременно</string>
 </resources>

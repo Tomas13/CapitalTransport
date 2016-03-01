@@ -15,7 +15,7 @@ public class Consts {
 
 
     // кол-во маршрутов, которые можно выбрать в режиме MultiSelect
-    public static short MAX_ROUTES_ON_MAP = 3;
+    public static short MAX_ROUTES_ON_MAP = 5;
 
     // интервал запроса списка автобусов для маршрута, мс
     public static short BUS_TIMER_INTERVAL = 4000;

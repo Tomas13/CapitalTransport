@@ -253,7 +253,9 @@ public class ForecastActivity extends SherlockListActivity implements View.OnCli
                 if (toastMultiSelect != null) {
                     toastMultiSelect.cancel();
                 }
+
                 toastMultiSelect = Toast.makeText(ForecastActivity.this, getString(R.string.max_select_routes), Toast.LENGTH_SHORT);
+//                toastMultiSelect = Toast.makeText(ForecastActivity.this, getString(R.string.max5_select_routes), Toast.LENGTH_SHORT);
                 toastMultiSelect.show();
             }
         }

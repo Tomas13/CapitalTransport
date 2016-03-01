@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@color/splash_bg"
-    >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/splash_bg">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/splash_uzor"
-        />
+        android:src="@drawable/splash_uzor" />
 
     <LinearLayout
         android:id="@+id/logo_wrapper"
@@ -20,14 +18,12 @@
         android:layout_centerInParent="true"
         android:layout_margin="50dp"
         android:gravity="center"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo"
-            />
+            android:src="@drawable/logo" />
 
         <ProgressBar
             android:id="@+id/splash_progress_bar"
@@ -35,17 +31,15 @@
             android:layout_height="12dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:indeterminateDrawable="@drawable/progress_bar"
-            />
+            android:indeterminateDrawable="@drawable/progress_bar" />
 
         <TextView
             android:id="@+id/tv_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="@color/app_white"
             android:gravity="center"
-            />
+            android:textColor="@color/app_white" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,8 +53,7 @@
         android:layout_marginRight="10dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,16 +61,14 @@
             android:layout_marginBottom="7dp"
             android:gravity="center_horizontal"
             android:text="@string/check_internet_connection"
-            android:textSize="@dimen/tab_text_size"
-            />
+            android:textSize="@dimen/tab_text_size" />
 
         <Button
             android:id="@+id/btn_repeat_load"
             style="@style/GenericButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/repeat"
-            />
+            android:text="@string/repeat" />
 
     </LinearLayout>
 
@@ -89,8 +80,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:textColor="@color/app_white"
-        android:textSize="16sp"
-        />
+        android:textSize="16sp" />
 
 </RelativeLayout>
 

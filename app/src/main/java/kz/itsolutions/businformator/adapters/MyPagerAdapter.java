@@ -13,7 +13,7 @@ import java.util.List;
 public class MyPagerAdapter extends android.support.v4.view.PagerAdapter implements IconPagerAdapter {
     private static final int[] CONTENT = new int[]{R.string.all, R.string.favorites, R.string.history};
     private static final int[] ICONS = new int[]{
-            R.drawable.tab_all_routes,
+            R.drawable.tab_all_routes_old,
             R.drawable.tab_favorites,
             R.drawable.tab_history,
     };

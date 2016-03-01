@@ -20,7 +20,6 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -46,8 +45,6 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -76,6 +73,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.adapters.BusStopsAdapter;
 import kz.itsolutions.businformator.adapters.MyPagerAdapter;
@@ -98,6 +96,10 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         View.OnLongClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMapClickListener,
         Weather.WeatherInterface, GoogleMap.OnInfoWindowClickListener,
         GoogleMap.OnCameraChangeListener {
+
+
+    ArrayList<Route> severalRoutes = new ArrayList<>(); // for drawing bus stops for several routes
+    Route routeForZoom = null; //route for drawing bus stops
 
     float maxZoom = 15.0f;
     private String LOG_TAG = "astana_bus";
@@ -541,6 +543,8 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
             needFinishWhenOnPause = true;
             int routeNumber = getIntent().getExtras().getInt(SingleWidget.WIDGET_ROUTE_NUMBER, -1);
             if (routeNumber != -1) {
+                routeForZoom = Route.getByNumber(mDbHelper, routeNumber);
+                severalRoutes.clear();
                 selectRoute(Route.getByNumber(mDbHelper, routeNumber), true, false);
             } else {
                 startActivity(new Intent(this, SplashActivity.class));
@@ -572,6 +576,8 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                 savedInstanceState.remove(KEY_SELECTED_ROUTE_SERVER_ID);
                 mSelectedRoute = Route.getByServerId(mDbHelper, routeServerId);
                 if (mSelectedRoute != null) {
+                    routeForZoom = mSelectedRoute;
+                    severalRoutes.clear();
                     selectRoute(mSelectedRoute, true, true);
                 }
             }
@@ -585,34 +591,34 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
     /*
     * Инициализация рекламного блока в нижней части экрана
     */
-    private void initAd() {
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest.Builder adBuilder = new AdRequest.Builder();
-        if (mMap.getMyLocation() != null) {
-            adBuilder.setLocation(mMap.getMyLocation());
-        }
-        mAdView.loadAd(adBuilder.build());
-        mAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                super.onAdFailedToLoad(errorCode);
-                mAdView.setVisibility(View.GONE);
-                RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) btnShowNearestBusStops.getLayoutParams();
-                p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-                btnShowNearestBusStops.setLayoutParams(p);
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                mAdView.setVisibility(View.VISIBLE);
-                RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) btnShowNearestBusStops.getLayoutParams();
-                p.addRule(RelativeLayout.ABOVE, R.id.adView);
-                p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 0);
-                btnShowNearestBusStops.setLayoutParams(p);
-            }
-        });
-    }
+//    private void initAd() {
+//        mAdView = (AdView) findViewById(R.id.adView);
+//        AdRequest.Builder adBuilder = new AdRequest.Builder();
+//        if (mMap.getMyLocation() != null) {
+//            adBuilder.setLocation(mMap.getMyLocation());
+//        }
+//        mAdView.loadAd(adBuilder.build());
+//        mAdView.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdFailedToLoad(int errorCode) {
+//                super.onAdFailedToLoad(errorCode);
+//                mAdView.setVisibility(View.GONE);
+//                RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) btnShowNearestBusStops.getLayoutParams();
+//                p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+//                btnShowNearestBusStops.setLayoutParams(p);
+//            }
+//
+//            @Override
+//            public void onAdLoaded() {
+//                super.onAdLoaded();
+//                mAdView.setVisibility(View.VISIBLE);
+//                RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) btnShowNearestBusStops.getLayoutParams();
+//                p.addRule(RelativeLayout.ABOVE, R.id.adView);
+//                p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 0);
+//                btnShowNearestBusStops.setLayoutParams(p);
+//            }
+//        });
+//    }
 
     @Override
     protected void onSaveInstanceState(Bundle bundle) {
@@ -669,7 +675,10 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                                 break;
                             }
                         }
+                        routeForZoom = selectedRoutes.get(0);
+                        severalRoutes.clear();
                         selectRoute(selectedRoutes.get(0), false, false);
+
                     } else if (selectedRouteNumbers.size() > 1) {
                         isRouteChanged = true;
                         for (int i = 0; i < routes.size(); i++) {
@@ -829,6 +838,8 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
             Route route = (Route) parent.getAdapter().getItem(position);
             mSelectedRoutes = null;
             hashMapMarkerBusStops.clear();
+            routeForZoom = route;
+            severalRoutes.clear();
             selectRoute(route, parent.getId() == R.id.lv_routes, false);
         }
     }
@@ -857,6 +868,23 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
     public void onCameraChange(CameraPosition cameraPosition) {
         LinearLayout parent = (LinearLayout) tvWeather.getParent();
         final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) (parent).getLayoutParams();
+
+        //if zoom is close than 14, show bus stops, otherwise clear them
+        if (cameraPosition.zoom > 13) {
+            if (routeForZoom != null){
+                drawBusStops(routeForZoom);
+
+            }
+            if (!severalRoutes.isEmpty()){
+                for (Route route : severalRoutes){
+                    drawBusStops(route);
+                }
+            }
+        }else{
+            clearBusStops();
+        }
+
+
         if (cameraPosition.tilt == 0) {
             params.setMargins(5, 5, 0, 0);
         } else {
@@ -955,7 +983,8 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                         mSelectedRoute.linkedRoute.getServerId()));
             }
         }
-        drawRouteBusStops(mSelectedRoute, true);
+        mMap.clear();
+
         drawRouteLineGoogle(mSelectedRoute, removeFindMarkers);
         updateLastSeenDate(route);
 
@@ -1250,7 +1279,8 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
 
     private void TimerMethod(List<Route> routes) {
         try {
-            mBuses = BusController.getBusInfoForRoutes(routes);
+            mBuses = BusController.getSeveralRouteBuses(routes);
+            //Log.d("1274", mBuses.toString());
         } catch (HttpException e) {
             e.printStackTrace();
             mBuses = null;
@@ -1300,13 +1330,13 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         isCustomLocationMode = false;
         if (line != null)
             line.remove();
-        PolylineOptions options = new PolylineOptions().width(3).color(Color.BLUE).geodesic(true);
+        PolylineOptions options = new PolylineOptions().width(4).color(Color.BLUE).geodesic(true);
         for (LatLng point : route.getTrackPoints()) {
             options.add(point);
         }
         line = mMap.addPolyline(options);
 
-        PolylineOptions options2 = new PolylineOptions().width(3).color(Color.BLUE).geodesic(true);
+        PolylineOptions options2 = new PolylineOptions().width(4).color(Color.BLUE).geodesic(true);
         for (LatLng point : route.getTrackPointsForInverseCourse()) {
             options2.add(point);
         }
@@ -1333,7 +1363,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
 
     ArrayList<Polyline> polylines;
     // цвета используемые при отрисовке маршрутов в режиме MultiSelect
-    final int[] colors = new int[]{Color.RED, Color.BLUE, Color.MAGENTA};
+    final int[] colors = new int[]{Color.RED, Color.BLUE, Color.MAGENTA, Color.GREEN, Color.rgb(255, 94, 0)};
     HashMap<Integer, Integer> hashMapRouteLineColors;
 
     // Рисую линии маршрутов
@@ -1351,8 +1381,10 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         polylines.clear();
         StringBuilder sb = new StringBuilder(getString(R.string.routes) + ": ");
         hashMapRouteLineColors = new HashMap<>();
+
         for (int i = 0; i < routes.size(); i++) {
             Route route = routes.get(i);
+
             // Условие выполняется, когда данные удаляются, а виджет остается на рабочем столе и его запускают
             if (route == null) {
                 startActivity(new Intent(this, SplashActivity.class));
@@ -1363,7 +1395,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
             if (routes.size() > i + 1)
                 sb.append(", ");
 
-            PolylineOptions options = new PolylineOptions().width(3).color(colors[i]).geodesic(true);
+            PolylineOptions options = new PolylineOptions().width(4).color(colors[i]).geodesic(true);
             for (LatLng point : route.getTrackPoints()) {
                 options.add(point);
             }
@@ -1375,6 +1407,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         mActionBar.setTitle(getString(R.string.app_name));
         mActionBar.setSubtitle(sb.toString());
         setDefaultCameraPosition();
+
         startBusesTimer();
     }
 
@@ -1400,7 +1433,9 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 30));
     }
 
+
     private void drawBusesGoogle(List<Bus> buses) {
+
         /*
             Условие поставлено на случай, если пользователь быстро выбрал маршрут, а затем
             выбрал остановку из левого бокового меню, таймер не успевал остановиться и отрисовывал автобусы без маршрута
@@ -1415,7 +1450,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                     marker.remove();
                 }
             } else {
-               // Crashlytics.log("markers == null in drawBusesGoogle(ArrayList<Bus> buses)");
+                // Crashlytics.log("markers == null in drawBusesGoogle(ArrayList<Bus> buses)");
             }
             tvInternetStatus.setVisibility(View.VISIBLE);
             return;
@@ -1698,6 +1733,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         voteAppDialog.setCancelable(true);
     }
 
+
     // callback для режима MultiSelect (маршруты)
     public class ModeCallback implements AbsListView.MultiChoiceModeListener {
         @Override
@@ -1733,8 +1769,12 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                     }
                     mSelectedRoutes = selectedRoutes;
                     if (selectedRoutes.size() == 1) {
+                        routeForZoom = selectedRoutes.get(0);
+                        selectedRoutes.clear();
                         selectRoute(selectedRoutes.get(0), false, false);
                     } else {
+                        severalRoutes = selectedRoutes;
+                        routeForZoom = null;
                         drawRoutes(selectedRoutes);
                     }
                     isFindRoutesMode = false;
@@ -1754,7 +1794,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                                               int position, long id, boolean checked) {
             if (getListView().getCheckedItemCount() > Consts.MAX_ROUTES_ON_MAP) {
                 getListView().setItemChecked(position, !checked);
-                showToast(getString(R.string.max_select_routes));
+                showToast(getString(R.string.max5_select_routes));
             }
         }
     }
@@ -1847,4 +1887,6 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         stopRoutesStatisticsTimer();
         mMap.clear();
     }
+
+
 }

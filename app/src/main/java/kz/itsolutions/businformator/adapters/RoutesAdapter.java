@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.db.DBHelper;
 import kz.itsolutions.businformator.model.Route;
@@ -62,7 +63,7 @@ public class RoutesAdapter extends ArrayAdapter<Route> {
             holder.tvPointTo = (TextView) row.findViewById(R.id.tv_point_to);
             holder.tvNumber = (TextView) row.findViewById(R.id.tv_route_number);
             holder.tbtnFavorite = (ImageButton) row.findViewById(R.id.tbtn_favorite);
-            holder.tbtnFavorite.setVisibility(View.INVISIBLE);
+            holder.tbtnFavorite.setVisibility(View.VISIBLE);
             holder.tbtnFavorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
