@@ -1,8 +1,8 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:2:1-209:12
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:2:1-208:12
 	package
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:3:5-48
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:3:5-43
 		INJECTED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml
 		INJECTED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -13,12 +13,12 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:2:1-209:12
 	android:versionCode
 		INJECTED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml
 		INJECTED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml
-permission#kz.itsolutions.businformatordraft.permission.MAPS_RECEIVE
+permission#kz.itsolutions.businformator.permission.MAPS_RECEIVE
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:5:5-7:47
 	android:protectionLevel
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:7:9-44
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:6:9-81
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:6:9-76
 uses-feature#0x00020000
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:9:5-11:35
 	android:glEsVersion
@@ -61,10 +61,10 @@ uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:21:5-98
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:21:22-95
-uses-permission#kz.itsolutions.businformatordraft.permission.MAPS_RECEIVE
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:22:5-97
+uses-permission#kz.itsolutions.businformator.permission.MAPS_RECEIVE
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:22:5-92
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:22:22-94
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:22:22-89
 uses-permission#android.permission.CAMERA
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:24:5-65
 	android:name
@@ -85,31 +85,31 @@ uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:30:5-82
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:30:22-79
-permission#kz.itsolutions.businformatordraft.permission.C2D_MESSAGE
+permission#kz.itsolutions.businformator.permission.C2D_MESSAGE
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:35:5-37:47
 	android:protectionLevel
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:37:9-44
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:36:9-80
-uses-permission#kz.itsolutions.businformatordraft.permission.C2D_MESSAGE
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:38:5-96
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:36:9-75
+uses-permission#kz.itsolutions.businformator.permission.C2D_MESSAGE
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:38:5-91
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:38:22-93
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:38:22-88
 application
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:40:5-208:19
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:40:5-207:19
 MERGED from [com.actionbarsherlock:actionbarsherlock:4.4.0] D:\OTG\AstroBus\astrabus\app\build\intermediates\exploded-aar\com.actionbarsherlock\actionbarsherlock\4.4.0\AndroidManifest.xml:4:3-17
 MERGED from [com.google.android.gms:play-services:6.5.87] D:\OTG\AstroBus\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:22.1.1] D:\OTG\AstroBus\astrabus\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.1.1] D:\OTG\AstroBus\astrabus\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:43:9-28
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:43:9-41
 	android:icon
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:42:9-43
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:42:9-45
 	android:theme
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:44:9-40
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:41:9-45
-activity#kz.itsolutions.businformatordraft.activities.SplashActivity
+activity#kz.itsolutions.businformator.activities.SplashActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:46:9-55:20
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:49:13-49
@@ -129,7 +129,7 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:53:17-77
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:53:27-74
-activity#kz.itsolutions.businformatordraft.activities.MapGoogleActivity
+activity#kz.itsolutions.businformator.activities.MapGoogleActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:57:9-61:55
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:59:13-49
@@ -139,7 +139,7 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:57:9-61:55
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:60:13-44
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:58:13-57
-activity#kz.itsolutions.businformatordraft.activities.MapOsmActivity
+activity#kz.itsolutions.businformator.activities.MapOsmActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:63:9-68:55
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:66:13-49
@@ -151,7 +151,7 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:63:9-68:55
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:67:13-44
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:64:13-54
-activity#kz.itsolutions.businformatordraft.activities.ForecastActivity
+activity#kz.itsolutions.businformator.activities.ForecastActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:70:9-74:47
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:73:13-49
@@ -161,7 +161,7 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:70:9-74:47
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:74:13-44
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:71:13-56
-activity#kz.itsolutions.businformatordraft.activities.TrainingActivity
+activity#kz.itsolutions.businformator.activities.TrainingActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:76:9-82:20
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:79:13-49
@@ -171,7 +171,7 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:76:9-82:20
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:80:13-68
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:77:13-56
-activity#kz.itsolutions.businformatordraft.activities.AugmentedRealityActivity
+activity#kz.itsolutions.businformator.activities.AugmentedRealityActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:84:9-87:56
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:86:13-49
@@ -179,7 +179,7 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:84:9-87:56
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:87:13-44
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:85:13-64
-activity#kz.itsolutions.businformatordraft.activities.WidgetConfigActivity
+activity#kz.itsolutions.businformator.activities.WidgetConfigActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:89:9-95:20
 	android:theme
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:91:13-44
@@ -191,25 +191,25 @@ action#android.appwidget.action.APPWIDGET_CONFIGURE
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:93:17-94
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:93:25-84
-activity#kz.itsolutions.businformatordraft.activities.AboutAppActivity
+activity#kz.itsolutions.businformator.activities.AboutAppActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:97:9-99:52
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:99:13-49
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:98:13-56
-activity#kz.itsolutions.businformatordraft.activities.RoutesActivity
+activity#kz.itsolutions.businformator.activities.RoutesActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:101:9-103:52
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:103:13-49
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:102:13-54
-activity#kz.itsolutions.businformatordraft.activities.EditRouteActivity
+activity#kz.itsolutions.businformator.activities.EditRouteActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:105:9-107:52
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:107:13-49
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:106:13-57
-activity#kz.itsolutions.businformatordraft.activities.PrefsActivity
+activity#kz.itsolutions.businformator.activities.PrefsActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:109:9-112:52
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:112:13-49
@@ -217,7 +217,7 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:109:9-112:5
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:111:13-45
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:110:13-53
-activity#kz.itsolutions.businformatordraft.activities.ComplaintActivity
+activity#kz.itsolutions.businformator.activities.ComplaintActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:114:9-117:57
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:116:13-49
@@ -225,7 +225,7 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:114:9-117:5
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:117:13-54
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:115:13-57
-activity#kz.itsolutions.businformatordraft.activities.FeedbackActivity
+activity#kz.itsolutions.businformator.activities.FeedbackActivity
 ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:119:9-122:58
 	android:screenOrientation
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:121:13-49
@@ -244,102 +244,102 @@ ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:125:9-129:6
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:126:13-65
 meta-data#com.google.android.maps.v2.API_KEY
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:131:9-133:70
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:131:9-133:71
 	android:value
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:133:13-68
 	android:name
 		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:132:13-62
 meta-data#com.google.android.gms.version
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:145:9-147:69
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:144:9-146:69
 MERGED from [com.google.android.gms:play-services:6.5.87] D:\OTG\AstroBus\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:147:13-66
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:146:13-66
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:146:13-58
-receiver#kz.itsolutions.businformatordraft.widgets.SingleWidget
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:154:9-167:20
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:145:13-58
+receiver#kz.itsolutions.businformator.widgets.SingleWidget
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:153:9-166:20
 	android:label
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:158:13-45
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:157:13-45
 	android:exported
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:156:13-36
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:155:13-36
 	android:permission
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:159:13-69
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:158:13-69
 	android:icon
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:157:13-49
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:156:13-49
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:155:13-49
-intent-filter#android.appwidget.action.APPWIDGET_UPDATE+kz.itsolutions.businformatordraft.WIDGET_BUTTON
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:160:13-163:29
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:154:13-49
+intent-filter#android.appwidget.action.APPWIDGET_UPDATE+kz.itsolutions.businformator.WIDGET_BUTTON
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:159:13-162:29
 action#android.appwidget.action.APPWIDGET_UPDATE
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:161:17-91
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:160:17-91
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:161:25-81
-action#kz.itsolutions.businformatordraft.WIDGET_BUTTON
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:162:17-97
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:160:25-81
+action#kz.itsolutions.businformator.WIDGET_BUTTON
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:161:17-92
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:162:25-87
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:161:25-82
 meta-data#android.appwidget.provider
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:164:13-166:69
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:163:13-165:69
 	android:resource
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:166:17-56
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:165:17-56
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:165:17-58
-service#kz.itsolutions.businformatordraft.widgets.MyService
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:169:9-171:80
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:164:17-58
+service#kz.itsolutions.businformator.widgets.MyService
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:168:9-170:80
 	android:permission
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:171:13-69
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:170:13-69
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:170:13-46
-receiver#kz.itsolutions.businformatordraft.widgets.MyProvider
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:172:9-179:20
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:169:13-46
+receiver#kz.itsolutions.businformator.widgets.MyProvider
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:171:9-178:20
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:172:19-53
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:171:19-53
 intent-filter#android.appwidget.action.APPWIDGET_UPDATE
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:173:13-175:29
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:172:13-174:29
 service#com.parse.PushService
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:182:9-57
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:181:9-57
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:182:18-54
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:181:18-54
 receiver#com.parse.ParseBroadcastReceiver
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:184:9-189:20
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:183:9-188:20
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:184:19-66
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:183:19-66
 intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.action.USER_PRESENT
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:185:13-188:29
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:184:13-187:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:186:17-79
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:185:17-79
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:186:25-76
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:185:25-76
 action#android.intent.action.USER_PRESENT
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:187:17-77
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:186:17-77
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:187:25-74
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:186:25-74
 receiver#com.parse.GcmBroadcastReceiver
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:190:9-202:20
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:189:9-201:20
 	android:permission
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:192:13-73
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:191:13-73
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:191:13-58
-intent-filter#com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION+kz.itsolutions.businformatordraft
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:193:13-201:29
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:190:13-58
+intent-filter#com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION+kz.itsolutions.businformator
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:192:13-200:29
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:194:17-81
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:193:17-81
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:194:25-78
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:193:25-78
 action#com.google.android.c2dm.intent.REGISTRATION
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:195:17-86
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:194:17-86
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:195:25-83
-category#kz.itsolutions.businformatordraft
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:200:17-78
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:194:25-83
+category#kz.itsolutions.businformator
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:199:17-73
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:200:27-75
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:199:27-70
 meta-data#com.parse.push.notification_icon
-ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:205:9-207:56
+ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:204:9-206:56
 	android:resource
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:207:13-53
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:206:13-53
 	android:name
-		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:206:13-60
+		ADDED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml:205:13-60
 uses-sdk
 INJECTED from D:\OTG\AstroBus\astrabus\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.actionbarsherlock:actionbarsherlock:4.4.0] D:\OTG\AstroBus\astrabus\app\build\intermediates\exploded-aar\com.actionbarsherlock\actionbarsherlock\4.4.0\AndroidManifest.xml:3:3-70

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kz.itsolutions.businformatordraft"
+    package="kz.itsolutions.businformator"
     android:versionCode="20160128"
     android:versionName="2.06" >
 
@@ -9,7 +9,7 @@
         android:targetSdkVersion="22" />
 
     <permission
-        android:name="kz.itsolutions.businformatordraft.permission.MAPS_RECEIVE"
+        android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-feature
@@ -25,7 +25,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="kz.itsolutions.businformatordraft.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -38,18 +38,18 @@
           to match your app's package name + ".permission.C2D_MESSAGE".
     -->
     <permission
-        android:name="kz.itsolutions.businformatordraft.permission.C2D_MESSAGE"
+        android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="kz.itsolutions.businformatordraft.permission.C2D_MESSAGE" />
+    <uses-permission android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE" />
 
     <application
-        android:name="kz.itsolutions.businformatordraft.AstanaBusApplication"
-        android:icon="@drawable/logo_text"
-        android:label="Bus"
+        android:name="kz.itsolutions.businformator.AstanaBusApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.SplashActivity"
+            android:name="kz.itsolutions.businformator.activities.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
@@ -60,57 +60,57 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.MapGoogleActivity"
+            android:name="kz.itsolutions.businformator.activities.MapGoogleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.MapOsmActivity"
+            android:name="kz.itsolutions.businformator.activities.MapOsmActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.ForecastActivity"
+            android:name="kz.itsolutions.businformator.activities.ForecastActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.TrainingActivity"
+            android:name="kz.itsolutions.businformator.activities.TrainingActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
         </activity>
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.AugmentedRealityActivity"
+            android:name="kz.itsolutions.businformator.activities.AugmentedRealityActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.WidgetConfigActivity"
+            android:name="kz.itsolutions.businformator.activities.WidgetConfigActivity"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.AboutAppActivity"
+            android:name="kz.itsolutions.businformator.activities.AboutAppActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.RoutesActivity"
+            android:name="kz.itsolutions.businformator.activities.RoutesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.EditRouteActivity"
+            android:name="kz.itsolutions.businformator.activities.EditRouteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.PrefsActivity"
+            android:name="kz.itsolutions.businformator.activities.PrefsActivity"
             android:label="@string/settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.ComplaintActivity"
+            android:name="kz.itsolutions.businformator.activities.ComplaintActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="kz.itsolutions.businformatordraft.activities.FeedbackActivity"
+            android:name="kz.itsolutions.businformator.activities.FeedbackActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" />
 
@@ -123,8 +123,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBU_rV9BCbnbz3kcz11LuPAm2NIXC9Jfuc" />
-        <!-- android:value="AIzaSyBIa8LzttwAlTwXVZbsoXwccfEotav4A7Y" /> -->
+            android:value="AIzaSyBIa8LzttwAlTwXVZbsoXwccfEotav4A7Y" />
         <!-- PAID Debug key -->
         <!-- AIzaSyCL7nM3Bh92jsIMXTyOh3STC37UnlQTFBQ -->
         <!-- PAID Public key -->
@@ -145,14 +144,14 @@
         <!-- /> -->
 
         <receiver
-            android:name="kz.itsolutions.businformatordraft.widgets.SingleWidget"
+            android:name="kz.itsolutions.businformator.widgets.SingleWidget"
             android:exported="true"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_REMOTEVIEWS" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="kz.itsolutions.businformatordraft.WIDGET_BUTTON" />
+                <action android:name="kz.itsolutions.businformator.WIDGET_BUTTON" />
             </intent-filter>
 
             <meta-data
@@ -161,10 +160,10 @@
         </receiver>
 
         <service
-            android:name="kz.itsolutions.businformatordraft.widgets.MyService"
+            android:name="kz.itsolutions.businformator.widgets.MyService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <receiver android:name="kz.itsolutions.businformatordraft.widgets.MyProvider" >
+        <receiver android:name="kz.itsolutions.businformator.widgets.MyProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -191,7 +190,7 @@
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
 <!--                   IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name. -->
-                <category android:name="kz.itsolutions.businformatordraft" />
+                <category android:name="kz.itsolutions.businformator" />
             </intent-filter>
         </receiver>
 

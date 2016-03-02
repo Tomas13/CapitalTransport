@@ -1770,8 +1770,8 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
                     mSelectedRoutes = selectedRoutes;
                     if (selectedRoutes.size() == 1) {
                         routeForZoom = selectedRoutes.get(0);
-                        selectedRoutes.clear();
-                        selectRoute(selectedRoutes.get(0), false, false);
+                        severalRoutes.clear();
+                        selectRoute(routeForZoom, false, false);
                     } else {
                         severalRoutes = selectedRoutes;
                         routeForZoom = null;

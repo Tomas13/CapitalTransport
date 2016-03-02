@@ -65,7 +65,7 @@
             android:id="@+id/refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="kz.itsolutions.businformatordraft.activities.ForecastActivity">
+            tools:context="kz.itsolutions.businformator.activities.ForecastActivity">
 
         <ListView android:id="@android:id/list"
                   android:layout_width="fill_parent"

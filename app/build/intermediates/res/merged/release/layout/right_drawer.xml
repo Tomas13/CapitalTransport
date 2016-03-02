@@ -32,7 +32,7 @@
         android:layout_above="@+id/indicator"
         android:layout_below="@+id/et_search_route" />
 
-    <kz.itsolutions.businformatordraft.widgets.tabPageIndicator.TabPageIndicator
+    <kz.itsolutions.businformator.widgets.tabPageIndicator.TabPageIndicator
         android:id="@+id/indicator"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
