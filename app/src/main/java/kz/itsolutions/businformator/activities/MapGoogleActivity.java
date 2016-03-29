@@ -905,7 +905,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) (parent).getLayoutParams();
 
         //if zoom is close than 14, show bus stops, otherwise clear them
-        if (cameraPosition.zoom > 14) {
+        if (cameraPosition.zoom > 13) {
             if (routeForZoom != null){
                 drawBusStops(routeForZoom);
 
@@ -1598,9 +1598,9 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
             int resourceId = R.drawable.road_sign;
             BusStop busStop = busStops.get(i);
             if (i == 0) {
-                resourceId = R.drawable.road_sign_start;
+                resourceId = R.drawable.road_sign;
             } else if (i == busStops.size() - 1) {
-                resourceId = R.drawable.road_sign_start;
+                resourceId = R.drawable.road_sign;
             }
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(busStop.getPointGoogle())
