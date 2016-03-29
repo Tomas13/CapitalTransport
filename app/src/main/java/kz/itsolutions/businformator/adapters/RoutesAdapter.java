@@ -99,9 +99,10 @@ public class RoutesAdapter extends ArrayAdapter<Route> {
         }
 
         Route route = data.get(position);
-        holder.tvPointFrom.setText("Автобус №" + route.getNumber());
-        //holder.tvPointTo.setText(route.getPointTo());
-        holder.tvPointTo.setText("");
+//        holder.tvPointFrom.setText("Автобус №" + route.getNumber());
+        holder.tvPointFrom.setText(route.getPointFrom());
+        holder.tvPointTo.setText(route.getPointTo());
+//        holder.tvPointTo.setText("");
         holder.tvNumber.setText(String.valueOf(route.getNumber()));
         holder.tbtnFavorite.setTag(position);
         holder.tbtnFavorite.setImageDrawable(context.getResources().getDrawable(route.isFavorite() ?

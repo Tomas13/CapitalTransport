@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kz.itsolutions.businformator"
-    android:versionCode="20160128"
-    android:versionName="2.06" >
+    android:versionCode="20170128"
+    android:versionName="2.07" >
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="23" />
 
     <permission
         android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE"
@@ -45,7 +45,7 @@
 
     <application
         android:name="kz.itsolutions.businformator.AstanaBusApplication"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -123,7 +123,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBIa8LzttwAlTwXVZbsoXwccfEotav4A7Y" />
+            android:value="AIzaSyDwKnZhFxTzbctzveSSYrnaiUTh7n-l6Vc" />
         <!-- PAID Debug key -->
         <!-- AIzaSyCL7nM3Bh92jsIMXTyOh3STC37UnlQTFBQ -->
         <!-- PAID Public key -->
@@ -197,7 +197,7 @@
         <!-- replace @drawable/push_icon with your push icon identifier -->
         <meta-data
             android:name="com.parse.push.notification_icon"
-            android:resource="@drawable/ic_launcher" />
+            android:resource="@mipmap/ic_launcher" />
     </application>
 
 </manifest>

@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -39,8 +40,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.actionbarsherlock.ActionBarSherlock;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
@@ -288,6 +291,9 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         });
 
         listViewFoundRoutes = (ListView) findViewById(R.id.lv_routes);
+//        String[] names = new String[] {"МАРШРУТЫ", "ТРАНСПОРТ СТОЛИЦЫ", "КОНТАКТ-ЦЕНТР", "О ПРИЛОЖЕНИИ"};
+//        ArrayAdapter<String> leftAdapter = new LeftDrawerAdapter(getApplicationContext(), names);
+//        listViewFoundRoutes.setAdapter(leftAdapter);
 
         mPagerAdapter = new MyPagerAdapter(this);
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -330,20 +336,34 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         View page2 = getLayoutInflater().inflate(R.layout.drawer_routes, null);
         View page3 = getLayoutInflater().inflate(R.layout.drawer_routes, null);
         listViewRoutes = (ListView) page1.findViewById(R.id.listView);
-        listViewRoutes.setOnItemClickListener(listener);
-        if (mAdapter != null) {
-            listViewRoutes.setAdapter(mAdapter);
-        }
+        listViewRoutes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listViewRoutes.setItemChecked(position, true);
+            }
+        });
 
         listViewFavoriteRoutes = (ListView) page2.findViewById(R.id.listView);
-        listViewFavoriteRoutes.setOnItemClickListener(listener);
+//        listViewFavoriteRoutes.setOnItemClickListener(listener);
+        listViewFavoriteRoutes.setOnItemClickListener(new AbsListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listViewFavoriteRoutes.setItemChecked(position, true);
+            }
+        });
         // TODO: empty view for all list views
         LayoutInflater inflater = getLayoutInflater();
         View v = inflater.inflate(R.layout.empty_view, null);
         listViewFavoriteRoutes.setEmptyView(v.findViewById(android.R.id.empty));
 
         listViewHistoryRoutes = (ListView) page3.findViewById(R.id.listView);
-        listViewHistoryRoutes.setOnItemClickListener(listener);
+//        listViewHistoryRoutes.setOnItemClickListener(listener);
+        listViewHistoryRoutes.setOnItemClickListener(new AbsListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listViewHistoryRoutes.setItemChecked(position, true);
+            }
+        });
 
         if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
             listViewRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -831,7 +851,22 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         return true;
     }
 
+//    private class RoutesDrawerItemClickListener implements ListView.OnItemClickListener {
+//        @Override
+//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            resetFindRouteMode();
+//            Route route = (Route) parent.getAdapter().getItem(position);
+//            mSelectedRoutes = null;
+//            hashMapMarkerBusStops.clear();
+//            routeForZoom = route;
+//            severalRoutes.clear();
+//            selectRoute(route, parent.getId() == R.id.lv_routes, false);
+//        }
+//    }
+
+
     private class RoutesDrawerItemClickListener implements ListView.OnItemClickListener {
+
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             resetFindRouteMode();
@@ -870,7 +905,7 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) (parent).getLayoutParams();
 
         //if zoom is close than 14, show bus stops, otherwise clear them
-        if (cameraPosition.zoom > 13) {
+        if (cameraPosition.zoom > 14) {
             if (routeForZoom != null){
                 drawBusStops(routeForZoom);
 
@@ -1746,13 +1781,13 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
 
         @Override
         public boolean onPrepareActionMode(android.view.ActionMode actionMode, android.view.Menu menu) {
-            return true;
+            return false;
         }
 
         @Override
         public void onDestroyActionMode(android.view.ActionMode actionMode) {
-
         }
+
 
         @Override
         public boolean onActionItemClicked(android.view.ActionMode mode, android.view.MenuItem item) {
@@ -1828,7 +1863,13 @@ public class MapGoogleActivity extends SherlockFragmentActivity implements View.
         List<Route> routes = Route.findRoutesForPoints(DBHelper.getHelper(), mMarkerPointFrom.getPosition(), mMarkerPointTo.getPosition());
         mFoundRoutesAdapter = new RoutesAdapter(MapGoogleActivity.this, routes, RoutesAdapter.TYPE.History);
         listViewFoundRoutes.setAdapter(mFoundRoutesAdapter);
-        listViewFoundRoutes.setOnItemClickListener(listener);
+//        listViewFoundRoutes.setOnItemClickListener(listener);
+        listViewFoundRoutes.setOnItemClickListener(new AbsListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listViewFoundRoutes.setItemChecked(position, true);
+            }
+        });
     }
 
     // ставим маркер "От" для поиска маршрута А-Б
