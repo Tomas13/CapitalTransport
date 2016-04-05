@@ -283,7 +283,7 @@
     <string name="click_on_map_for_add_marker">Нажмите на место на карте, чтобы добавить новый маркер</string>
     <!-- From: file:/D:/OTG/AstroBus/astrabus/app/build/generated/fabric/res/debug/values/com_crashlytics_build_id.xml -->
     <eat-comment/>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">786b1f27-4db3-4ae8-b5c1-cc0976537af1</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">d245a877-ba63-4af0-8c2a-fa111bdefcb0</string>
     <!-- From: file:/D:/OTG/AstroBus/astrabus/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_strings.xml -->
     <eat-comment/>
     <string name="common_android_wear_notification_needs_update_text">An application requires an update to the Android Wear app.</string>

@@ -70,22 +70,15 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94d6beaf-2c06-4e7e-965a-072f4319e695" name="Default" comment="added crashlytics.  Still working on left panel, no router">
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\Parse_1_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\actionbarsherlock_4_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\android_async_http_1_4_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\bolts_android_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\library_2_4_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\org_apache_http_legacy.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\ormlite_android_4_48.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\ormlite_core_4_48.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\osmbonuspack_v4_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\osmdroid_android_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\slf4j_api_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\slf4j_simple_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\support_annotations_22_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\OTG\AstroBus\astrabus\.idea\libraries\support_v4_22_1_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+    <list default="true" id="94d6beaf-2c06-4e7e-965a-072f4319e695" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="astrabus.iws" />
@@ -117,7 +110,7 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5778612">
+            <state vertical-scroll-proportion="0.55">
               <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
               <folding />
             </state>
@@ -1501,7 +1494,7 @@
         <entry key="$USER_HOME$/AndroidStudioProjects/HideOnScrollExample" value="4341145160617" />
         <entry key="$USER_HOME$/AndroidStudioProjects/pubnub-android-lolli-chat" value="4335751559665" />
         <entry key="$USER_HOME$/AndroidStudioProjects/pubnub-android-lolli-chat1" value="4335760581791" />
-        <entry key="D:\OTG\AstroBus\astrabus" value="4375809741779" />
+        <entry key="D:\OTG\AstroBus\astrabus" value="4375815117818" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2195,7 +2188,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459838415467</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added crashlytics.  Still working on left panel, no router">
+      <created>1459843415428</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1459843415428</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2209,7 +2208,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -2700,7 +2699,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5778612">
+        <state vertical-scroll-proportion="0.55">
           <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
           <folding />
         </state>
