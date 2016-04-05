@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/values-small/dimens.xml -->
-    <eat-comment/>
-    <dimen name="slide_menu_width">250dp</dimen>
-    <dimen name="tab_text_size">11sp</dimen>
-</resources>

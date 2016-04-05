@@ -146,10 +146,10 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!--<meta-data-->
-        <!--android:name="com.crashlytics.ApiKey"-->
-        <!--android:value="39e2f6e7cbf7dab7107416360950809ffd8c9291"-->
-        <!--/>-->
+        <meta-data
+        android:name="com.crashlytics.ApiKey"
+        android:value="343c4b7cc7a42bbfddf19852ef4556ff617fbc61"
+        />
 
         <receiver
             android:name=".widgets.SingleWidget"
@@ -206,5 +206,8 @@
             android:name="com.parse.push.notification_icon"
             android:resource="@mipmap/ic_launcher"
             tools:ignore="ManifestResource" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="360de9fa3e600708774d7f539a65f258c77a1569" />
     </application>
 </manifest> 

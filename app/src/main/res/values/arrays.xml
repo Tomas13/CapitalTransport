@@ -8,4 +8,12 @@
         <!--<item>google</item>-->
         <item>osm</item>
     </string-array>
+
+    <string-array name="left_menu">
+        <item>МАРШРУТЫ</item>
+        <item>РАСПИСАНИЕ</item>
+        <item>ТРАНСПОРТ СТОЛИЦЫ</item>
+        <item>КОНТАКТ-ЦЕНТР</item>
+        <item>О ПРИЛОЖЕНИИ</item>
+    </string-array>
 </resources>

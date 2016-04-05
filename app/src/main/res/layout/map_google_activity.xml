@@ -40,6 +40,11 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/ll_action_bar_line" />
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/container"
+            android:layout_height="wrap_content"/>
+
         <include
             layout="@layout/weather_view"
             android:layout_width="wrap_content"

@@ -1,8 +1,11 @@
 package kz.itsolutions.businformator;
 
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
 import com.parse.Parse;
 import com.parse.PushService;
 
+import io.fabric.sdk.android.Fabric;
 import kz.itsolutions.businformator.activities.SplashActivity;
 
 public class AstanaBusApplication extends android.app.Application {
@@ -13,6 +16,8 @@ public class AstanaBusApplication extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
+//        Fabric.with(this, new Crashlytics());
+        Fabric.with(this, new Answers(), new Crashlytics());
 
         // Initialize the Parse SDK.
         Parse.initialize(this, "FfVWcrEn0AF7QnazZ6zEUzhMTpidv9vfU5ZXesuW", "V520JX0ABeonV609n0DEqXnhnldN1MfsbyPiSQCL");

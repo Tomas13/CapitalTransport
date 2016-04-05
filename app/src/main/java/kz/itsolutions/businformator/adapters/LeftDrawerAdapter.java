@@ -32,8 +32,9 @@ public class LeftDrawerAdapter extends ArrayAdapter<String> {
         View rowView = convertView;
         // reuse views
         if (rowView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );;
-            rowView = inflater.inflate(R.layout.left_drawer_item, null);
+            LayoutInflater inflater = (LayoutInflater) context
+                    .getSystemService( Context.LAYOUT_INFLATER_SERVICE );;
+            rowView = inflater.inflate(R.layout.left_drawer_item, parent, false);
             // configure view holder
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.text = (MyTextView) rowView.findViewById(R.id.text_left_drawer_custom);
@@ -42,6 +43,7 @@ public class LeftDrawerAdapter extends ArrayAdapter<String> {
 
         // fill data
         ViewHolder holder = (ViewHolder) rowView.getTag();
+
         String s = names[position];
         holder.text.setText(s);
 
