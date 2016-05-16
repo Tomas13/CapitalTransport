@@ -13,4 +13,4 @@
             android:layout_height="match_parent"
             class="com.google.android.gms.maps.SupportMapFragment"/>
 
-</LinearLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/route_edit_activity.xml -->
+</LinearLayout>

@@ -6,4 +6,4 @@
     <!-- When not selected, use white -->
     <item android:drawable="@drawable/star_not_active" android:state_checked="false"/>
 
-</selector><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/drawable/favorite_button_selector.xml -->
+</selector>

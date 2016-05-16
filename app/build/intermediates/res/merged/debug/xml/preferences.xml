@@ -13,4 +13,4 @@
         android:summary="@string/use_map_summary"
         android:entries="@array/listentries"
         android:entryValues="@array/listvalues" />
-</PreferenceScreen><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/xml/preferences.xml -->
+</PreferenceScreen>

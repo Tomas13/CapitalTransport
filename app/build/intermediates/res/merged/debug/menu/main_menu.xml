@@ -14,16 +14,17 @@
   limitations under the License.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_routes"
           android:icon="@drawable/ic_menu_routes"
           android:title="@string/routes"
-          android:showAsAction="ifRoom" />
+          app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_find_routes"
           android:visible="false"
           android:title="@string/search_routes_from_to"
-          android:showAsAction="never" />
+          app:showAsAction="never" />
 
     <!--<item android:id="@+id/menu_display_bus_stops"-->
           <!--android:checkable="true"-->
@@ -37,7 +38,7 @@
     <item android:id="@+id/menu_edit_route"
           android:visible="false"
           android:title="@string/edit_route"
-          android:showAsAction="never" />
+          app:showAsAction="never" />
 
     <!--<item android:id="@+id/menu_make_complaint"-->
           <!--android:title="@string/make_complaint"-->
@@ -50,10 +51,10 @@
     <item android:id="@+id/menu_alarm"
           android:visible="false"
           android:title="@string/alarm"
-          android:showAsAction="never" />
+          app:showAsAction="never" />
 
     <item android:id="@+id/menu_about"
           android:title="@string/about_app"
-          android:showAsAction="never" />
+          app:showAsAction="never" />
 
-</menu><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/menu/main_menu.xml -->
+</menu>

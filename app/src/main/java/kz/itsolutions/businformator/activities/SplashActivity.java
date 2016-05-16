@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -37,13 +38,16 @@ public class SplashActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         // Track app opens.
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
+
+
         setContentView(R.layout.splash_activity);
         findViewById(R.id.btn_repeat_load).setOnClickListener(this);
         progressBar = ((ProgressBar) findViewById(R.id.splash_progress_bar));
         tvProgress = (TextView) findViewById(R.id.tv_progress);
         prefs = getSharedPreferences(MapGoogleActivity.MAIN_PREFS, MODE_PRIVATE);
         DBHelper.init(getApplicationContext());
-        SplashActivity.setIsFree();
+//        SplashActivity.setIsFree();
         try {
             ((TextView) findViewById(R.id.tv_version))
                     .setText(String.format("%s %s", getString(R.string.version)

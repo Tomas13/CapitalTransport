@@ -1,6 +1,8 @@
 package kz.itsolutions.businformator.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -9,13 +11,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.Toast;
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.MenuItem;
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.adapters.ForecastsAdapter;
 import kz.itsolutions.businformator.controllers.BusStopController;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 //import com.google.analytics.tracking.android.EasyTracker;
 //import com.google.analytics.tracking.android.Tracker;
 
-public class ForecastActivity extends SherlockListActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
+public class ForecastActivity extends ListActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
     public static final String KEY_SELECTED_BUS_STOP_ID = "selected_bus_stop_id";
 
@@ -58,7 +58,7 @@ public class ForecastActivity extends SherlockListActivity implements View.OnCli
         mSwipeRefreshLayout.setOnRefreshListener(this);
         // делаем повеселее
         mSwipeRefreshLayout.setColorScheme(android.R.color.holo_blue_bright, android.R.color.holo_green_light, R.color.yellow, R.color.red);
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setIcon(R.drawable.ic_menu_bus);
         actionBar.setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();

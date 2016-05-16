@@ -65,4 +65,4 @@
 
     <include layout="@layout/right_drawer"/>
 
-</android.support.v4.widget.DrawerLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/map_osm_activity.xml -->
+</android.support.v4.widget.DrawerLayout>

@@ -22,4 +22,4 @@
             android:background="@drawable/widget_badge_shape"
             android:textSize="12sp">
     </TextView>
-</RelativeLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/widget_single.xml -->
+</RelativeLayout>

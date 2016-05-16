@@ -3,4 +3,4 @@
     <item android:state_selected="true" android:drawable="@color/tab_selected"></item>
     <item android:state_pressed="true" android:drawable="@color/tab_selected"></item>
     <item android:drawable="@color/action_bar_bg"></item>
-</selector><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/drawable/tab_bg_selector.xml -->
+</selector>

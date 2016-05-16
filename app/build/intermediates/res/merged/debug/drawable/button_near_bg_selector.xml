@@ -23,4 +23,4 @@
                     android:color="@color/route_statistic_text_color"/>
         </shape>
     </item>
-</selector><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/drawable/button_near_bg_selector.xml -->
+</selector>

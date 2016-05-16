@@ -60,4 +60,4 @@
                   android:inputType="textEmailAddress"
                   android:ems="10"/>
     </LinearLayout>
-</ScrollView><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/complaint_activity.xml -->
+</ScrollView>

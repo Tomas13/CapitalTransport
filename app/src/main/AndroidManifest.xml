@@ -22,20 +22,21 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE" />
 
-    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- For parse.com library-->
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- For parse.com library -->
+     <uses-permission android:name="android.permission.VIBRATE" />
+     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <!--
           IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
           to match your app's package name + ".permission.C2D_MESSAGE".
-        -->
+    -->
     <permission
         android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE" />
 
     <application
@@ -43,86 +44,72 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".activities.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Sherlock.Light.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.MapGoogleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".activities.MapOsmActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".activities.ForecastActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".activities.TrainingActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Sherlock.Light.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
             android:name=".activities.AugmentedRealityActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.WidgetConfigActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"></action>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.AboutAppActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activities.RoutesActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activities.EditRouteActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activities.PrefsActivity"
             android:label="@string/settings"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activities.ComplaintActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".activities.FeedbackActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible" />
 
-        <!--Include the AdActivity configChanges and theme. -->
+        <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
@@ -132,24 +119,22 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDwKnZhFxTzbctzveSSYrnaiUTh7n-l6Vc" />
-        <!--PAID Debug key-->
-        <!--AIzaSyCL7nM3Bh92jsIMXTyOh3STC37UnlQTFBQ-->
-        <!--PAID Public key-->
-        <!--AIzaSyD3I-iq9DrgUTUWuJgTujFtsvQlRZM6oxs-->
+        <!-- PAID Debug key -->
+        <!-- AIzaSyCL7nM3Bh92jsIMXTyOh3STC37UnlQTFBQ -->
+        <!-- PAID Public key -->
+        <!-- AIzaSyD3I-iq9DrgUTUWuJgTujFtsvQlRZM6oxs -->
 
 
-        <!--Debug key-->
-        <!--AIzaSyDTECmDS_3Y6Webh5COi-W-ZqFKNkKvVL0-->
-        <!--Public key-->
-        <!--AIzaSyBIa8LzttwAlTwXVZbsoXwccfEotav4A7Y-->
+        <!-- Debug key -->
+        <!-- AIzaSyDTECmDS_3Y6Webh5COi-W-ZqFKNkKvVL0 -->
+        <!-- Public key -->
+        <!-- AIzaSyBIa8LzttwAlTwXVZbsoXwccfEotav4A7Y -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
-        android:name="com.crashlytics.ApiKey"
-        android:value="343c4b7cc7a42bbfddf19852ef4556ff617fbc61"
-        />
+            android:name="com.crashlytics.ApiKey"
+            android:value="343c4b7cc7a42bbfddf19852ef4556ff617fbc61" />
 
         <receiver
             android:name=".widgets.SingleWidget"
@@ -158,27 +143,32 @@
             android:label="@string/app_name"
             android:permission="android.permission.BIND_REMOTEVIEWS">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"></action>
-                <action android:name="kz.itsolutions.businformator.WIDGET_BUTTON"></action>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="kz.itsolutions.businformator.WIDGET_BUTTON" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_metadata"></meta-data>
+                android:resource="@xml/widget_metadata" />
         </receiver>
 
         <service
             android:name=".widgets.MyService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"></service>
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
         <receiver android:name=".widgets.MyProvider">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"></action>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_favorites_metadata"></meta-data>
+                android:resource="@xml/widget_favorites_metadata" />
         </receiver>
 
-        <!-- Parse.com-->
+        <!-- Parse.com -->
+
+
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver">
@@ -194,20 +184,23 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <!--
-                  IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
-                -->
+                <!--&lt;!&ndash;-->
+                  <!--IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.-->
+                <!--&ndash;&gt;-->
                 <category android:name="kz.itsolutions.businformator" />
             </intent-filter>
         </receiver>
 
-        <!-- replace @drawable/push_icon with your push icon identifier -->
+        <!--&lt;!&ndash; replace @drawable/push_icon with your push icon identifier &ndash;&gt;-->
         <meta-data
             android:name="com.parse.push.notification_icon"
             android:resource="@mipmap/ic_launcher"
             tools:ignore="ManifestResource" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="360de9fa3e600708774d7f539a65f258c77a1569" />
+            android:value="343c4b7cc7a42bbfddf19852ef4556ff617fbc61" />
+
     </application>
-</manifest> 
+
+</manifest>

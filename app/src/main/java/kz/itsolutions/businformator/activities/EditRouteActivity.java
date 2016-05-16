@@ -3,13 +3,13 @@ package kz.itsolutions.businformator.activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,7 +29,7 @@ import kz.itsolutions.businformator.db.DBHelper;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.utils.Consts;
 
-public class EditRouteActivity extends SherlockFragmentActivity implements GoogleMap.OnMarkerDragListener,
+public class EditRouteActivity extends AppCompatActivity implements GoogleMap.OnMarkerDragListener,
         GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {
 
     public static String KEY_ROUTE_SERVER_ID = "key_route_server_id";
@@ -115,7 +115,7 @@ public class EditRouteActivity extends SherlockFragmentActivity implements Googl
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getSupportMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.edit_route_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }

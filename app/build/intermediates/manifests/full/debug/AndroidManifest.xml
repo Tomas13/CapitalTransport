@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kz.itsolutions.businformator"
-    android:versionCode="20170128"
-    android:versionName="2.07" >
+    android:versionCode="20300007"
+    android:versionName="3.4.2" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -26,7 +26,8 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE" />
-    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- For parse.com library -->
@@ -52,7 +53,7 @@
             android:name="kz.itsolutions.businformator.activities.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,8 +80,7 @@
             android:name="kz.itsolutions.businformator.activities.TrainingActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Sherlock.Light.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="kz.itsolutions.businformator.activities.AugmentedRealityActivity"
             android:screenOrientation="portrait"
@@ -172,6 +172,7 @@
         </receiver>
 
         <!-- Parse.com -->
+
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
@@ -187,18 +188,65 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-<!--                   IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name. -->
+                <!-- &lt;!&ndash; -->
+                <!-- IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name. -->
+                <!-- &ndash;&gt; -->
                 <category android:name="kz.itsolutions.businformator" />
             </intent-filter>
         </receiver>
 
-        <!-- replace @drawable/push_icon with your push icon identifier -->
+        <!-- &lt;!&ndash; replace @drawable/push_icon with your push icon identifier &ndash;&gt; -->
         <meta-data
             android:name="com.parse.push.notification_icon"
             android:resource="@mipmap/ic_launcher" />
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="360de9fa3e600708774d7f539a65f258c77a1569" />
+            android:value="343c4b7cc7a42bbfddf19852ef4556ff617fbc61" />
+
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+        <activity
+            android:name="com.google.android.gms.appinvite.PreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppInvite.Preview" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="kz.itsolutions.businformator.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

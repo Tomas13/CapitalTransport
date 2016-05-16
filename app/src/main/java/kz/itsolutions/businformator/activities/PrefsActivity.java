@@ -1,16 +1,16 @@
 package kz.itsolutions.businformator.activities;
 
+import android.app.ActionBar;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.MenuItem;
 
 import kz.itsolutions.businformator.R;
 
-public class PrefsActivity extends SherlockPreferenceActivity {
+public class PrefsActivity extends PreferenceActivity {
 
     String oldMap;
 
@@ -22,7 +22,7 @@ public class PrefsActivity extends SherlockPreferenceActivity {
         oldMap = PreferenceManager.getDefaultSharedPreferences(
                 this).getString(getString(R.string.key_map), "osm");
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setIcon(R.drawable.ic_menu_bus);
         actionBar.setDisplayHomeAsUpEnabled(true);
     }

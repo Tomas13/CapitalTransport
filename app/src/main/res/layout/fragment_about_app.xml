@@ -65,10 +65,12 @@
                 android:layout_below="@id/text">
 
                 <Button
+                    android:id="@+id/button_send_devs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_margin="36dp"
+                    android:textSize="14sp"
                     android:background="@drawable/button_send_email_to_devs"
                     android:text="Написать разработчикам"
                     android:textColor="@android:color/white"/>

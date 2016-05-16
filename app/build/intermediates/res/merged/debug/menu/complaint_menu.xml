@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/send"
           android:title="@string/send"
           android:icon="@android:drawable/ic_menu_send"
-          android:showAsAction="always" />
-</menu><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/menu/complaint_menu.xml -->
+          app:showAsAction="always" />
+</menu>

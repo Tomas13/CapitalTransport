@@ -168,7 +168,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public void updateRoutesFromInternetDaniyar() {
+  /*  public void updateRoutesFromInternetDaniyar() {
         HttpHelper httpHelper = new HttpHelper();
         JSONObject params = new JSONObject();
 
@@ -189,8 +189,8 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         }
 
     }
-
-    private void updateRoutesDaniyar(final JSONObject jsonObject) throws JSONException {
+*/
+  /*  private void updateRoutesDaniyar(final JSONObject jsonObject) throws JSONException {
         DBHelper dbHelper = DBHelper.getHelper();
         Dao<Route, Integer> dao = dbHelper.getRouteDao();
 
@@ -258,7 +258,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
             e.printStackTrace();
         }
     }
-
+*/
     private boolean updateRoutes(final JSONArray objects) {
         try {
             DBHelper dbHelper = DBHelper.getHelper();
@@ -295,6 +295,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
                 mAsyncTask.publishProgress(R.string.data_preparation, -1);
             }
             String data = AssetFile.readFromFile("bus_stops.json", context);
+//            String data = AssetFile.readFromFile("BusStopsWithID.json", context);
             if (!TextUtils.isEmpty(data)) {
                 populateBusStops(new JSONArray(data));
             }

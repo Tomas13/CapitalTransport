@@ -4,4 +4,4 @@
     <item android:state_activated="true" android:drawable="@color/route_pressed"></item>
     <item android:state_pressed="true" android:drawable="@color/route_pressed"></item>
     <item android:drawable="@color/drawer_bg"></item>
-</selector><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/drawable/list_item_bg_selector.xml -->
+</selector>

@@ -1,12 +1,12 @@
 package kz.itsolutions.businformator.activities;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.MenuItem;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import kz.itsolutions.businformator.adapters.RoutesAdapter;
 import kz.itsolutions.businformator.db.DBHelper;
 import kz.itsolutions.businformator.model.Route;
 
-public class RoutesActivity extends SherlockListActivity implements AdapterView.OnItemClickListener {
+public class RoutesActivity extends ListActivity implements AdapterView.OnItemClickListener {
 
     RoutesAdapter mAdapter;
 
@@ -24,8 +24,8 @@ public class RoutesActivity extends SherlockListActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         DBHelper.init(getApplicationContext());
         setContentView(R.layout.routes_activity);
-        getSupportActionBar().setTitle(getString(R.string.select_route));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setTitle(getString(R.string.select_route));
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         List<Route> routes = Route.getAllGroupByNumber(DBHelper.getHelper());
         mAdapter = new RoutesAdapter(this, routes, RoutesAdapter.TYPE.Widget);

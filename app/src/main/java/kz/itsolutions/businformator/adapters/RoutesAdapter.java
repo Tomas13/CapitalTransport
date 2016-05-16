@@ -27,7 +27,7 @@ public class RoutesAdapter extends ArrayAdapter<Route> {
     Context context;
     Activity activity;
     int layoutResourceId;
-    List<Route> data = null;
+    List<Route> data;
     protected RouteFilter mFilter;
     private ArrayList<Route> originalList;
     private TYPE mType;

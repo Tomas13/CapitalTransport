@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,9 @@ public class TransportFragment extends Fragment {
     private static final int NUM_PAGES = 10;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    private Fragment fragment;
+    CirclePageIndicator titleIndicator;
+    View rootView;
 
     public TransportFragment() {
         // Required empty public constructor
@@ -34,7 +38,7 @@ public class TransportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_trasport, container, false);
+        rootView = inflater.inflate(R.layout.fragment_trasport, container, false);
 
         mPager = (ViewPager) rootView.findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager());
@@ -42,12 +46,33 @@ public class TransportFragment extends Fragment {
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
         //Bind the title indicator to the adapter
-        CirclePageIndicator titleIndicator = (CirclePageIndicator) rootView.findViewById(R.id.tabPageIndicator);
+        titleIndicator = (CirclePageIndicator) rootView.findViewById(R.id.tabPageIndicator);
+
         if (titleIndicator != null) {
             titleIndicator.setViewPager(mPager);
         }
 
-        return  rootView;
+
+        return rootView;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        try {
+            mPager = (ViewPager) rootView.findViewById(R.id.pager);
+            mPagerAdapter = new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager());
+
+            mPager.setAdapter(mPagerAdapter);
+            mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        } catch (IllegalStateException e) {
+            Log.e("astana", "lines 65 " + e);
+        }
+//
+        titleIndicator.setCurrentItem(0);
+        fragment = new FirstSliderFragment();
     }
 
 
@@ -60,7 +85,6 @@ public class TransportFragment extends Fragment {
             super(fm);
         }
 
-        Fragment fragment;
 
         @Override
         public Fragment getItem(int position) {
@@ -96,7 +120,8 @@ public class TransportFragment extends Fragment {
                     fragment = new TenthSliderFragment();
                     break;
                 default:
-                    fragment = new SecondSliderFragment();
+
+                    fragment = new FirstSliderFragment();
                     break;
             }
             return fragment;

@@ -7,20 +7,23 @@
     android:background="@color/drawer_bg"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/view_line"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:layout_alignParentTop="true"
-        android:background="@color/tab_selected" />
+    <!--<View-->
+        <!--android:id="@+id/view_line"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="2dip"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:background="@color/tab_selected" />-->
 
     <EditText
+        android:layout_margin="8dp"
+        android:background="@drawable/search_edit_text"
         android:id="@+id/et_search_route"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_below="@+id/view_line"
-        android:drawableLeft="@drawable/ic_search"
+        android:drawableStart="@drawable/ic_search_white_24dp"
+        android:drawableLeft="@drawable/ic_search_white_24dp"
+        android:padding="3dp"
         android:hint="@string/search"
         android:singleLine="true"
         android:textColor="@color/app_white" />
@@ -38,4 +41,4 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
-</RelativeLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/right_drawer.xml -->
+</RelativeLayout>

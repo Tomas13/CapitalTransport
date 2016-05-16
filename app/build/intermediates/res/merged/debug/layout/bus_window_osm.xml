@@ -23,4 +23,4 @@
               android:textColor="@color/route_number_text_color"
               android:text="Описание"/>
 
-</LinearLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/bus_window_osm.xml -->
+</LinearLayout>

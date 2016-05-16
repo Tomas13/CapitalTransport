@@ -1,14 +1,15 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_item_save_route"
           android:title="@string/save"
-          android:showAsAction="never">
+          app:showAsAction="never">
     </item>
     <item android:id="@+id/menu_item_add_marker"
           android:title="@string/add_marker"
-          android:showAsAction="never">
+          app:showAsAction="never">
     </item>
     <item android:id="@+id/menu_item_remove_marker"
           android:title="@string/remove_marker"
-          android:showAsAction="never">
+          app:showAsAction="never">
     </item>
 </menu>

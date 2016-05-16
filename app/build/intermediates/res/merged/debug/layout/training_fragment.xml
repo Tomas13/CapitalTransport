@@ -12,4 +12,4 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageView"/>
 
-</RelativeLayout><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/layout/training_fragment.xml -->
+</RelativeLayout>

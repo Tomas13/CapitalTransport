@@ -5,4 +5,4 @@
         android:minHeight="40dp"
         android:minWidth="40dp"
         android:updatePeriodMillis="2400000">
-</appwidget-provider><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/xml/widget_metadata.xml -->
+</appwidget-provider>

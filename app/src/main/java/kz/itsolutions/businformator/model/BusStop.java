@@ -29,12 +29,23 @@ import java.util.List;
 @DatabaseTable
 public class BusStop implements Serializable {
 
-    public static final String FIELD_ID = "_id";
-    public static final String FIELD_NAME = "title";
-    public static final String FIELD_SERVER_ID = "id";
-    public static final String FIELD_DESCRIPTION = "desc";
-    public static final String FIELD_LAT = "y";
-    public static final String FIELD_LON = "x";
+
+    public static final String FIELD_ID = "_id";    //id
+    public static final String FIELD_NAME = "title";   //stopTitle
+    public static final String FIELD_SERVER_ID = "id";      //stopID
+    public static final String FIELD_DESCRIPTION = "desc";   //""
+    public static final String FIELD_LAT = "y";     //latitiude
+    public static final String FIELD_LON = "x";     //longitude
+
+
+/*
+    public static final String FIELD_ID = "id";
+    public static final String FIELD_NAME = "stopTitle";
+    public static final String FIELD_SERVER_ID = "stopID";
+    public static final String FIELD_DESCRIPTION = "";
+    public static final String FIELD_LAT = "stopLatitude";
+    public static final String FIELD_LON = "stopLongitude";*/
+
 
     @DatabaseField(columnName = FIELD_ID, generatedId = true)
     private long id;

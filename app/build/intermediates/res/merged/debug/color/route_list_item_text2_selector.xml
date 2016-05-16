@@ -3,4 +3,4 @@
     <item android:state_activated="true" android:color="@color/app_white"></item>
     <item android:state_pressed="true" android:color="@color/app_white"></item>
     <item android:color="@color/app_white"></item>
-</selector><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/color/route_list_item_text2_selector.xml -->
+</selector>

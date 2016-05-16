@@ -5,4 +5,4 @@
     <item android:id="@+id/showZoomBar"
           android:title="@string/hide_zoom_bar">
     </item>
-</menu><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/menu/augmented_reality_menu.xml -->
+</menu>

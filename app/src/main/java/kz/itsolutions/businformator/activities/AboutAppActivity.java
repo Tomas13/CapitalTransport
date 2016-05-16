@@ -3,28 +3,31 @@ package kz.itsolutions.businformator.activities;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
 
 import kz.itsolutions.businformator.R;
 
-public class AboutAppActivity extends SherlockActivity {
+public class AboutAppActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_acivity);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setIcon(R.drawable.ic_launcher);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setIcon(R.drawable.ic_launcher);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         try {
             ((TextView) findViewById(R.id.tv_version))
                     .setText(this.getPackageManager().getPackageInfo(
                             this.getPackageName(), 0).versionName);
         } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
 
 //        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {

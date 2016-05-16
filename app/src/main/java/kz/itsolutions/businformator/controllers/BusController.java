@@ -1,6 +1,7 @@
 package kz.itsolutions.businformator.controllers;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.apache.http.HttpException;
 import org.json.JSONArray;
@@ -21,6 +22,13 @@ import kz.itsolutions.businformator.utils.Consts;
 import kz.itsolutions.businformator.utils.HttpHelper;
 
 public class BusController {
+
+
+//    static boolean hello;
+
+//    public static boolean getHello(){
+//        return hello;
+//    }
 
     public static List<Bus> getRouteBuses(Route route) throws HttpException, IOException, JSONException {
         List<Bus> buses = new ArrayList<>();
@@ -63,7 +71,12 @@ public class BusController {
         try {
             //String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
             String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW);
-            //Log.d("DANIYAR", response);
+
+//            hello = !response.equals("");
+//            Log.d("DANIYAR", hello + "");
+
+
+
             JSONObject jsonObject = new JSONObject(response);
 
             long myMonkeyId = 0;

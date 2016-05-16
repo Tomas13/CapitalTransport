@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <kz.itsolutions.businformator.widgets.MyTextView
-        android:id="@+id/text_fragment_schedules_custom"
-        android:layout_width="wrap_content"
+    <kz.itsolutions.businformator.widgets.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/schedule_frag_item"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text=""
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:textSize="22sp"
-        android:textColor="@color/app_white"/>
-</LinearLayout>
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="35dp"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:text="sdfsd"
+        android:textColor="@color/app_white"
+        android:textSize="22sp" />
+</RelativeLayout>

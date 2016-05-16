@@ -69,4 +69,4 @@
                 android:drawable="@drawable/preloader_12"
                 android:scaleGravity="center"/>
     </item>
-</animation-list><!-- From: file:/D:/OTG/AstroBus/astrabus/app/src/main/res/drawable/progress_bar.xml -->
+</animation-list>

@@ -191,95 +191,95 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         // Left drawer
         mLeftDrawer = findViewById(R.id.left_drawer);
-
-        btnPointToClear = (ImageButton) findViewById(R.id.btn_point_to_clear);
-        btnPointFromClear = (ImageButton) findViewById(R.id.btn_point_from_clear);
-        btnPointToOnMap = (ImageButton) findViewById(R.id.btn_point_to_on_map);
-        btnPointFromOnMap = (ImageButton) findViewById(R.id.btn_point_from_on_map);
+//
+//        btnPointToClear = (ImageButton) findViewById(R.id.btn_point_to_clear);
+//        btnPointFromClear = (ImageButton) findViewById(R.id.btn_point_from_clear);
+//        btnPointToOnMap = (ImageButton) findViewById(R.id.btn_point_to_on_map);
+//        btnPointFromOnMap = (ImageButton) findViewById(R.id.btn_point_from_on_map);
 
         btnPointToClear.setOnClickListener(this);
         btnPointFromClear.setOnClickListener(this);
         btnPointToOnMap.setOnClickListener(this);
         btnPointFromOnMap.setOnClickListener(this);
-
-        etPointFrom = (AutoCompleteTextView) findViewById(R.id.et_point_from);
-        etPointFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BusStop busStop = mBusStopsPointFromAdapter.getItem(position);
-                setMarkerPointFrom(busStop.getName(), busStop.getPointOsm(), true);
-            }
-        });
-        etPointFrom.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() != 0) {
-                    btnPointFromClear.setVisibility(View.VISIBLE);
-                    btnPointFromOnMap.setVisibility(View.GONE);
-                } else {
-                    btnPointFromClear.setVisibility(View.GONE);
-                    btnPointFromOnMap.setVisibility(View.VISIBLE);
-                    if (mMarkerPointFrom != null) {
-                        mMarkerPointFrom.remove(mMapView);
-                        mMarkerPointFrom = null;
-                        mMapView.invalidate();
-                    }
-                    findRoutes();
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        etPointTo = (AutoCompleteTextView) findViewById(R.id.et_point_to);
-        etPointTo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BusStop busStop = mBusStopsPointToAdapter.getItem(position);
-                setMarkerPointTo(busStop.getName(), busStop.getPointOsm(), true);
-            }
-        });
-        etPointTo.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() != 0) {
-                    btnPointToClear.setVisibility(View.VISIBLE);
-                    btnPointToOnMap.setVisibility(View.GONE);
-                } else {
-                    btnPointToClear.setVisibility(View.GONE);
-                    btnPointToOnMap.setVisibility(View.VISIBLE);
-                    if (mMarkerPointTo != null) {
-                        mMarkerPointTo.remove(mMapView);
-                        mMarkerPointTo = null;
-                        mMapView.invalidate();
-                    }
-                    findRoutes();
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+//
+//        etPointFrom = (AutoCompleteTextView) findViewById(R.id.et_point_from);
+//        etPointFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                BusStop busStop = mBusStopsPointFromAdapter.getItem(position);
+//                setMarkerPointFrom(busStop.getName(), busStop.getPointOsm(), true);
+//            }
+//        });
+//        etPointFrom.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                if (s.length() != 0) {
+//                    btnPointFromClear.setVisibility(View.VISIBLE);
+//                    btnPointFromOnMap.setVisibility(View.GONE);
+//                } else {
+//                    btnPointFromClear.setVisibility(View.GONE);
+//                    btnPointFromOnMap.setVisibility(View.VISIBLE);
+//                    if (mMarkerPointFrom != null) {
+//                        mMarkerPointFrom.remove(mMapView);
+//                        mMarkerPointFrom = null;
+//                        mMapView.invalidate();
+//                    }
+//                    findRoutes();
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
+//        etPointTo = (AutoCompleteTextView) findViewById(R.id.et_point_to);
+//        etPointTo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                BusStop busStop = mBusStopsPointToAdapter.getItem(position);
+//                setMarkerPointTo(busStop.getName(), busStop.getPointOsm(), true);
+//            }
+//        });
+//        etPointTo.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                if (s.length() != 0) {
+//                    btnPointToClear.setVisibility(View.VISIBLE);
+//                    btnPointToOnMap.setVisibility(View.GONE);
+//                } else {
+//                    btnPointToClear.setVisibility(View.GONE);
+//                    btnPointToOnMap.setVisibility(View.VISIBLE);
+//                    if (mMarkerPointTo != null) {
+//                        mMarkerPointTo.remove(mMapView);
+//                        mMarkerPointTo = null;
+//                        mMapView.invalidate();
+//                    }
+//                    findRoutes();
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
         //mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, findViewById(R.id.left_drawer));
 
-        listViewFoundRoutes = (ListView) findViewById(R.id.lv_routes);
+//        listViewFoundRoutes = (ListView) findViewById(R.id.lv_routes);
 
         mPagerAdapter = new MyPagerAdapter(this);
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -817,34 +817,34 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
                 mDrawerLayout.closeDrawer(mLeftDrawer);
                 isCustomLocationMode = false;
                 break;
-            case R.id.btn_point_from_on_map:
-                isFindRoutesMode = true;
-                currentPointType = PointType.FROM;
-                resetTimersAndClearMap();
-                mDrawerLayout.closeDrawer(mLeftDrawer);
-                // TODO
-                if (mMarkerPointTo != null) {
-                    //setMarkerPointTo(mMarkerPointTo.title, mMarkerPointTo.latitude, mMarkerPointTo.longitude, false);
-                }
-                showToast(getString(R.string.set_point_from));
-                break;
-            case R.id.btn_point_to_on_map:
-                isFindRoutesMode = true;
-                currentPointType = PointType.TO;
-                resetTimersAndClearMap();
-                mDrawerLayout.closeDrawer(mLeftDrawer);
-                 //TODO
-                if (mMarkerPointFrom != null) {
-                    //setMarkerPointFrom(mMarkerPointFrom.title, mMarkerPointFrom.latitude, mMarkerPointFrom.longitude, false);
-                }
-                showToast(getString(R.string.set_point_to));
-                break;
-            case R.id.btn_point_to_clear:
-                etPointTo.setText("");
-                break;
-            case R.id.btn_point_from_clear:
-                etPointFrom.setText("");
-                break;
+//            case R.id.btn_point_from_on_map:
+//                isFindRoutesMode = true;
+//                currentPointType = PointType.FROM;
+//                resetTimersAndClearMap();
+//                mDrawerLayout.closeDrawer(mLeftDrawer);
+//                // TODO
+//                if (mMarkerPointTo != null) {
+//                    //setMarkerPointTo(mMarkerPointTo.title, mMarkerPointTo.latitude, mMarkerPointTo.longitude, false);
+//                }
+//                showToast(getString(R.string.set_point_from));
+//                break;
+//            case R.id.btn_point_to_on_map:
+//                isFindRoutesMode = true;
+//                currentPointType = PointType.TO;
+//                resetTimersAndClearMap();
+//                mDrawerLayout.closeDrawer(mLeftDrawer);
+//                 //TODO
+//                if (mMarkerPointFrom != null) {
+//                    //setMarkerPointFrom(mMarkerPointFrom.title, mMarkerPointFrom.latitude, mMarkerPointFrom.longitude, false);
+//                }
+//                showToast(getString(R.string.set_point_to));
+//                break;
+//            case R.id.btn_point_to_clear:
+//                etPointTo.setText("");
+//                break;
+//            case R.id.btn_point_from_clear:
+//                etPointFrom.setText("");
+//                break;
         }
     }
 
@@ -869,7 +869,7 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
             Route route = (Route) parent.getAdapter().getItem(position);
             mSelectedRoutes = null;
             hashMapMarkerBusStops.clear();
-            selectRoute(route, parent.getId() == R.id.lv_routes);
+            selectRoute(route, parent.getId() == R.id.lv_routes_menu);
         }
     }
 

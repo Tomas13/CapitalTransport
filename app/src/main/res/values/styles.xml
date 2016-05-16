@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <style name="AppTheme" parent="Theme.Sherlock.Light.DarkActionBar">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
         <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
 
@@ -9,12 +11,18 @@
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
 
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
-    <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+    <style name="Widget.Styled.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@color/action_bar_bg</item>
         <item name="android:background">@color/action_bar_bg</item>
 
+        <!--<item name="height">50dp</item>-->
+        <!--<item name="height">?attr/actionBarSize</item>-->
         <item name="android:titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
         <item name="titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
 
@@ -25,12 +33,16 @@
            <item name="android:backgroundSplit">@drawable/bg_striped_split</item>-->
     </style>
 
-    <style name="AppTheme.ActionBar.TitleTextStyle" parent="TextAppearance.Sherlock.Widget.ActionBar.Title">
+    <style name="AppTheme.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="AppTheme.ActionBar.SubTitleTextStyle" parent="TextAppearance.Sherlock.Widget.ActionBar.Subtitle">
+    <style name="AppTheme.ActionBar.SubTitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+        <item name="android:textSize">12sp</item>
+
         <item name="android:textColor">@android:color/white</item>
     </style>
 
