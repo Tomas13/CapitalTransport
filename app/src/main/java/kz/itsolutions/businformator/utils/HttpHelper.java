@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 
+
 public class HttpHelper {
 
     public String getJson(String url, JSONObject jsonObj) throws HttpException, IOException {
@@ -134,6 +135,9 @@ public class HttpHelper {
         } catch (IOException e) {
             throw e;
         }
+
         return builder.toString();
     }
+
+
 }

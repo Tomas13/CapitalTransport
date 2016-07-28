@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "356838896948",
+    "firebase_url": "https://astrabus-a7529.firebaseio.com",
+    "project_id": "astrabus-a7529",
+    "storage_bucket": "astrabus-a7529.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356838896948:android:5c1faf8eed4239d8",
+        "android_client_info": {
+          "package_name": "kz.itsolutions.businformator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356838896948-bfutgvh8695lujn8703jbgfchi0o2p85.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "356838896948-53p388ijh3tkkkjs3u5s4qtb4cl3d7ro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTNDNa5V0HSnDRCVQ_l4GsRvSwY_rbCp0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+//            "tracking_id": "UA-79238989-2"
+            "tracking_id": "UA-73291833-3"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

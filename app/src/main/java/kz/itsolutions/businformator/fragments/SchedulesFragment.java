@@ -66,7 +66,7 @@ public class SchedulesFragment extends Fragment {
                 AssetManager assetManager = getActivity().getAssets();
                 InputStream ims = null;
                 try {
-                    ims = assetManager.open("Aliya.json");
+                    ims = assetManager.open("July_Schedule.json");
 
                     InputStreamReader inputStreamReader = new InputStreamReader(ims);
                     BufferedReader reader = new BufferedReader(inputStreamReader);

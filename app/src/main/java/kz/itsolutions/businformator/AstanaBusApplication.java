@@ -1,22 +1,41 @@
 package kz.itsolutions.businformator;
 
-import android.*;
-import android.Manifest;
+import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
+import android.text.TextUtils;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
 import io.fabric.sdk.android.Fabric;
-import com.parse.Parse;
-import com.parse.PushService;
-
-import kz.itsolutions.businformator.activities.SplashActivity;
 
 
 public class AstanaBusApplication extends MultiDexApplication {
+
+    private Tracker mTracker;
+
+    /**
+     * Gets the default {@link Tracker} for this {@link Application}.
+     *
+     * @return tracker
+     */
+    synchronized public Tracker getDefaultTracker() {
+        if (mTracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+//             To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+            mTracker = analytics.newTracker(R.xml.global_tracker);
+        }
+        return mTracker;
+
+    }
+
 
     public AstanaBusApplication() {
     }
@@ -30,12 +49,44 @@ public class AstanaBusApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-//        Fabric.with(this, new Answers(), new Crashlytics());
+        mInstance = this;
 
-        // Initialize the Parse SDK.
-        Parse.initialize(this, "FfVWcrEn0AF7QnazZ6zEUzhMTpidv9vfU5ZXesuW", "V520JX0ABeonV609n0DEqXnhnldN1MfsbyPiSQCL");
-        Parse.setLogLevel(Parse.LOG_LEVEL_NONE);
-        // Specify an Activity to handle all pushes by default.
-        PushService.setDefaultPushCallback(this, SplashActivity.class);
+        Fabric.with(this, new Answers(), new Crashlytics());
+
+    }
+
+
+    public static final String TAG = AstanaBusApplication.class.getSimpleName();
+
+    private RequestQueue mRequestQueue;
+
+    private static AstanaBusApplication mInstance;
+
+    public static synchronized AstanaBusApplication getInstance() {
+        return mInstance;
+    }
+
+    public RequestQueue getRequestQueue() {
+        if (mRequestQueue == null) {
+            mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+
+        return mRequestQueue;
+    }
+
+    public <T> void addToRequestQueue(Request<T> req, String tag) {
+        req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
+        getRequestQueue().add(req);
+    }
+
+    public <T> void addToRequestQueue(Request<T> req) {
+        req.setTag(TAG);
+        getRequestQueue().add(req);
+    }
+
+    public void cancelPendingRequests(Object tag) {
+        if (mRequestQueue != null) {
+            mRequestQueue.cancelAll(tag);
+        }
     }
 }

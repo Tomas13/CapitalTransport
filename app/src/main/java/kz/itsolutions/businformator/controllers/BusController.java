@@ -1,7 +1,9 @@
 package kz.itsolutions.businformator.controllers;
 
-import android.text.TextUtils;
 import android.util.Log;
+
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
 
 import org.apache.http.HttpException;
 import org.json.JSONArray;
@@ -24,58 +26,17 @@ import kz.itsolutions.businformator.utils.HttpHelper;
 public class BusController {
 
 
-//    static boolean hello;
 
-//    public static boolean getHello(){
-//        return hello;
-//    }
-
-    public static List<Bus> getRouteBuses(Route route) throws HttpException, IOException, JSONException {
-        List<Bus> buses = new ArrayList<>();
-        HttpHelper httpHelper = new HttpHelper();
-        try {
-            JSONObject params = new JSONObject();
-            params.put("key", RouteController.sGenerateApiKey());
-            String response = httpHelper.getJson(Consts.API_SERVER_URL + "action=buses&number=" + route.getNumber(), params);
-            try {
-                JSONArray jsonArray;
-                JSONObject jsonObject;
-                if (!TextUtils.isEmpty(response)) {
-                    jsonArray = new JSONArray(response);
-                    if (jsonArray.length() <= 5) {
-                        return getRouteBusesFromInfoBus(httpHelper, route);
-                    }
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        jsonObject = jsonArray.getJSONObject(i);
-                        buses.add(Bus.fromJson(jsonObject));
-                    }
-                }
-
-            } catch (JSONException e) {
-                return getRouteBusesFromInfoBus(httpHelper, route);
-            }
-
-        } catch (HttpException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return buses;
-    }
-
+    //method when one route is chosen
     public static List<Bus> getRouteBusesDaniyar(Route route) throws HttpException, IOException, JSONException{
         ArrayList<Bus> buses = new ArrayList<>();
         HttpHelper httpHelper = new HttpHelper();
-        JSONObject params = new JSONObject();
 
         try {
-            //String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL);
-            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW);
-
-//            hello = !response.equals("");
-//            Log.d("DANIYAR", hello + "");
+            String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW + "/" + route.getNumber());
 
 
+            Log.d("astanaBusController", "response is " + response);
 
             JSONObject jsonObject = new JSONObject(response);
 
@@ -83,28 +44,8 @@ public class BusController {
 
             for (Iterator<String> iter = jsonObject.keys(); iter.hasNext();) {
                 String key = iter.next();
-              //  Log.d("DANIYAR", key);
-
-
 
                 JSONObject busJson = jsonObject.getJSONObject(key);
-
-                String routeNumberStr = busJson.getString("route");
-
-                int routeNumber = -1;
-
-                try {
-                    routeNumberStr = routeNumberStr.replace("\"","");
-                    routeNumber = Integer.parseInt(routeNumberStr);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    continue;
-                }
-
-                if (routeNumber != route.getNumber()) {
-                    continue;
-                }
-
 
                 String latitudeStr = busJson.getString("latitude");
                 double latitude = Double.parseDouble(latitudeStr);
@@ -119,7 +60,7 @@ public class BusController {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 Date time = format.parse(timeStr);
                 //Log.d("TIME TIME", time.toString());
-                Bus bus = new Bus(0, routeNumber, (int) route.getId(), "", /*Long.parseLong(key)*/ myMonkeyId, time.getTime(), 0.0, latitude, longitude, angle);
+                Bus bus = new Bus(0, route.getNumber(), (int) route.getId(), "", /*Long.parseLong(key)*/ myMonkeyId, time.getTime(), 0.0, latitude, longitude, angle);
 
                 myMonkeyId++;
 
@@ -141,23 +82,7 @@ public class BusController {
         return buses;
     }
 
-    private static List<Bus> getRouteBusesFromInfoBus(HttpHelper httpHelper, Route route) throws JSONException, IOException, HttpException {
-        String response = httpHelper.getInfoBusJson(String.format(
-                "http://infobus.kz/cities/1/routes/%s/busses", route.getBusReportRouteId()));
-        JSONArray jsonArray = new JSONArray(response);
-        List<Bus> buses = new ArrayList<>();
-        JSONObject jsonObject;
-        if (jsonArray.length() > buses.size()) {
-            buses.clear();
-            for (int i = 0; i < jsonArray.length(); i++) {
-                jsonObject = jsonArray.getJSONObject(i);
-                if (!jsonObject.getBoolean("offline")) {
-                    buses.add(Bus.fromInfoBusJson(route, jsonObject));
-                }
-            }
-        }
-        return buses;
-    }
+
 
     @Deprecated
     public static ArrayList<Bus> getBusInfoByRouteNumber(int number) throws HttpException, IOException, JSONException {
@@ -252,7 +177,7 @@ public class BusController {
                 }
 
                 for(Route route2 : route){
-                    if (routeNumber == route2.getNumber()) {
+                    if (route2 != null && routeNumber == route2.getNumber()) {
                         String latitudeStr = busJson.getString("latitude");
                         double latitude = Double.parseDouble(latitudeStr);
 

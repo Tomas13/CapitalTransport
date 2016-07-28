@@ -3,8 +3,10 @@
     <string-array name="left_menu">
         <item>МАРШРУТЫ</item>
         <item>РАСПИСАНИЕ</item>
+        <item>НОВОСТИ</item>
         <item>ТРАНСПОРТ СТОЛИЦЫ</item>
         <item>КОНТАКТ-ЦЕНТР</item>
+        <item>ОТПРАВИТЬ ЖАЛОБУ</item>
         <item>О ПРИЛОЖЕНИИ</item>
     </string-array>
     <dimen name="padding_from">50dp</dimen>
@@ -34,6 +36,9 @@
     <string name="choice_picture">From the gallery</string>
     <string name="click_on_map">Note on the map a place to see the next  bus stops</string>
     <string name="click_on_map_for_add_marker">Click on a place on the map to add a new marker</string>
+    <string name="complaint_hint">Опишите вашу жалобу, как можно полнее.
+        Укажите, если запомнили номер автобуса, направление движения, остановки и время -
+    это поможет нам идентифицировать нарушителя лучше</string>
     <string name="complaint_sent">Complaint sent</string>
     <string name="contact_centr">В Астане функционирует Контакт-центр по работе общественного транспорта города Астаны.</string>
     <string name="data_preparation">Data preparation</string>
@@ -136,6 +141,7 @@
     <string name="fourth_slider_title">Центр квалификации специалистов транспорта города Астаны</string>
     <string name="from">From</string>
     <string name="from_colon">From:</string>
+    <string name="ga_trackingId">UA-73291833-3</string>
     <string name="hide_radar">Hide radar</string>
     <string name="hide_zoom_bar">Hide Zoom Bar</string>
     <string name="history">History</string>

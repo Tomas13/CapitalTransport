@@ -12,8 +12,10 @@
     <string-array name="left_menu">
         <item>МАРШРУТЫ</item>
         <item>РАСПИСАНИЕ</item>
+        <item>НОВОСТИ</item>
         <item>ТРАНСПОРТ СТОЛИЦЫ</item>
         <item>КОНТАКТ-ЦЕНТР</item>
+        <item>ОТПРАВИТЬ ЖАЛОБУ</item>
         <item>О ПРИЛОЖЕНИИ</item>
     </string-array>
 </resources>

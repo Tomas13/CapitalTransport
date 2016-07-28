@@ -1,7 +1,6 @@
 package kz.itsolutions.businformator.activities;
 
 import android.Manifest;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.appwidget.AppWidgetManager;
@@ -19,18 +18,17 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -42,12 +40,10 @@ import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -58,10 +54,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.identity.intents.AddressConstants;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -75,11 +71,21 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.apache.http.HttpException;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -89,6 +95,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import kz.itsolutions.businformator.AstanaBusApplication;
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.adapters.AtoBAdapter;
 import kz.itsolutions.businformator.adapters.BusStopsAdapter;
@@ -100,7 +107,9 @@ import kz.itsolutions.businformator.controllers.BusStopController;
 import kz.itsolutions.businformator.controllers.RouteController;
 import kz.itsolutions.businformator.db.DBHelper;
 import kz.itsolutions.businformator.fragments.AboutAppFragment;
+import kz.itsolutions.businformator.fragments.ComplaintsFragment;
 import kz.itsolutions.businformator.fragments.ContactCentrFragment;
+import kz.itsolutions.businformator.fragments.NewsFragment;
 import kz.itsolutions.businformator.fragments.ScheduleInsideFragment;
 import kz.itsolutions.businformator.fragments.SchedulesFragment;
 import kz.itsolutions.businformator.fragments.TransportFragment;
@@ -205,12 +214,49 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     AtoBAdapter atoBAdapter;
     LinearLayout linearLayoutAtoB;
 
-
+    Tracker mTracker;
     Fragment fragment;
     Fragment scheduleFragment;
+    Fragment newsFragment;
     Fragment scheduleInsideFragment;
     Fragment transportFragment;
     Fragment contactCentrFragment;
+    Fragment complaintsFragment;
+    private String urlJsonObj = "http://crm.astanalrt.com/notifications/savedevice";
+
+    private void makePostRequest(String token) {
+
+
+        HttpClient httpClient = new DefaultHttpClient();
+        HttpPost httpPost = new HttpPost(urlJsonObj);
+
+        //Post Data
+        List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(2);
+        nameValuePair.add(new BasicNameValuePair("token", token));
+        nameValuePair.add(new BasicNameValuePair("device", "0"));
+
+        //Encoding POST data
+        try {
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
+        } catch (UnsupportedEncodingException e) {
+            // log exception
+            e.printStackTrace();
+        }
+
+        //making POST request.
+        try {
+            HttpResponse response = httpClient.execute(httpPost);
+            // write response to log
+//            Log.d("Http Post Response:", response.toString());
+        } catch (ClientProtocolException e) {
+            // Log exception
+            e.printStackTrace();
+        } catch (IOException e) {
+            // Log exception
+            e.printStackTrace();
+        }
+
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -240,6 +286,16 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    private void makePostRequestOnNewThread() {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                makePostRequest(FirebaseInstanceId.getInstance().getToken());
+            }
+        });
+        t.start();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -257,6 +313,21 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
 
 
+        Log.d("EEEE", "token = " + FirebaseInstanceId.getInstance().getToken());
+
+
+        SharedPreferences sp = getSharedPreferences("push", Activity.MODE_PRIVATE);
+        if (!sp.contains("fcm_token")) {
+            String token = FirebaseInstanceId.getInstance().getToken();
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("fcm_token", token);
+            editor.commit();
+            makePostRequestOnNewThread();
+        } else {
+//            Toast.makeText(MapGoogleActivity.this, "do not send", Toast.LENGTH_SHORT).show();
+
+        }
+
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         DBHelper.init(getApplicationContext());
         mDbHelper = DBHelper.getHelper();
@@ -265,8 +336,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.map_google_activity);
 
         hashMapMarkerBusStops = new HashMap<>();
-//        EasyTracker.getInstance().setContext(this);
-//        mTracker = EasyTracker.getTracker();
+
+        // Obtain the shared Tracker instance.
+        AstanaBusApplication astanaBusApplication = (AstanaBusApplication) getApplication();
+        mTracker = astanaBusApplication.getDefaultTracker();
+
+
         boolean needShowWelcomeMessage = getIntent().getBooleanExtra(KEY_SHOW_WELCOME_MESSAGE, false);
         tvWeather = (TextView) findViewById(R.id.tv_weather_term);
         llWelcomeMessage = (LinearLayout) findViewById(R.id.ll_welcome_message);
@@ -344,7 +419,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 isFindRoutesMode = true;
                 currentPointType = PointType.FROM;
                 resetTimersAndClearMap();
-//                mDrawerLayout.closeDrawer(mLeftDrawer);
                 if (mMarkerPointTo != null) {
                     setMarkerPointTo(mMarkerPointTo.getPosition(), false);
                 }
@@ -362,7 +436,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 isFindRoutesMode = true;
                 currentPointType = PointType.TO;
                 resetTimersAndClearMap();
-//                mDrawerLayout.closeDrawer(mLeftDrawer);
                 if (mMarkerPointFrom != null) {
                     setMarkerPointFrom(mMarkerPointFrom.getPosition(), false);
                 }
@@ -417,12 +490,46 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             Log.e(LOG_TAG, "set adapter line:470 - " + e);
         }
 
-
         fragment = new AboutAppFragment();
         scheduleFragment = new SchedulesFragment();
+        newsFragment = new NewsFragment();
         scheduleInsideFragment = new ScheduleInsideFragment();
         transportFragment = new TransportFragment();
         contactCentrFragment = new ContactCentrFragment();
+        complaintsFragment = new ComplaintsFragment();
+
+        if (getCurrentFragment() != fragment && getCurrentFragment() != scheduleFragment
+                || getCurrentFragment() != newsFragment && getCurrentFragment() != scheduleInsideFragment &&
+                getCurrentFragment() != transportFragment && getCurrentFragment() != contactCentrFragment &&
+                getCurrentFragment() != complaintsFragment) {
+
+
+            mActionBar.setSubtitle("");
+
+            isRoutesMenu = true;
+            showWeather();
+
+//            mDrawerLayout.closeDrawer(mLeftDrawer);
+//            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, mRightDrawer);
+
+//            mDrawerLayout.openDrawer(mRightDrawer);
+//            ViewGroup.LayoutParams params0 = mMapFragment.getView().getLayoutParams();
+//            params0.height = FrameLayout.LayoutParams.MATCH_PARENT;
+//            params0.width = FrameLayout.LayoutParams.MATCH_PARENT;
+//            mMapFragment.getView().setLayoutParams(params0);
+
+
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
+            getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
+            getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
+            getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
+            getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
+            getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
+
+
+        }
+
 
         try {
             listviewLeftMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -454,6 +561,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                             getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
                             getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
                             getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
+                            getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
+                            getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
 
                             break;
                         case 1: //schedule
@@ -473,7 +582,23 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                                     .replace(R.id.container, scheduleFragment).commit();
                             break;
 
-                        case 2: //transport
+                        case 2: //news
+
+                            getSupportFragmentManager().popBackStack();
+                            resetTimersAndClearMap();
+
+                            mActionBar.setSubtitle("НОВОСТИ");
+
+                            hideMapFragment();
+                            hideWeather();
+
+                            mDrawerLayout.closeDrawer(mLeftDrawer);
+                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+
+                            getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
+                            break;
+
+                        case 3: //transport
 
                             getSupportFragmentManager().popBackStack();
                             resetTimersAndClearMap();
@@ -489,7 +614,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                             getSupportFragmentManager().beginTransaction().replace(R.id.container, transportFragment).commit();
                             break;
 
-                        case 3: //contact centr
+                        case 4: //contact centr
 
                             getSupportFragmentManager().popBackStack();
                             resetTimersAndClearMap();
@@ -504,7 +629,21 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                             getSupportFragmentManager().beginTransaction().replace(R.id.container, contactCentrFragment).commit();
                             break;
 
-                        case 4: //about app
+                        case 5: //complaints
+
+                            getSupportFragmentManager().popBackStack();
+                            resetTimersAndClearMap();
+
+                            mActionBar.setSubtitle("ЖАЛОБЫ");
+
+                            hideMapFragment();
+                            hideWeather();
+
+                            mDrawerLayout.closeDrawer(mLeftDrawer);
+                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+                            getSupportFragmentManager().beginTransaction().replace(R.id.container, complaintsFragment).commit();
+                            break;
+                        case 6: //about app
 
                             getSupportFragmentManager().popBackStack();
                             resetTimersAndClearMap();
@@ -521,7 +660,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                     }
                 }
             });
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.d(LOG_TAG, e.getMessage());
         }
 
@@ -720,6 +859,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                     .findFragmentById(R.id.map));
             setMapTransparent((ViewGroup) mMapFragment.getView());
             mMap = mMapFragment.getMap();
+
             mMap.getUiSettings().setRotateGesturesEnabled(false);
             mMap.setOnMarkerDragListener(this);
             mMap.setOnMapClickListener(this);
@@ -737,7 +877,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             }
             mMap.setMyLocationEnabled(true);
             mMap.setOnCameraChangeListener(this);
-
 
             setDefaultCameraPosition();
             Bundle bundle = getIntent().getExtras();
@@ -788,6 +927,18 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
 
 
+        //PUSH NOTIFICATIONS
+        String menuFragment = getIntent().getStringExtra("menuFragment");
+        if (menuFragment != null) {
+            if (menuFragment.equals("favoritesMenuItem")) {
+                showNewsFragment();
+            }
+        } else {
+//            StandardFragment standardFragment = new StandardFragment();
+//            fragmentTransaction.replace(android.R.id.content, standardFragment);
+        }
+        //END PUSH
+
     }
 
 
@@ -814,6 +965,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+
     // показываем Астану
     private void setDefaultCameraPosition() {
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(Consts.DEFAULT_CITY_LOCATION, 11);
@@ -822,9 +974,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
         if (data == null) {
             return;
         }
+
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_FORECAST_CODE:
@@ -1090,7 +1245,9 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         mSelectedRoute = route;
         mSelectedBusStop = null;
         isRouteChanged = true;
-        getSupportActionBar().setSubtitle(mSelectedRoute.toString());
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setSubtitle(mSelectedRoute.toString());
+        }
         mDrawerLayout.closeDrawer(mRightDrawer);
         mDrawerLayout.closeDrawer(mLeftDrawer);
 
@@ -1101,9 +1258,9 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                         mSelectedRoute.linkedRoute.getServerId()));
             }
         }
-        mMap.clear();
-//        clearAllMapMarkers();
 
+
+        mMap.clear();
 
         drawRouteLineGoogle(mSelectedRoute, removeFindMarkers);
         updateLastSeenDate(route);
@@ -1209,21 +1366,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         findViewById(R.id.indicator).setLayoutParams(new TableLayout.LayoutParams(ViewPager.LayoutParams.WRAP_CONTENT, 0, weight));*/
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        //Crashlytics.start(this);
-        //Fabric.with(this, new Crashlytics());
-        //EasyTracker.getInstance().activityStart(this);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        //Crashlytics.start(this);
-        //Fabric.with(this, new Crashlytics());
-        //EasyTracker.getInstance().activityStop(this);
-    }
 
     @Override
     public void onDestroy() {
@@ -1270,6 +1412,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onResume() {
         super.onResume();
+
+        String name = "MapGoogleActivity";
+        Log.i(LOG_TAG, "Setting screen name: " + name);
+        mTracker.setScreenName(name);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+
         mIsRouteStatisticEnabled = mSharedPreferences.getBoolean(getString(R.string.key_route_statistic), false);
 
         if (isFindRoutesMode)
@@ -1308,7 +1456,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     private void stopBusTimer() {
         if (busTimer != null) {
             busTimer.cancel();
-//            busTimer = null;
+            busTimer = null;
             Log.v(LOG_TAG, "stop BusTimer");
         }
     }
@@ -1361,9 +1509,11 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     private void TimerMethod(Route route) {
         try {
             if (route == null) {
+                mBuses = null;  //28.07
                 stopBusTimer();
                 return;
             }
+
             mBuses = BusController.getRouteBusesDaniyar(route);
             this.runOnUiThread(BusTimerTick);
         } catch (HttpException | IOException e) {
@@ -1431,13 +1581,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         public void run() {
             Log.v(LOG_TAG, String.format("bus timer tick. Selected route is %s",
                     mSelectedRoute != null ? mSelectedRoute.toString() : "null"));
-//            if (mSelectedRoute == null) {
-//                resetTimersAndClearMap();
-//            } else {
             drawBusesGoogle(mBuses);
 
-
-//            }
         }
     };
 
@@ -1493,16 +1638,20 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     }
 
     ArrayList<Polyline> polylines;
-    // цвета используемые при отрисовке маршрутов в режиме MultiSelect
-    final int[] colors = new int[]{Color.RED, Color.BLUE, Color.MAGENTA, Color.GREEN, Color.rgb(255, 94, 0)};
     HashMap<Integer, Integer> hashMapRouteLineColors;
+    // цвета используемые при отрисовке маршрутов в режиме MultiSelect
+    final int[] colors = new int[]{Consts.BLUE, Consts.GREEN, Consts.ORANGE,
+            Consts.PINK, Consts.PURPLE};
+
+    final int[] colorsRoute = new int[]{Color.rgb(74, 108, 252), Color.rgb(27, 189, 92),
+            Color.rgb(238, 135, 3), Color.rgb(252, 74, 91), Color.rgb(99, 65, 226)
+    };
 
     // Рисую линии маршрутов
     private void drawRoutes(List<Route> routes) {
         mSelectedBusStop = null;
         mSelectedRoute = null;
         mMap.clear();
-//        clearAllMapMarkers();
 
         if (polylines == null) {
             polylines = new ArrayList<>();
@@ -1528,7 +1677,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             if (routes.size() > i + 1)
                 sb.append(", ");
 
-            PolylineOptions options = new PolylineOptions().width(4).color(colors[i]).geodesic(true);
+            PolylineOptions options = new PolylineOptions().width(5).color(colorsRoute[i]).geodesic(true);
             for (LatLng point : route.getTrackPoints()) {
                 options.add(point);
             }
@@ -1639,6 +1788,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
         if (buses.size() == 0) {
             // TODO: решить в каких случаях сервер не вернул данные
+//            showToast("Sorry, no bus");
             //setErrorTextMessage(getString(R.string.server_not_available));
         } else {
             tvInternetStatus.setVisibility(View.GONE);
@@ -1702,11 +1852,11 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         for (int i = 0; i < busStops.size(); i++) {
             int resourceId = R.drawable.road_sign;
             BusStop busStop = busStops.get(i);
-            if (i == 0) {
-                resourceId = R.drawable.road_sign;
-            } else if (i == busStops.size() - 1) {
-                resourceId = R.drawable.road_sign;
-            }
+//            if (i == 0) {     //that was for end sings i think
+//                resourceId = R.drawable.road_sign;
+//            } else if (i == busStops.size() - 1) {
+//                resourceId = R.drawable.road_sign;
+//            }
             Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(busStop.getPointGoogle())
                     .title(busStop.getName())
@@ -1946,7 +2096,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     /*
     * проверяем кол-во запусков приложения
-    * показываем каждый 10й раз, если юзер не нажимал "не спрашивать"
+    * показываем каждый 5й раз, если юзер не нажимал "не спрашивать"
     */
     private void checkStartsCount() {
         int startsCount;
@@ -1955,7 +2105,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(KEY_STARTS_COUNT, startsCount);
         editor.apply();
-        if (startsCount % 10 == 0 && !sp.getBoolean(KEY_NOT_SHOW_VOTE_DIALOG, false)) {
+        if (startsCount % 5 == 0 && !sp.getBoolean(KEY_NOT_SHOW_VOTE_DIALOG, false)) {
             voteAppDialog.show();
         }
     }
@@ -2077,33 +2227,50 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     public void onBackPressed() {
 
 
-        //checking if map fragment is hidden and if schduleinsidefrag is closed
-        if (mMapFragment.getView().getWidth() == 0 &&
-                getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        if (mMapFragment != null && mMapFragment.getView() != null) {
 
-            mActionBar.setSubtitle("");
+            if (mMapFragment.getView().getWidth() != 0) {
+                if (mDrawerLayout.isDrawerOpen(mRightDrawer)) {
+                    mDrawerLayout.closeDrawer(mRightDrawer);
+                    getSupportFragmentManager().beginTransaction().addToBackStack("right").commit();
+                }
+            }
 
-            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
+            //checking if map fragment is hidden and if schduleinsidefrag is closed
+            if (mMapFragment.getView().getWidth() == 0 &&
+                    getSupportFragmentManager().getBackStackEntryCount() == 0) {
 
-            isRoutesMenu = true;
-            showWeather();
+                mActionBar.setSubtitle("");
 
-            mDrawerLayout.closeDrawer(mLeftDrawer);
-            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, mRightDrawer);
+                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
+                getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
+                getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
+                getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
+                getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
+                getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
 
-            mDrawerLayout.openDrawer(mRightDrawer);
-            ViewGroup.LayoutParams params0 = mMapFragment.getView().getLayoutParams();
-            params0.height = FrameLayout.LayoutParams.MATCH_PARENT;
-            params0.width = FrameLayout.LayoutParams.MATCH_PARENT;
-            mMapFragment.getView().setLayoutParams(params0);
+                isRoutesMenu = true;
+                showWeather();
 
-        } else {
-            super.onBackPressed();
+                mDrawerLayout.closeDrawer(mLeftDrawer);
+                mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, mRightDrawer);
+
+                mDrawerLayout.openDrawer(mRightDrawer);
+                ViewGroup.LayoutParams params0 = mMapFragment.getView().getLayoutParams();
+                params0.height = FrameLayout.LayoutParams.MATCH_PARENT;
+                params0.width = FrameLayout.LayoutParams.MATCH_PARENT;
+                mMapFragment.getView().setLayoutParams(params0);
+
+            } else {
+                try {
+                    super.onBackPressed();
+                } catch (IllegalStateException e) {
+                    Log.d("astana", e.getMessage());
+                }
+            }
         }
+
     }
 
 
@@ -2132,6 +2299,11 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             for (Map.Entry<Long, Marker> markerEntry : hashMapBusMarkers.entrySet()) {
                 markerEntry.getValue().remove();
             }
+            for (Map.Entry<Marker, BusStop> markerEntry : hashMapMarkerBusStops.entrySet()) {
+                markerEntry.getKey().remove();
+            }
+            hashMapMarkerBusStops.clear();
+            hashMapBusMarkers.clear();
         } catch (IllegalArgumentException e) {
             // Manage here the exception (never raised but who knows...)
         }
@@ -2140,10 +2312,15 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     void hideMapFragment() {
         fabMain.setVisibility(View.GONE);
-        ViewGroup.LayoutParams params = mMapFragment.getView().getLayoutParams();
-        params.height = 0;
-        params.width = 0;
-        mMapFragment.getView().setLayoutParams(params);
+        if (mMapFragment != null) {
+            ViewGroup.LayoutParams params = mMapFragment.getView().getLayoutParams();
+
+            params.height = 0;
+            params.width = 0;
+            mMapFragment.getView().setLayoutParams(params);
+        } else {
+
+        }
         isRoutesMenu = false;
 
 
@@ -2152,4 +2329,31 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     }
 
     List<Route> routes;
+
+
+    public void showNewsFragment() {
+        getSupportFragmentManager().popBackStack();
+        resetTimersAndClearMap();
+
+
+        mActionBar.setSubtitle("НОВОСТИ");
+
+        hideMapFragment();
+        hideWeather();
+
+        mDrawerLayout.closeDrawer(mLeftDrawer);
+
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
+    }
+
+
+    private Fragment getCurrentFragment() {
+        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        int stackCount = fragmentManager.getBackStackEntryCount();
+        if (fragmentManager.getFragments() != null)
+            return fragmentManager.getFragments().get(stackCount > 0 ? stackCount - 1 : stackCount);
+        else return null;
+    }
 }

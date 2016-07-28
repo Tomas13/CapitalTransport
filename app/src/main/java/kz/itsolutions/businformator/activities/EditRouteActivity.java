@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -34,7 +35,7 @@ public class EditRouteActivity extends AppCompatActivity implements GoogleMap.On
 
     public static String KEY_ROUTE_SERVER_ID = "key_route_server_id";
 
-    SupportMapFragment mMapFragment;
+    MapFragment mMapFragment;
     GoogleMap mMap;
     Polyline line;
     Marker markerFirst, markerSecond, newMarker;
@@ -73,7 +74,7 @@ public class EditRouteActivity extends AppCompatActivity implements GoogleMap.On
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         // GoogleMap settings
-        mMapFragment = ((SupportMapFragment) getSupportFragmentManager()
+        mMapFragment = ((MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map));
         mMap = mMapFragment.getMap();
         mMap.setOnMarkerDragListener(this);

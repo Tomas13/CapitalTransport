@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".fragments.ComplaintsFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:isScrollContainer="true">
+
+        <LinearLayout
+            android:id="@+id/linear_complaints"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:weightSum="6">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Текст"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edit_text_complaints"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="2.3"
+                android:background="@drawable/border_edit_text"
+                android:hint="@string/complaint_hint"
+                android:padding="7dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_attach_pic"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/button_take_pic"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#0000"
+                    android:clickable="false"
+                    android:src="@drawable/photo" />
+
+                <TextView
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:clickable="false"
+                    android:text="Приложите фото"
+                    android:textColor="@color/app_white" />
+            </LinearLayout>
+
+            <!--<Button-->
+            <!--android:id="@+id/btn_attach_pic"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:layout_weight="0.8"-->
+            <!--android:background="@drawable/button_take_pic"-->
+            <!--android:drawableLeft="@drawable/photo"-->
+            <!--android:drawablePadding="-20dp"-->
+            <!--android:padding="20dp"-->
+
+            <!--android:src="@drawable/photo"-->
+            <!--android:text="Приложите фото"-->
+            <!--android:textColor="@color/app_white" />-->
+
+
+            <kz.itsolutions.businformator.widgets.ExpandableGridView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/gridview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnWidth="90dp"
+                android:gravity="center"
+                android:horizontalSpacing="0dp"
+                android:numColumns="2"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="0dp" />
+
+
+            <Button
+                android:id="@+id/btn_send_to_contact_centr"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:layout_weight="0.8"
+                android:background="@drawable/button_send_email_to_devs"
+                android:text="Отправить в контакт-центр"
+                android:textColor="@color/app_white" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

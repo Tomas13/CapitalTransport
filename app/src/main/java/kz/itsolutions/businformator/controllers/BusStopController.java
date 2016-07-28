@@ -154,7 +154,7 @@ public class BusStopController {
         }
     }
 
-    public void loadBusStopsFromAssets() throws JSONException {
+    /*public void loadBusStopsFromAssets() throws JSONException {
         rDb.open();
         if (rDb.hasBusStops()) {
             rDb.close();
@@ -165,7 +165,7 @@ public class BusStopController {
             insertBusStopsToDb(data);
         }
         rDb.close();
-    }
+    }*/
 
     private void insertBusStopsToDb(String data) throws JSONException {
         try {

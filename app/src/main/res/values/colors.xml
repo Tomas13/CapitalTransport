@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="splash_bg">#d90721</color>
+    <color name="button_take_pic">#8F9092</color>
     <color name="holo_blue_dark">#ff0099cc</color>
     <color name="action_bar_bg">#d90721</color>
     <color name="yellow">#f4cb3a</color>

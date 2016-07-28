@@ -4,12 +4,16 @@
     <string-array name="left_menu">
         <item>МАРШРУТЫ</item>
         <item>РАСПИСАНИЕ</item>
+        <item>НОВОСТИ</item>
         <item>ТРАНСПОРТ СТОЛИЦЫ</item>
         <item>КОНТАКТ-ЦЕНТР</item>
+        <item>ОТПРАВИТЬ ЖАЛОБУ</item>
         <item>О ПРИЛОЖЕНИИ</item>
     </string-array>
 
-
+   <string name="complaint_hint">Опишите вашу жалобу, как можно полнее.
+        Укажите, если запомнили номер автобуса, направление движения, остановки и время -
+    это поможет нам идентифицировать нарушителя лучше</string>
     <string name="bus_marker_text_2" formatted="false">Маршрут: %s\nДанные получены: %s</string>
     <string name="max5_select_routes">Нельзя показывать больше пяти маршрутов одновременно</string>
  <string name="about_app_text">Приложение Astra Bus позволяет жителям и гостям г.Астаны
@@ -225,7 +229,10 @@
     <string name="start_app">Start application</string>
     <string name="start_app_first">For proper operation of the widget, you must first run the application to load the routes</string>
     <string name="vote_application">Liked our application? Please rate it at Google Play :)</string>
-    <string name="vote">Rate</string>
+   <!--<string name="vote_application">Пожалуйста, поставьте пять звезд в Google Play:) Если оценка низкая, то лучше напишите ваши жалобы и предложения нам через меню приложения. </string>-->
+    <string name="ga_trackingId">UA-73291833-3</string>
+
+   <string name="vote">Rate</string>
     <string name="later">Later</string>
     <string name="widget_empty_text">Add routes to your favorites list so they appear here</string>
     <string name="server_not_available">It seems that the server is not available at the moment</string>

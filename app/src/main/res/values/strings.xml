@@ -324,5 +324,13 @@
     <string name="whatsapp_number">8(771)7 574 777</string>
     <string name="facebook">facebook.com/AstanaLRT</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="complaint_hint">Опишите вашу жалобу, как можно полнее.
+        Укажите, если запомнили номер автобуса, направление движения, остановки и время -
+    это поможет нам идентифицировать нарушителя лучше</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <!--<string name="hello_blank_fragment">Hello blank fragment</string>-->
+
 
 </resources>

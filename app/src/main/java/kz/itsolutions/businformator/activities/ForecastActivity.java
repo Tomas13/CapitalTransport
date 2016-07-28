@@ -31,8 +31,6 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
-//import com.google.analytics.tracking.android.EasyTracker;
-//import com.google.analytics.tracking.android.Tracker;
 
 public class ForecastActivity extends ListActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
 
@@ -192,13 +190,11 @@ public class ForecastActivity extends ListActivity implements View.OnClickListen
     @Override
     public void onStart() {
         super.onStart();
-        //EasyTracker.getInstance().activityStart(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //EasyTracker.getInstance().activityStop(this);
     }
 
     ActionMode mMode;

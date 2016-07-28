@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import kz.itsolutions.businformator.utils.Consts;
+
 @DatabaseTable
 public class Bus {
 
@@ -207,6 +209,24 @@ public class Bus {
             case Color.MAGENTA:
                 drawableName = drawableName + "_o";
                 break;
+            case Consts.BLUE:
+                drawableName = drawableName + "_blue";
+                break;
+            case Consts.GREEN:
+                drawableName = drawableName + "_green";
+                break;
+            case Consts.ORANGE:
+                drawableName = drawableName + "_orange";
+                break;
+            case Consts.PINK:
+                drawableName = drawableName + "_pink";
+                break;
+            case Consts.PURPLE:
+                drawableName = drawableName + "_purple";
+                break;
+
+
+
         }
         return ctx.getResources().getIdentifier(drawableName, "drawable", ctx.getPackageName());
     }

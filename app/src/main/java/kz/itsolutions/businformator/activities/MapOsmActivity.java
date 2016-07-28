@@ -197,10 +197,10 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
 //        btnPointToOnMap = (ImageButton) findViewById(R.id.btn_point_to_on_map);
 //        btnPointFromOnMap = (ImageButton) findViewById(R.id.btn_point_from_on_map);
 
-        btnPointToClear.setOnClickListener(this);
-        btnPointFromClear.setOnClickListener(this);
-        btnPointToOnMap.setOnClickListener(this);
-        btnPointFromOnMap.setOnClickListener(this);
+//        btnPointToClear.setOnClickListener(this);
+//        btnPointFromClear.setOnClickListener(this);
+//        btnPointToOnMap.setOnClickListener(this);
+//        btnPointFromOnMap.setOnClickListener(this);
 //
 //        etPointFrom = (AutoCompleteTextView) findViewById(R.id.et_point_from);
 //        etPointFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -389,9 +389,11 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
         // enable ActionBar app icon to behave as action to toggle nav drawer
         mActionBar = getActionBar();
         Weather.fetchData(this);
-        mActionBar.setDisplayHomeAsUpEnabled(false);
-        mActionBar.setHomeButtonEnabled(false);
-        mActionBar.setIcon(getResources().getDrawable(R.drawable.ic_menu_bus));
+        if (mActionBar!=null){
+            mActionBar.setDisplayHomeAsUpEnabled(false);
+            mActionBar.setHomeButtonEnabled(false);
+            mActionBar.setIcon(getResources().getDrawable(R.drawable.ic_menu_bus));
+        }
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the sliding drawer and the action bar app icon
 
@@ -865,11 +867,11 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
     private class RoutesDrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            resetFindRouteMode();
-            Route route = (Route) parent.getAdapter().getItem(position);
-            mSelectedRoutes = null;
-            hashMapMarkerBusStops.clear();
-            selectRoute(route, parent.getId() == R.id.lv_routes_menu);
+//            resetFindRouteMode();
+//            Route route = (Route) parent.getAdapter().getItem(position);
+//            mSelectedRoutes = null;
+//            hashMapMarkerBusStops.clear();
+//            selectRoute(route, parent.getId() == R.id.lv_routes_menu);
         }
     }
 
@@ -885,14 +887,14 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
 
     @Override
     public void onMarkerDragEnd(Marker marker) {
-        isFindRoutesMode = true;
-        if (marker.getTitle().equals(getString(R.string.from))) {
-            etPointFrom.setText(marker.getPosition().toString());
-            etPointFrom.setText(getString(R.string.point_a));
-        } else if (marker.getTitle().equals(getString(R.string.to))) {
-            etPointTo.setText(getString(R.string.point_b));
-            etPointTo.setText(marker.getPosition().toString());
-        }
+//        isFindRoutesMode = true;
+//        if (marker.getTitle().equals(getString(R.string.from))) {
+//            etPointFrom.setText(marker.getPosition().toString());
+//            etPointFrom.setText(getString(R.string.point_a));
+//        } else if (marker.getTitle().equals(getString(R.string.to))) {
+//            etPointTo.setText(getString(R.string.point_b));
+//            etPointTo.setText(marker.getPosition().toString());
+//        }
         //mDrawerLayout.openDrawer(mLeftDrawer);
     }
 
@@ -1018,7 +1020,8 @@ public class MapOsmActivity extends Activity implements View.OnClickListener, We
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        mActionBar.setTitle(mTitle);
+        if (mActionBar!=null)
+            mActionBar.setTitle(mTitle);
     }
 
     @Override

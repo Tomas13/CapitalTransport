@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.parse.ParseAnalytics;
-import com.parse.ParseInstallation;
+//import com.parse.ParseAnalytics;
+//import com.parse.ParseInstallation;
 
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.db.DBHelper;
@@ -37,9 +37,7 @@ public class SplashActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Track app opens.
-        ParseAnalytics.trackAppOpenedInBackground(getIntent());
-
-
+//        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         setContentView(R.layout.splash_activity);
         findViewById(R.id.btn_repeat_load).setOnClickListener(this);
@@ -87,17 +85,17 @@ public class SplashActivity extends Activity implements View.OnClickListener {
 
     public static void updateCurrentInstallationMap(Context context) {
         String useMap = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.key_map), "google");
-        String prevMap = ParseInstallation.getCurrentInstallation().getString("a_map");
+//        String prevMap = ParseInstallation.getCurrentInstallation().getString("a_map");
         // if map changed, then update value in parse.com
-        if (!useMap.equals(prevMap)) {
-            ParseInstallation.getCurrentInstallation().put("a_map", useMap);
-            ParseInstallation.getCurrentInstallation().saveInBackground();
-        }
+//        if (!useMap.equals(prevMap)) {
+//            ParseInstallation.getCurrentInstallation().put("a_map", useMap);
+//            ParseInstallation.getCurrentInstallation().saveInBackground();
+//        }
     }
 
     public static void setIsFree() {
-        ParseInstallation.getCurrentInstallation().put("a_free_version", Consts.IS_FREE);
-        ParseInstallation.getCurrentInstallation().saveInBackground();
+//        ParseInstallation.getCurrentInstallation().put("a_free_version", Consts.IS_FREE);
+//        ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 
     public class LoadDataAsyncTask extends AsyncTask<Void, Integer, Void> {

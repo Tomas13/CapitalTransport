@@ -79,7 +79,6 @@ public class AtoBAdapter extends RecyclerView.Adapter<AtoBAdapter.ContactViewHol
                 from(parent.getContext()).
                 inflate(R.layout.a_b_layout, parent, false);
 
-
         return new ContactViewHolder(itemView);
     }
 

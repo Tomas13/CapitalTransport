@@ -2,32 +2,11 @@
 <items version="2" >
 
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-8.4.0_52e4f09b683047232c8fd57fbe5b6a029e1cee9a\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.8\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="c9ef45dcbd082cd63aac09a5e2cd443adb5df837">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-crashlytics-core-2.3.8_f6873b8f577d434a7929a9f64561f0876f33d95c\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-8.4.0_b572e79e91bf07411e2f6a847fb1398defb79942\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-8.4.0_36e70b49eba8c1b20e12e90bb71e776a1b1f2bf6\classes.dex" />
+        sha1="a03f4d605b0f29222c2ddf8b7896258cb4b92def">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.2.0_68deb6d276b91e24b9c6c6da5bac3511b7f77687\classes.dex" />
     </item>
     <item
         jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
@@ -37,25 +16,39 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_b522205daad567d7c59293417ebf961b80b4e060\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.4.0_875ac366bb3ce156d801b669221b59eb2d3f3f2a\classes.dex" />
+        sha1="dd7676ac12aa6653718b7ea33d93ce9d6915d526">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.2.0_dfe0babeaa8e39e4b5be0fc74c3c50a587dccdc5\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.6\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="9af3b9b8114e685291aa00e6572b0a9131244956">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-answers-1.3.6_b2cd6c67c203a2328d03436a4bd734056843a87f\classes.dex" />
+        sha1="d7572433ba21aa9e4624c819fa738b2748b82d05">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.2.0_3d71dc344af5e6590d10311fd647b8104fb2d6eb\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="04de44f90606c77f3b28cf44861f306290505aac">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-8.4.0_cf7307a704b63b5cea6e6bdab7658ad42935b0d7\classes.dex" />
+        sha1="404f4108b41050173f93836f5b35efdd9525a0ad">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.2.0_981928b0b272204efc12cd74306f6fa857a0e79e\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="fa6c324604383981fb74c4cb036d4171ed0a9a02">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.2.0_96dae99e2ad95d03527adc8c8021ab2786e658a7\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7c7c21cc7a45d5c2a57d77f4840d4d4ea3c7604f">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.2.0_a0b3964859690cc6e2c7c5bc773e840ffbe904ce\classes.dex" />
     </item>
     <item
         jar="C:\Users\jean\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-simple\1.6.1\58e59bfb3e247097b8122243b3bfe0049c8cfae8\slf4j-simple-1.6.1.jar"
@@ -63,6 +56,13 @@
         revision="23.0.2"
         sha1="58e59bfb3e247097b8122243b3bfe0049c8cfae8">
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\slf4j-simple-1.6.1_be4e339b38b394c4e487e7bcf57b449f66eacab2\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a0712565a784bedd07ada2393c95e0b1e288840f">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.2.0_14f370c6d232f1de30400572e22ed183db125db5\classes.dex" />
     </item>
     <item
         jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\beta\1.1.4\jars\classes.jar"
@@ -79,11 +79,18 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\osmdroid-android-4.2_11265f710b5767420fe63eaada214bc259232715\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-8.4.0_0453f242d60a01925c95b555a839b9bceb17d0ec\classes.dex" />
+        sha1="3c8fcebabb73df25937704f5566bf6c388ea941d">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.2.0_07c78918a6cb27df9da9ac8f32ab75817a2ad657\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="299e04800d1169b9f3dd04c376c7b266a3594cca">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.2.0_83b68a7ecd08cceff0ed357ad81639157c4059e8\classes.dex" />
     </item>
     <item
         jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
@@ -91,48 +98,6 @@
         revision="23.0.2"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_0244ec8991b2c3e46210acdfe989c241ef74cd5c\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-8.4.0_b1a7123186f7e0b60f2f812720a7c301fb335fbc\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_e0b4d7e9a3d71c6d65657047b351bc6ee062f3e3\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.5.5\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-crashlytics-2.5.5_091d90a940e88c04a29f13e3778bba69408a88e5\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-8.4.0_805ed1704662f99c321b5cc38b227cf405345e7c\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-8.4.0_417eb7426189f02317e5afb5caa3446941d0f2d0\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\jean\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-android-1.2.0_c58221300d987bfe77d2cb213f6ba908e2bde622\classes.dex" />
     </item>
     <item
         jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
@@ -156,88 +121,39 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.viewpagerindicator-library-2.4.1_bbf95b2eceb46526c0254a597ba643dbc27464de\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-8.4.0_2082dd188335aa969c7f96d860123181fdb0ca5f\classes.dex" />
+        sha1="08cdd337d1d9247eb915f0ab365624dd7966e7fa">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.2.0_eb4faa2dc21defb620118d5e95c6548719d86b70\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-8.4.0_4bc2ceaff92ede82ab077b71ad1d7593be41fc90\classes.dex" />
+        sha1="ce9432b50a02be101bc491a1b38d3904200bd988">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.2.0_cd1bca88c2f45ad627bb2ebbde0d50f79c982554\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-8.4.0_16223b98e119b2f118351ed3c9d26f1a0f510c04\classes.dex" />
+        sha1="593fbaec1c3e100480a2bd72457b64b7dde6ac2d">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.2.0_390aaedf1382ffe6a3926646f874bb12856c8cac\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="6a309d5c2678a41c6b3e09f927f54fd4b61c048e">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_daa336cbff85afbd72072f5a8530af64929480c0\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-8.4.0_ebc293217da6a3ac647bba7bf1e7e041129ac659\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\libs\Parse-1.7.1.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="87c45f9f66da531a65f065ee32f603c7e6db1528">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\2\Parse-1.7.1_411d04f0150d73eedf5580cf1ab07acfc7a78ca0\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-8.4.0_c94c74b3cdde1b8a7fc612b9592af4c8b683467b\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.4.0_cf0313637538eced65238af00aa09ec1ab8fccf4\classes.dex" />
+        sha1="7378806b630886994099d03c369983f2848a609f">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.2.0_83e1f6984dfc8136b9b8955697cdf61c7c63f9c5\classes.dex" />
     </item>
     <item
         jar="D:\SHERLOCK\astrabus\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="5349c18b92c9029568c07cba7511387de715dab3">
+        sha1="4cc34a88b33666078c1e4ed024f3095ea8eef1fc">
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_3c8bb0f99ebd4aa28b4eb1b93c946a170e686db2\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-measurement-8.4.0_e314465360949bb6d2d33657f6f926a7d4148927\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_cef1d64ff027b4e56e40da5b4e8d93c0a832fb6d\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.10\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.fabric.sdk.android-fabric-1.3.10_d5bb81a78caac853fe389596c68c3dce89c3cccc\classes.dex" />
     </item>
     <item
         jar="C:\Users\jean\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.5\77bf7cacf9cefe19dc105e5425d2eb1bb5285881\android-async-http-1.4.5.jar"
@@ -247,25 +163,11 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\android-async-http-1.4.5_81c9b357401e05a498e036c0803095122f3b8998\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_4047937f08fe8638ffac44247c3d0f96430e09e4\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-8.4.0_3e3e400d3da6ebff4277987dd1781ae83458cf14\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-8.4.0_6fc0456c001e07c1feb9e1a04448aba70f86a826\classes.dex" />
+        sha1="18e52280643effbab30370b073e456d670a0db54">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.2.0_abfa639ac960696ed6ef679e88d6a1bc1ce723aa\classes.dex" />
     </item>
     <item
         jar="C:\Users\jean\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.6.1\6f3b8a24bf970f17289b234284c94f43eb42f0e4\slf4j-api-1.6.1.jar"
@@ -275,18 +177,18 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\slf4j-api-1.6.1_e3e2a52b44e529dadbefaec16cf9d23bcceb482b\classes.dex" />
     </item>
     <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="dd7b4a8e01cafa79a0b228b2ee5bd57ae5577444">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.2.0_f82fe85ea4dfd6bc095b1cdb5a92436d9e09b6b5\classes.dex" />
+    </item>
+    <item
         jar="C:\Users\jean\.gradle\caches\modules-2\files-2.1\com.j256.ormlite\ormlite-core\4.48\e579bd2905d0399af5029aaaf9817d5fa0ca88a5\ormlite-core-4.48.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\ormlite-core-4.48_7790067add1a32dd605aceb9c680d3a70dac3369\classes.dex" />
-    </item>
-    <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_2417dfa669f72695b834fd13c2ab3c710bf4d174\classes.dex" />
     </item>
     <item
         jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
@@ -296,25 +198,270 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.0_b4f5421996638e382d01785408354c9f612d528b\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-8.4.0_b3b46ebe5585910de56692a5c4c68b225d7af678\classes.dex" />
+        sha1="e91e1f335dc418d0138991a1d5155f0490ab6082">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.2.0_96f1e9f503bb710179b2a0591b03e5832a8ef564\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-8.4.0_474f8789d5c07d73d2bd0fdb74c63c7ca210d554\classes.dex" />
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-23.0.0_1f45e522eb678a0b3307f0de70fb8d5ee3135ba4\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-8.4.0_3d3e237418408be3c8ea79acb8a2c1749b717066\classes.dex" />
+        sha1="982031d2aa9652bc955d0b581ec70378c0adfc56">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.2.0_43a190994ed8bda6b65399617253760c77731841\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="be009dbe07b3a252c8cda07fc948ac713d2f5171">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.2.0_65893780be01c4c2ee382486e8db8d5e3cb5e9df\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3f200938bb888d83c2da807cb6aee983baae254">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.2.0_e1f67b6a27a63fda1ebe3b7154c983ef34a217a6\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.8\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="c9ef45dcbd082cd63aac09a5e2cd443adb5df837">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-crashlytics-core-2.3.8_f6873b8f577d434a7929a9f64561f0876f33d95c\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a06eb7761fca120bbb46b34b930a3a3462ba9d7f">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.2.0_3be70262bc3297d24c4da677d3288cc56e7f094f\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4838df6db988160b107e954e02a745370df543b6">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.2.0_c84f47bfdda05e51f716046cb5f15426a1194581\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="39261f58509b1a379df041f03da394c29da05395">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.2.0_10ad9ae042a2f3748f707c6bb019fb3f6f3d6111\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="74694bf98bd1f856cf478bd0c516531801badced">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.2.0_37e19618a87b0f96df1039135ce1bce12c52a5d1\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="fbb50f7f89342c915898c9376a67229e2fcee286">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.2.0_a04a0d70b908b3106979d2ae222855a593bd285f\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f56a68df45e18ce77814db6553fdaa229308f49b">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.2.0_4763e0bfab546f6938d0fa2e7710403de0b0e640\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.6\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="9af3b9b8114e685291aa00e6572b0a9131244956">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-answers-1.3.6_b2cd6c67c203a2328d03436a4bd734056843a87f\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="363f626ad5686283250cdb6073ae1bba5cb07a87">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.2.0_4583b350f6faf3000f219a1b83fd9f596b31d536\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5acfd484717d9175c175569a114d46dbeec074ed">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.2.0_15e20b663a8b65a46bebe2e5f87ce241b9dca5d8\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="20ca7888c59f63d439f218a8810c88039f8bc7db">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.2.0_0ff030311b9b9314f1804814192c06d955168111\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f315c6b5b99081f16a79c9aaa557328a4644fe63">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.2.0_325101d2cc9cd32b004c5e73d24b0183076381a3\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="fb15fd9774b5c51dcb39d8e6fa1b6f06bcd1cd34">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.2.0_c55decc6274b3a234c44ea399e1f3352411de651\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_e0b4d7e9a3d71c6d65657047b351bc6ee062f3e3\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="163b095362fd14d682ac311bf672c2fb54de5078">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.2.0_d68117b1a43193a2d76b4450651bb607b8db5000\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.5.5\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-crashlytics-2.5.5_091d90a940e88c04a29f13e3778bba69408a88e5\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="62b2ce2debfecdc5f0657e03177b489c871bd3f4">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_daa336cbff85afbd72072f5a8530af64929480c0\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="535d4497b5fa5d451e07a043e9e220d5c25ab7c7">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.2.0_e2ab63ad74267de33f32542e5f532bce749816c9\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="44120508d7240c3e34a05957981a5c3c9b9f61aa">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.2.0_ac404a814893228ec0f4f42a5ff5414443418039\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1dc44c4798cbd79e95e4838a3fdc734c0e3f895f">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.2.0_6727b9488581ab98376d51ecc5a04a9b8b0d4c39\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a378adc3106cb3560ab3dfed05f1fda26cff5b49">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.2.0_f95a9d8f4272e7de0019b1230c30993a1d37628b\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7428f0d1debdcf1b5792a26146e51a38d992d04d">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.2.0_122619c697343d3cf03eeebdab2eb44f4bcfb66c\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e791f7f2fbf9ca5b3b576916533f844dfb384024">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.2.0_75ca6ef60b64990c4cca8e8b08ae989fd7472e73\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_cef1d64ff027b4e56e40da5b4e8d93c0a832fb6d\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="33203b081101ca6242a4cd746aafe5fc2dd98a34">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.2.0_aa22466b76ec2dd89cbf5ab74cc34184502a685b\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-contextmanager\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8ad1b5663f367dac619256d75fb08a98c7baa4f4">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-contextmanager-9.2.0_c39613c88fd78180c69f207a843f6e92810c687f\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.10\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.fabric.sdk.android-fabric-1.3.10_d5bb81a78caac853fe389596c68c3dce89c3cccc\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_4047937f08fe8638ffac44247c3d0f96430e09e4\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8ec9ae00d45e758ac5b7a1c5dc0daa8a4b24280f">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.2.0_e5f5a20bd00359f0ccc1debe6f8529a3027b9d50\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="dc4c18602ecffb3e69cda6cdc51ba4feac0f97d7">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.2.0_9af251d0df591d19dd6bce5c378659a46c22a839\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_2417dfa669f72695b834fd13c2ab3c710bf4d174\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="33b5900f82d19fd3dacee518363b249ace77b8f5">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.2.0_d10acf9fb9ed1dc8c3a78e50f88dc1b6daef2867\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="30489a97b06cc3945bdbcc1770089af9e3b3b64d">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.2.0_07bbd8a20234fd3dc703f87cee1495583f5d3a6a\classes.dex" />
     </item>
     <item
         jar="C:\Program Files\Java\jdk1.8.0_60\jre\bin\l\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
@@ -331,6 +478,13 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\2\org.apache.http.legacy_90c8661b1bb58ba040dace71a545e0b6ed767bf4\classes.dex" />
     </item>
     <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="21bb89120d84fa29afeb0f9c0ebf415bc3b45a7e">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.2.0_8947e491951edc0b78c0c2c35690abbcc3d5a1ef\classes.dex" />
+    </item>
+    <item
         jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
@@ -338,25 +492,32 @@
         <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_1d2b13a8c40c7d986dcc007ea757285f6c383396\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-23.0.0_1f45e522eb678a0b3307f0de70fb8d5ee3135ba4\classes.dex" />
+        sha1="7c39a4b431976abc46d3cf6344c75d06c769cd35">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.2.0_c22d2289822e794dd7150802f3c86a5e912cdefa\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-8.4.0_c25aea66f836f9a7da00bc9c54289727784b159c\classes.dex" />
+        sha1="b53d61bae49278c0fa202d9066d2e72fc151c1e8">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.2.0_3e49a867bed7e04f93dd09e0ea7529558624f34d\classes.dex" />
     </item>
     <item
-        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.4.0\jars\classes.jar"
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.2.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
-        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-8.4.0_07b032f2d894423da4487d9152a12d27b39a9fa8\classes.dex" />
+        sha1="0595e77431edaba6793410f9bfa3603c063c58e7">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.2.0_a303d3101cb08a621364863d43dfbb7b355f2c73\classes.dex" />
+    </item>
+    <item
+        jar="D:\SHERLOCK\astrabus\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="811202a9098047576814fc2171b56b83b537a8b9">
+        <dex dex="D:\SHERLOCK\astrabus\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.2.0_3b9e71724e1559742c3302a7d8cfbf7efb0a858f\classes.dex" />
     </item>
     <item
         jar="D:\SHERLOCK\astrabus\app\libs\osmbonuspack_v4.9.jar"

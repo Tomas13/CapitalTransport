@@ -1,6 +1,7 @@
 package kz.itsolutions.businformator.utils;
 
 import com.google.android.gms.maps.model.LatLng;
+
 import org.osmdroid.util.GeoPoint;
 
 public class Consts {
@@ -13,12 +14,11 @@ public class Consts {
             packageVersion + "&city=" + city + "&";
 
 
-
     // кол-во маршрутов, которые можно выбрать в режиме MultiSelect
     public static short MAX_ROUTES_ON_MAP = 5;
 
     // интервал запроса списка автобусов для маршрута, мс
-    public static short BUS_TIMER_INTERVAL = 4000;
+    public static short BUS_TIMER_INTERVAL = 3000;
     public static String BUS_POSITIONS_URL = "http://astrabus.otgroup.kz/api/";
     public static String BUS_POSITIONS_URL_NEW = "http://astrabus.otgroup.kz/api/buscoordinates";
     public static String BUS_EDGES = "http://astrabus.otgroup.kz/api/edges";
@@ -37,6 +37,13 @@ public class Consts {
     //KEYS
     public static final String KEY_ROUTES_ID = "routeIds";
 
+
+    public final static int
+            BLUE = 0xFC6C4A,
+            GREEN = 0x5CBD1B,
+            ORANGE = 0x0387EE,
+            PINK = 0x5B4AFC,
+            PURPLE = 0xE24163;
 
 
 }

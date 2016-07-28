@@ -122,7 +122,9 @@ public class RoutesAdapter extends ArrayAdapter<Route> {
     public Route getItem(int position) {
         if (position == -1)
             return null;
-        return data.get(position);
+        if (data.size() > position)
+            return data.get(position);
+        return null;
     }
 
     public void setData(List<Route> data) {
