@@ -1,5 +1,7 @@
 package kz.itsolutions.businformator.utils;
 
+import android.util.Log;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
@@ -33,6 +35,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 
 public class HttpHelper {
+
 
     public String getJson(String url, JSONObject jsonObj) throws HttpException, IOException {
 
@@ -118,6 +121,7 @@ public class HttpHelper {
 
             HttpResponse response = httpClient.execute(httpGet);
 
+
             StatusLine statusLine = response.getStatusLine();
             int statusCode = statusLine.getStatusCode();
             if (statusCode == 200) {
@@ -138,6 +142,5 @@ public class HttpHelper {
 
         return builder.toString();
     }
-
 
 }

@@ -6,6 +6,7 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 
 import org.apache.http.HttpException;
+import org.apache.http.client.HttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,16 +26,15 @@ import kz.itsolutions.businformator.utils.HttpHelper;
 
 public class BusController {
 
-
-
     //method when one route is chosen
     public static List<Bus> getRouteBusesDaniyar(Route route) throws HttpException, IOException, JSONException{
         ArrayList<Bus> buses = new ArrayList<>();
         HttpHelper httpHelper = new HttpHelper();
 
+
+
         try {
             String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW + "/" + route.getNumber());
-
 
             Log.d("astanaBusController", "response is " + response);
 
@@ -157,6 +157,8 @@ public class BusController {
             String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW);
             JSONObject jsonObject = new JSONObject(response);
 
+            Log.d("astanaBusContSeveral", "response is " + response);
+
             long myMonkeyId = 0;
 
             for (Iterator<String> iter = jsonObject.keys(); iter.hasNext();) {
@@ -216,4 +218,5 @@ public class BusController {
 
         return buses;
     }
+
 }

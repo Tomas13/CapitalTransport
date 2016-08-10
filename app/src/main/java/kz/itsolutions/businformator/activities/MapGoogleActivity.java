@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -118,6 +119,7 @@ import kz.itsolutions.businformator.model.BusStop;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.model.RouteStatistic;
 import kz.itsolutions.businformator.utils.Consts;
+import kz.itsolutions.businformator.utils.HttpHelper;
 import kz.itsolutions.businformator.utils.Weather;
 import kz.itsolutions.businformator.widgets.MyProvider;
 import kz.itsolutions.businformator.widgets.SingleWidget;
@@ -1437,6 +1439,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     private void startBusTimer() {
         isShowBusStopsMode = false;
+
+
         stopBusTimer();
         stopBusesTimer();
         if (mSelectedRoute == null) {
@@ -1448,6 +1452,10 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         busTimer.schedule(new TimerTask() {
             @Override
             public void run() {
+                if (busTimer == null) { //29.07
+                    busTimer.cancel();
+                    busTimer.purge();
+                }
                 TimerMethod(mSelectedRoute);
             }
         }, 0, Consts.BUS_TIMER_INTERVAL);
@@ -1455,7 +1463,9 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     private void stopBusTimer() {
         if (busTimer != null) {
+
             busTimer.cancel();
+            busTimer.purge();     //29.07
             busTimer = null;
             Log.v(LOG_TAG, "stop BusTimer");
         }
@@ -1514,8 +1524,18 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 return;
             }
 
+            Log.d("astanaMapGoogle", "got in Timer Method for " + route.getNumber()); //29.07
             mBuses = BusController.getRouteBusesDaniyar(route);
-            this.runOnUiThread(BusTimerTick);
+
+            if (mBuses.size() > 0 && mSelectedRoute != null) {
+                if (mBuses.get(0).getRouteNumber() != mSelectedRoute.getNumber()) {
+                    Log.d("astanaTimerMethod", " DoNotrunonUi");
+                } else {
+                    Log.d("astanaTimerMethod", " runonUi");
+
+                    this.runOnUiThread(BusTimerTick);
+                }
+            }
         } catch (HttpException | IOException e) {
             e.printStackTrace();
             mBuses = null;
@@ -2215,6 +2235,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         mSelectedRoute = null;
         mSelectedRoutes = null;
         mBuses = null;
+        routeForZoom = null;
         stopBusTimer();
         stopBusesTimer();
         stopRoutesStatisticsTimer();

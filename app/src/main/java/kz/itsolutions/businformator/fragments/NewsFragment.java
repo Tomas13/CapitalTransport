@@ -39,7 +39,7 @@ public class NewsFragment extends Fragment {
 
 
     private static final String TAG = "NewsFragment";
-    private static final String urlJsonObj = "http://crm.astanalrt.com/notifications/getnotifications/20";
+    private static final String urlJsonObj = "http://crm.astanalrt.com/notifications/getnotifications/25";
 
     private RecyclerView newsRecyclerView;
     //    SwipyRefreshLayout swipeRefreshLayout;
