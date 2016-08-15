@@ -1,3 +1,4 @@
+/*
 package kz.itsolutions.businformator.activities;
 
 import android.app.ActionBar;
@@ -43,12 +44,14 @@ import kz.itsolutions.businformator.model.Bus;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.utils.Consts;
 
+*/
 /**
  * This class extends the AugmentedReality and is designed to be an example on
  * how to extends the AugmentedReality class to show multiple data sources.
  *
  * @author Justin Wetherell <phishman3579@gmail.com>
- */
+ *//*
+
 public class AugmentedRealityActivity extends AugmentedReality {
 
     private static final String LOG_TAG = "Demo";
@@ -64,9 +67,11 @@ public class AugmentedRealityActivity extends AugmentedReality {
     ArrayList<Bus> mBuses;
     private Timer busTimer;
 
-    /**
+    */
+/**
      * {@inheritDoc}
-     */
+     *//*
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,9 +160,11 @@ public class AugmentedRealityActivity extends AugmentedReality {
         }
     };
 
-    /**
+    */
+/**
      * {@inheritDoc}
-     */
+     *//*
+
     @Override
     public void onStart() {
         super.onStart();
@@ -174,44 +181,52 @@ public class AugmentedRealityActivity extends AugmentedReality {
         DBHelper.release();
     }
 
-    /**
+    */
+/**
      * {@inheritDoc}
-     */
+     *//*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        /*MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.augmented_reality_menu, menu);*/
+        */
+/*MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.augmented_reality_menu, menu);*//*
+
 
         return true;
     }
 
-    /**
+    */
+/**
      * {@inheritDoc}
-     */
+     *//*
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.showRadar:
-                showRadar = !showRadar;
-                item.setTitle(getString(showRadar ? R.string.hide_radar : R.string.show_radar));
-                break;
-            case R.id.showZoomBar:
-                showZoomBar = !showZoomBar;
-                item.setTitle(getString(showZoomBar ? R.string.hide_zoom_bar : R.string.show_zoom_bar));
-                zoomLayout.setVisibility((showZoomBar) ? LinearLayout.VISIBLE : LinearLayout.GONE);
-                break;
+//            case R.id.showRadar:
+//                showRadar = !showRadar;
+//                item.setTitle(getString(showRadar ? R.string.hide_radar : R.string.show_radar));
+//                break;
+//            case R.id.showZoomBar:
+//                showZoomBar = !showZoomBar;
+//                item.setTitle(getString(showZoomBar ? R.string.hide_zoom_bar : R.string.show_zoom_bar));
+//                zoomLayout.setVisibility((showZoomBar) ? LinearLayout.VISIBLE : LinearLayout.GONE);
+//                break;
             case android.R.id.home:
                 finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-        return true;
+//        return true;
     }
 
-    /**
+    */
+/**
      * {@inheritDoc}
-     */
+     *//*
+
     @Override
     public void onLocationChanged(Location location) {
         super.onLocationChanged(location);
@@ -219,18 +234,22 @@ public class AugmentedRealityActivity extends AugmentedReality {
         updateData(location.getLatitude(), location.getLongitude(), location.getAltitude());
     }
 
-    /**
+    */
+/**
      * {@inheritDoc}
-     */
+     *//*
+
     @Override
     protected void markerTouched(Marker marker) {
         text.setText(marker.getName());
         myToast.show();
     }
 
-    /**
+    */
+/**
      * {@inheritDoc}
-     */
+     *//*
+
     @Override
     protected void updateDataOnZoom() {
         super.updateDataOnZoom();
@@ -269,3 +288,4 @@ public class AugmentedRealityActivity extends AugmentedReality {
         return true;
     }
 }
+*/

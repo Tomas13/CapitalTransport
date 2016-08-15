@@ -19,8 +19,6 @@ import kz.itsolutions.businformator.db.DBHelper;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.widgets.SingleWidget;
 
-//import com.google.analytics.tracking.android.EasyTracker;
-//import com.google.analytics.tracking.android.Tracker;
 
 public class WidgetConfigActivity extends ListActivity implements View.OnClickListener {
 
@@ -28,7 +26,6 @@ public class WidgetConfigActivity extends ListActivity implements View.OnClickLi
     Intent resultValue;
     RoutesAdapter mAdapter;
     Toast mToast;
-//    Tracker mTracker;
 
     public final static String WIDGET_PREF = "widget_pref";
     public final static String WIDGET_ROUTE_NUMBER = "widget_route_number";
@@ -36,8 +33,6 @@ public class WidgetConfigActivity extends ListActivity implements View.OnClickLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DBHelper.init(getApplicationContext());
-//        EasyTracker.getInstance().setContext(this);
-//        mTracker = EasyTracker.getTracker();
         setContentView(R.layout.widget_config_activity);
         ActionBar ab = getActionBar();
 
@@ -82,13 +77,11 @@ public class WidgetConfigActivity extends ListActivity implements View.OnClickLi
     @Override
     public void onStart() {
         super.onStart();
-//        EasyTracker.getInstance().activityStart(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        EasyTracker.getInstance().activityStop(this);
     }
 
     @Override

@@ -154,18 +154,7 @@ public class BusStopController {
         }
     }
 
-    /*public void loadBusStopsFromAssets() throws JSONException {
-        rDb.open();
-        if (rDb.hasBusStops()) {
-            rDb.close();
-            return;
-        }
-        String data = AssetFile.readFromFile("bus_stops.json", mContext);
-        if (!TextUtils.isEmpty(data)) {
-            insertBusStopsToDb(data);
-        }
-        rDb.close();
-    }*/
+
 
     private void insertBusStopsToDb(String data) throws JSONException {
         try {

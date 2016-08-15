@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="kz.itsolutions.businformator">
 
     <permission
@@ -23,17 +22,9 @@
     <uses-permission android:name="kz.itsolutions.businformator.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- For parse.com library -->
-    <!-- <uses-permission android:name="android.permission.VIBRATE" /> -->
-    <!-- <uses-permission android:name="android.permission.GET_ACCOUNTS" /> -->
-    <!-- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> -->
-    <!--
-          IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
-          to match your app's package name + ".permission.C2D_MESSAGE".
-    -->
+
     <permission
         android:name="kz.itsolutions.businformator.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -62,25 +53,10 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".activities.MapOsmActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activities.ForecastActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".activities.TrainingActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-       <activity
-            android:name=".activities.AugmentedRealityActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.WidgetConfigActivity"
             android:theme="@style/AppTheme">
@@ -88,27 +64,6 @@
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.AboutAppActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.RoutesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.EditRouteActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.PrefsActivity"
-            android:label="@string/settings"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.ComplaintActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".activities.FeedbackActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible" />
 
         <!-- Include the AdActivity configChanges and theme. -->
         <activity
@@ -169,18 +124,16 @@
 
 
         <!-- [START firebase_service] -->
-        <service
-            android:name=".push.MyFirebaseMessagingService">
+        <service android:name=".push.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <!-- [END firebase_service] -->
         <!-- [START firebase_iid_service] -->
-        <service
-            android:name=".push.MyFirebaseInstanceIDService">
+        <service android:name=".push.MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <!-- [END firebase_iid_service] -->

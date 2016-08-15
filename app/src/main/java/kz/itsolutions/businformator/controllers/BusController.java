@@ -27,11 +27,9 @@ import kz.itsolutions.businformator.utils.HttpHelper;
 public class BusController {
 
     //method when one route is chosen
-    public static List<Bus> getRouteBusesDaniyar(Route route) throws HttpException, IOException, JSONException{
+    public static List<Bus> getRouteBuses(Route route) throws HttpException, IOException, JSONException{
         ArrayList<Bus> buses = new ArrayList<>();
         HttpHelper httpHelper = new HttpHelper();
-
-
 
         try {
             String response = httpHelper.getInfoBusJson(Consts.BUS_POSITIONS_URL_NEW + "/" + route.getNumber());

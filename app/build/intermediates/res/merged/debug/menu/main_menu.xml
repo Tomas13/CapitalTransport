@@ -17,6 +17,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_routes"
+
           android:icon="@drawable/ic_menu_routes"
           android:title="@string/routes"
           app:showAsAction="ifRoom" />
@@ -26,35 +27,15 @@
           android:title="@string/search_routes_from_to"
           app:showAsAction="never" />
 
-    <!--<item android:id="@+id/menu_display_bus_stops"-->
-          <!--android:checkable="true"-->
-          <!--android:title="@string/display_bus_stops"-->
-          <!--android:showAsAction="never" />-->
-
-    <!--<item android:id="@+id/menu_augmented_reality"-->
-          <!--android:title="@string/augmented_reality"-->
-          <!--android:showAsAction="never" />-->
-
     <item android:id="@+id/menu_edit_route"
           android:visible="false"
           android:title="@string/edit_route"
           app:showAsAction="never" />
-
-    <!--<item android:id="@+id/menu_make_complaint"-->
-          <!--android:title="@string/make_complaint"-->
-          <!--android:showAsAction="never" />-->
-
-    <!--<item android:id="@+id/menu_preferences"-->
-          <!--android:title="@string/settings"-->
-          <!--android:showAsAction="never" />-->
 
     <item android:id="@+id/menu_alarm"
           android:visible="false"
           android:title="@string/alarm"
           app:showAsAction="never" />
 
-    <item android:id="@+id/menu_about"
-          android:title="@string/about_app"
-          app:showAsAction="never" />
 
 </menu>

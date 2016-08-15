@@ -18,7 +18,7 @@ public class Consts {
     public static short MAX_ROUTES_ON_MAP = 5;
 
     // интервал запроса списка автобусов для маршрута, мс
-    public static short BUS_TIMER_INTERVAL = 5000;
+    public static short BUS_TIMER_INTERVAL = 4000;
     public static String BUS_POSITIONS_URL = "http://astrabus.otgroup.kz/api/";
     public static String BUS_POSITIONS_URL_NEW = "http://astrabus.otgroup.kz/api/buscoordinates";
     public static String BUS_EDGES = "http://astrabus.otgroup.kz/api/edges";

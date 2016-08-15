@@ -111,17 +111,6 @@ public class BusStopsTable extends ProjectDB {
             ih.close();
             mDb.endTransaction();
         }
-       /* JSONObject json;
-        RouteBusStopsTable routeBusStopsTable = new RouteBusStopsTable(mCtx);
-        for (int i = 0; i < jsonArray.length(); i++) {
-            try {
-                json = jsonArray.getJSONObject(i);
-                int busStopServerId = json.getInt("id");
-                routeBusStopsTable.insertBusStopRoutes(busStopServerId, json.getJSONArray("routes"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }*/
     }
 
     public boolean hasBusStop(int serverId) {

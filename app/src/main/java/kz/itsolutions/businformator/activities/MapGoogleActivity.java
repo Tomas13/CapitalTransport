@@ -17,7 +17,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -119,7 +118,6 @@ import kz.itsolutions.businformator.model.BusStop;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.model.RouteStatistic;
 import kz.itsolutions.businformator.utils.Consts;
-import kz.itsolutions.businformator.utils.HttpHelper;
 import kz.itsolutions.businformator.utils.Weather;
 import kz.itsolutions.businformator.widgets.MyProvider;
 import kz.itsolutions.businformator.widgets.SingleWidget;
@@ -127,7 +125,7 @@ import kz.itsolutions.businformator.widgets.tabPageIndicator.TabPageIndicator;
 
 public class MapGoogleActivity extends AppCompatActivity implements View.OnClickListener,
         View.OnLongClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMapClickListener,
-        Weather.WeatherInterface, GoogleMap.OnInfoWindowClickListener,
+        Weather.WeatherInterface,
         GoogleMap.OnCameraChangeListener, ActivityCompat.OnRequestPermissionsResultCallback {
 
     private static final int REQUEST_LOCATION = 1;
@@ -217,18 +215,11 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     LinearLayout linearLayoutAtoB;
 
     Tracker mTracker;
-    Fragment fragment;
-    Fragment scheduleFragment;
-    Fragment newsFragment;
-    Fragment scheduleInsideFragment;
-    Fragment transportFragment;
-    Fragment contactCentrFragment;
-    Fragment complaintsFragment;
+    private Fragment fragment, scheduleFragment, newsFragment, scheduleInsideFragment,
+            transportFragment, contactCentrFragment, complaintsFragment;
     private String urlJsonObj = "http://crm.astanalrt.com/notifications/savedevice";
 
     private void makePostRequest(String token) {
-
-
         HttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(urlJsonObj);
 
@@ -333,7 +324,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         DBHelper.init(getApplicationContext());
         mDbHelper = DBHelper.getHelper();
-        SplashActivity.updateCurrentInstallationMap(this);
+//        SplashActivity.updateCurrentInstallationMap(this);
 
         setContentView(R.layout.map_google_activity);
 
@@ -865,7 +856,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             mMap.getUiSettings().setRotateGesturesEnabled(false);
             mMap.setOnMarkerDragListener(this);
             mMap.setOnMapClickListener(this);
-            mMap.setOnInfoWindowClickListener(this);
+//            mMap.setOnInfoWindowClickListener(this);
 
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -1053,9 +1044,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 mDrawerLayout.closeDrawer(mLeftDrawer);
                 return true;
 
-            case R.id.menu_about:
-                startActivity(new Intent(this, AboutAppActivity.class));
-                break;
             case R.id.menu_find_routes:
                 mDrawerLayout.closeDrawer(mRightDrawer);
                 mDrawerLayout.openDrawer(mLeftDrawer);
@@ -1068,9 +1056,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 mDrawerLayout.closeDrawer(mRightDrawer);
                 mDrawerLayout.openDrawer(mLeftDrawer);
                 return true;
-            case R.id.menu_edit_route:
-                startActivity(new Intent(this, RoutesActivity.class));
-                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -1129,16 +1114,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-
-    @Override
-    public void onInfoWindowClick(Marker marker) {
-        if (mBusStopInfoWindowShowed != null) {
-            Intent intent = new Intent(MapGoogleActivity.this, ForecastActivity.class);
-            intent.putExtra(KEY_SELECTED_BUS_STOP_ID, mBusStopInfoWindowShowed.getServerId());
-            needFinishWhenOnPause = false;
-            startActivityForResult(intent, REQUEST_FORECAST_CODE);
-        }
-    }
 
     @Override
     public void onCameraChange(CameraPosition cameraPosition) {
@@ -1321,7 +1296,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
-        getSupportActionBar().setTitle(mTitle);
+        if (getSupportActionBar() != null) getSupportActionBar().setTitle(mTitle);
     }
 
     // отображаем температуру в левом верхнем углу
@@ -1525,7 +1500,10 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             }
 
             Log.d("astanaMapGoogle", "got in Timer Method for " + route.getNumber()); //29.07
-            mBuses = BusController.getRouteBusesDaniyar(route);
+            Log.d("astanaTimerMethod", "mSelected route is " + mSelectedRoute);
+            mBuses = BusController.getRouteBuses(route);
+
+
 
             if (mBuses.size() > 0 && mSelectedRoute != null) {
                 if (mBuses.get(0).getRouteNumber() != mSelectedRoute.getNumber()) {
@@ -2349,13 +2327,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         recyclerViewMap.setVisibility(View.INVISIBLE);
     }
 
-    List<Route> routes;
+    private List<Route> routes;
 
 
     public void showNewsFragment() {
         getSupportFragmentManager().popBackStack();
         resetTimersAndClearMap();
-
 
         mActionBar.setSubtitle("НОВОСТИ");
 
@@ -2363,7 +2340,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         hideWeather();
 
         mDrawerLayout.closeDrawer(mLeftDrawer);
-
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();

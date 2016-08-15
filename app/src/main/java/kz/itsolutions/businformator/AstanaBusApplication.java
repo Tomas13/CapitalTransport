@@ -51,7 +51,7 @@ public class AstanaBusApplication extends MultiDexApplication {
         super.onCreate();
         mInstance = this;
 
-        Fabric.with(this, new Answers(), new Crashlytics());
+//        Fabric.with(this, new Answers(), new Crashlytics());
 
     }
 
