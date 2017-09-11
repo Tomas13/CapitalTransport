@@ -3,7 +3,10 @@ package kz.itsolutions.businformator.activities;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -19,6 +22,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import kz.itsolutions.businformator.R;
 
 import static kz.itsolutions.businformator.utils.Consts.urlJsonObj;
 
@@ -74,6 +79,23 @@ public class Methods {
             activity.getSupportFragmentManager().beginTransaction().remove(fr).commit();
         }
     }
+
+
+    public static void showNewsFragment(MapGoogleActivity activity, ActionBar mActionBar, DrawerLayout mDrawerLayout,
+                                        RelativeLayout mLeftDrawer, RelativeLayout mRightDrawer, Fragment newsFragment) {
+        activity.getSupportFragmentManager().popBackStack();
+        activity.resetTimersAndClearMap();
+
+        mActionBar.setSubtitle("НОВОСТИ");
+
+        activity.hideMapFragment();
+
+        mDrawerLayout.closeDrawer(mLeftDrawer);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
+    }
+
 
     static void showToast(Context context, Toast toast, String text) {
         if (toast != null) toast.cancel();

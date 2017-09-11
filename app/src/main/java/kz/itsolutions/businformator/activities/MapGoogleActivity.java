@@ -118,6 +118,7 @@ import kz.itsolutions.businformator.widgets.tabPageIndicator.TabPageIndicator;
 
 import static kz.itsolutions.businformator.activities.Methods.getCurrentFragment;
 import static kz.itsolutions.businformator.activities.Methods.removeFragments;
+import static kz.itsolutions.businformator.activities.Methods.showNewsFragment;
 import static kz.itsolutions.businformator.activities.Methods.showToast;
 import static kz.itsolutions.businformator.utils.Consts.KEY_IS_SHOWN_SEARCH_MENU;
 import static kz.itsolutions.businformator.utils.Consts.KEY_LAST_OPENED_TAB;
@@ -179,7 +180,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
 
-
     @BindView(R.id.lv_routes_menu)
     ListView listviewLeftMenu;
 
@@ -223,7 +223,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             isShowBusStopsMode, showBusStopsForRoute;
     AlertDialog.Builder notHaveGmsDialog, voteAppDialog;
 
-    public enum PointType {FROM, TO}
+    private enum PointType {FROM, TO}
 
     private PointType currentPointType;
     AtoBAdapter atoBAdapter;
@@ -435,14 +435,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
             removeFragments(this, fragment, transportFragment, contactCentrFragment,
                     scheduleFragment, scheduleInsideFragment, complaintsFragment, newsFragment);
-//            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-//            getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
-//            getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
-//            getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
-//            getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
-//            getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
-//            getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
-
 
         }
 
@@ -469,13 +461,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                         mMapFragment.getView().setLayoutParams(params0);
 
 
-                        getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-                        getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
-                        getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
-                        getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
-                        getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
-                        getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
-                        getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
+                        removeFragments(this, fragment, transportFragment, contactCentrFragment,
+                                scheduleFragment, scheduleInsideFragment, complaintsFragment, newsFragment);
 
                         break;
                     case 1: //schedule
@@ -635,15 +622,13 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            listViewRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-            listViewFavoriteRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-            listViewHistoryRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        listViewRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        listViewFavoriteRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        listViewHistoryRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 
-            listViewRoutes.setMultiChoiceModeListener(new ModeCallback());
-            listViewFavoriteRoutes.setMultiChoiceModeListener(new ModeCallback());
-            listViewHistoryRoutes.setMultiChoiceModeListener(new ModeCallback());
-        }
+        listViewRoutes.setMultiChoiceModeListener(new ModeCallback());
+        listViewFavoriteRoutes.setMultiChoiceModeListener(new ModeCallback());
+        listViewHistoryRoutes.setMultiChoiceModeListener(new ModeCallback());
 
         mViewPager.setOffscreenPageLimit(3);
         mPagerAdapter.addItem(listViewRoutes);
@@ -833,11 +818,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         String menuFragment = getIntent().getStringExtra("menuFragment");
         if (menuFragment != null) {
             if (menuFragment.equals("favoritesMenuItem")) {
-                showNewsFragment();
+                showNewsFragment(this, mActionBar, mDrawerLayout, mLeftDrawer, mRightDrawer, newsFragment);
             }
-        } else {
-//            StandardFragment standardFragment = new StandardFragment();
-//            fragmentTransaction.replace(android.R.id.content, standardFragment);
         }
         //END PUSH
 
@@ -1060,12 +1042,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onMarkerDragEnd(Marker marker) {
         isFindRoutesMode = true;
-        if (marker.getTitle().equals(getString(R.string.from))) {
+      /*  if (marker.getTitle().equals(getString(R.string.from))) {
 //            etPointFrom.setText(getString(R.string.point_a));
         } else if (marker.getTitle().equals(getString(R.string.to))) {
 //            etPointTo.setText(getString(R.string.point_b));
         }
-//        mDrawerLayout.openDrawer(mLeftDrawer);
+//        mDrawerLayout.openDrawer(mLeftDrawer);*/
     }
 
     @Override
@@ -1260,9 +1242,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
         updateWidgets();
 
-//        if (mAdView != null) {
-//            mAdView.pause();
-//        }
     }
 
     void updateWidgets() {
@@ -1294,9 +1273,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             startBusTimer();
             startBusesTimer();
         }
-//        if (mAdView != null) {
-//            mAdView.resume();
-//        }
     }
 
     private void startBusTimer() {
@@ -2011,7 +1987,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                     routeForZoom = route;
                     severalRoutes.clear();
 
-
                     selectRoute(route, true, false);
 
                     mSelectedRoute = route;
@@ -2036,7 +2011,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 .title(getString(R.string.from))
                 .draggable(true)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.point_a_new)));
-//                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         if (isNeedFind)
             findRoutes();
     }
@@ -2057,7 +2031,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 .draggable(true)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.point_b_new)));
 
-//        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         if (isNeedFind)
             findRoutes();
     }
@@ -2102,13 +2075,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
                 mActionBar.setSubtitle("");
 
-                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-                getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
-                getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
-                getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
-                getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
-                getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
-                getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
+                removeFragments(this, fragment, transportFragment, contactCentrFragment, scheduleFragment, scheduleInsideFragment,
+                        complaintsFragment, newsFragment);
 
                 isRoutesMenu = true;
 
@@ -2141,32 +2109,14 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             params.height = 0;
             params.width = 0;
             mMapFragment.getView().setLayoutParams(params);
-        } else {
-
         }
         isRoutesMenu = false;
-
 
         bottomToolbar.setVisibility(View.INVISIBLE);
         recyclerViewMap.setVisibility(View.INVISIBLE);
     }
 
     private List<Route> routes;
-
-
-    public void showNewsFragment() {
-        getSupportFragmentManager().popBackStack();
-        resetTimersAndClearMap();
-
-        mActionBar.setSubtitle("НОВОСТИ");
-
-        hideMapFragment();
-
-        mDrawerLayout.closeDrawer(mLeftDrawer);
-        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
-    }
 
 
 }
