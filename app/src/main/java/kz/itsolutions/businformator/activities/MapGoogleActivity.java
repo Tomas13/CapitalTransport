@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.appwidget.AppWidgetManager;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,10 +23,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -33,6 +34,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -74,27 +76,19 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.apache.http.HttpException;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import kz.itsolutions.businformator.AstanaBusApplication;
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.adapters.AtoBAdapter;
@@ -118,57 +112,84 @@ import kz.itsolutions.businformator.model.BusStop;
 import kz.itsolutions.businformator.model.Route;
 import kz.itsolutions.businformator.model.RouteStatistic;
 import kz.itsolutions.businformator.utils.Consts;
-import kz.itsolutions.businformator.utils.Weather;
 import kz.itsolutions.businformator.widgets.MyProvider;
 import kz.itsolutions.businformator.widgets.SingleWidget;
 import kz.itsolutions.businformator.widgets.tabPageIndicator.TabPageIndicator;
 
+import static kz.itsolutions.businformator.activities.Methods.getCurrentFragment;
+import static kz.itsolutions.businformator.activities.Methods.removeFragments;
+import static kz.itsolutions.businformator.activities.Methods.showToast;
+import static kz.itsolutions.businformator.utils.Consts.KEY_IS_SHOWN_SEARCH_MENU;
+import static kz.itsolutions.businformator.utils.Consts.KEY_LAST_OPENED_TAB;
+import static kz.itsolutions.businformator.utils.Consts.KEY_NOT_SHOW_VOTE_DIALOG;
+import static kz.itsolutions.businformator.utils.Consts.KEY_SELECTED_ROUTE_SERVER_ID;
+import static kz.itsolutions.businformator.utils.Consts.KEY_SHOW_BUS_STOPS;
+import static kz.itsolutions.businformator.utils.Consts.KEY_SHOW_WELCOME_MESSAGE;
+import static kz.itsolutions.businformator.utils.Consts.KEY_STARTS_COUNT;
+import static kz.itsolutions.businformator.utils.Consts.LOG_TAG;
+import static kz.itsolutions.businformator.utils.Consts.MAIN_PREFS;
+import static kz.itsolutions.businformator.utils.Consts.REQUEST_FORECAST_CODE;
+import static kz.itsolutions.businformator.utils.Consts.REQUEST_LOCATION;
+
 public class MapGoogleActivity extends AppCompatActivity implements View.OnClickListener,
         View.OnLongClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMapClickListener,
-        Weather.WeatherInterface,
         GoogleMap.OnCameraChangeListener, ActivityCompat.OnRequestPermissionsResultCallback {
-
-    private static final int REQUEST_LOCATION = 1;
 
     ArrayList<Route> severalRoutes = new ArrayList<>(); // for drawing bus stops for several routes
     Route routeForZoom = null; //route for drawing bus stops
-
     Menu menu1;
 
     boolean isRoutesMenu = true;
 
     float maxZoom = 15.0f;
-    private String LOG_TAG = "astana_bus";
-    public final static String MAIN_PREFS = "main_prefs";
-    public static final String KEY_SELECTED_BUS_STOP_ID = "selected_bus_stop_id";
-    public static final String KEY_SHOW_WELCOME_MESSAGE = "show_welcome_message";
-    public static final String KEY_SHOW_BUS_STOPS = "key_show_bus_stops";
-    public static final String KEY_STARTS_COUNT = "key_starts_count";
-    public static final String KEY_NOT_SHOW_VOTE_DIALOG = "key_not_show_rating_dialog";
-    public static final String KEY_IS_SHOWN_SEARCH_MENU = "key_is_shown_search_menu";
-    public static final String KEY_LAST_OPENED_TAB = "key_last_opened_tab";
-    public static final String KEY_FIND_ROUTES_FROM_LAT = "key_find_routes_from_lat";
-    public static final String KEY_FIND_ROUTES_FROM_LON = "key_find_routes_from_lon";
-    public static final String KEY_FIND_ROUTES_TO_LAT = "key_find_routes_to_lat";
-    public static final String KEY_FIND_ROUTES_TO_LON = "key_find_routes_to_lon";
-    public static final String KEY_SELECTED_ROUTE_SERVER_ID = "key_selected_route_server_id";
-
-    public static final int REQUEST_FORECAST_CODE = 11;
-
-    /* Views */
-    private DrawerLayout mDrawerLayout;
-    android.support.v7.app.ActionBar mActionBar;
-    View mRightDrawer, mLeftDrawer, busStopInfoWindowView, busInfoWindowView;
-    ListView listViewRoutes, listViewFavoriteRoutes, listViewHistoryRoutes, listviewLeftMenu;
+    @BindView(R.id.container)
+    FrameLayout container;
+    @BindView(R.id.btn_show_nearest_bus_stops_for_custom_location)
+    ImageButton btnShowNearestBusStops;
+    @BindView(R.id.search_a_b)
+    ImageButton fabSearchAtoB;
+    @BindView(R.id.close_toolbar_btn)
+    ImageButton closeToolbar;
+    @BindView(R.id.recyclerview_map)
+    RecyclerView recyclerViewMap;
+    @BindView(R.id.point_a_btn)
+    Button pointABtn;
+    @BindView(R.id.point_b_btn)
+    Button pointBBtn;
+    @BindView(R.id.linear_a_b_btns)
+    LinearLayout linearLayoutAtoB;
+    @BindView(R.id.bottom_toolbar)
+    FrameLayout bottomToolbar;
+    @BindView(R.id.fab_map)
+    ImageButton fabMain;
+    @BindView(R.id.tv_internet_status)
+    TextView tvInternetStatus;
+    @BindView(R.id.ll_welcome_message)
+    LinearLayout llWelcomeMessage;
+    @BindView(R.id.left_drawer)
+    RelativeLayout mLeftDrawer;
+    @BindView(R.id.et_search_route)
     EditText etSearchRoute;
-    TextView tvBusStopTitle, tvBusStopDescription, tvBusTitle, tvBusDescription, tvInternetStatus;
+    @BindView(R.id.pager)
+    ViewPager mViewPager;
+    @BindView(R.id.indicator)
+    TabPageIndicator pageIndicator;
+    @BindView(R.id.right_drawer)
+    RelativeLayout mRightDrawer;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+
+
+    @BindView(R.id.lv_routes_menu)
+    ListView listviewLeftMenu;
+
+    ActionBar mActionBar;
+    View busStopInfoWindowView, busInfoWindowView;
+    ListView listViewRoutes, listViewFavoriteRoutes, listViewHistoryRoutes;
+    TextView tvBusStopTitle, tvBusStopDescription, tvBusTitle, tvBusDescription;
     SupportMapFragment mMapFragment;
     ActionBarDrawerToggle mDrawerToggle;
-    ImageButton btnShowNearestBusStops;
-    LinearLayout llWelcomeMessage;
 
-    TextView tvWeather;
-//    AdView mAdView;
 
     DBHelper mDbHelper;
     SharedPreferences mSharedPreferences;
@@ -181,13 +202,13 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     private CharSequence mTitle;
     LoadDataAsyncTask mLoadDataAsyncTask;
 
-    RoutesAdapter mAdapter, mHistoryAdapter, mFavoriteAdapter, mFoundRoutesAdapter;
+    RoutesAdapter mAdapter, mHistoryAdapter, mFavoriteAdapter;
     RouteController mRouteController;
     BusStopController mBusStopController;
     List<Route> mRoutes, mSelectedRoutes;
     List<Bus> mBuses;
     Route mSelectedRoute;
-    BusStop mSelectedBusStop, mBusStopInfoWindowShowed, mAlarmBusStop;
+    BusStop mSelectedBusStop, mAlarmBusStop;
     HashMap<Integer, RouteStatistic> statisticHashMap;
     HashMap<Marker, BusStop> hashMapMarkerBusStops;
     ArrayList<Marker> markers;
@@ -196,7 +217,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     BusStopsAdapter mBusStopsPointToAdapter, mBusStopsPointFromAdapter;
 
     MyPagerAdapter mPagerAdapter;
-    ViewPager mViewPager;
 
     RoutesDrawerItemClickListener listener;
     boolean isMarkerClicked, isSessionFromWidget, needFinishWhenOnPause, isFindRoutesMode, isCustomLocationMode,
@@ -206,50 +226,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     public enum PointType {FROM, TO}
 
     private PointType currentPointType;
-    private ImageButton fabSearchAtoB;
-    ImageButton fabMain;
-    private FrameLayout bottomToolbar;
-    private RecyclerView recyclerViewMap;
-    private Button pointABtn, pointBBtn;
     AtoBAdapter atoBAdapter;
-    LinearLayout linearLayoutAtoB;
 
     Tracker mTracker;
     private Fragment fragment, scheduleFragment, newsFragment, scheduleInsideFragment,
             transportFragment, contactCentrFragment, complaintsFragment;
-    private String urlJsonObj = "http://crm.astanalrt.com/notifications/savedevice";
 
-    private void makePostRequest(String token) {
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(urlJsonObj);
-
-        //Post Data
-        List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(2);
-        nameValuePair.add(new BasicNameValuePair("token", token));
-        nameValuePair.add(new BasicNameValuePair("device", "0"));
-
-        //Encoding POST data
-        try {
-            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
-        } catch (UnsupportedEncodingException e) {
-            // log exception
-            e.printStackTrace();
-        }
-
-        //making POST request.
-        try {
-            HttpResponse response = httpClient.execute(httpPost);
-            // write response to log
-//            Log.d("Http Post Response:", response.toString());
-        } catch (ClientProtocolException e) {
-            // Log exception
-            e.printStackTrace();
-        } catch (IOException e) {
-            // Log exception
-            e.printStackTrace();
-        }
-
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -279,16 +261,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    private void makePostRequestOnNewThread() {
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                makePostRequest(FirebaseInstanceId.getInstance().getToken());
-            }
-        });
-        t.start();
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -305,29 +277,29 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             }
         }
 
-
-        Log.d("EEEE", "token = " + FirebaseInstanceId.getInstance().getToken());
-
+        MapGooglePresenter presenter = new MapGooglePresenter();
 
         SharedPreferences sp = getSharedPreferences("push", Activity.MODE_PRIVATE);
         if (!sp.contains("fcm_token")) {
             String token = FirebaseInstanceId.getInstance().getToken();
             SharedPreferences.Editor editor = sp.edit();
             editor.putString("fcm_token", token);
-            editor.commit();
-            makePostRequestOnNewThread();
-        } else {
-//            Toast.makeText(MapGoogleActivity.this, "do not send", Toast.LENGTH_SHORT).show();
-
+            editor.apply();
+            presenter.makePostRequestOnNewThread();
         }
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         DBHelper.init(getApplicationContext());
         mDbHelper = DBHelper.getHelper();
-//        SplashActivity.updateCurrentInstallationMap(this);
 
         setContentView(R.layout.map_google_activity);
+        ButterKnife.bind(this);
 
+        mMapFragment = ((SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map));
+
+
+        mMap = mMapFragment.getMap();
         hashMapMarkerBusStops = new HashMap<>();
 
         // Obtain the shared Tracker instance.
@@ -336,24 +308,14 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
 
         boolean needShowWelcomeMessage = getIntent().getBooleanExtra(KEY_SHOW_WELCOME_MESSAGE, false);
-        tvWeather = (TextView) findViewById(R.id.tv_weather_term);
-        llWelcomeMessage = (LinearLayout) findViewById(R.id.ll_welcome_message);
-        btnShowNearestBusStops = (ImageButton) findViewById(R.id.btn_show_nearest_bus_stops_for_custom_location);
         btnShowNearestBusStops.setOnClickListener(this);
         btnShowNearestBusStops.setOnLongClickListener(this);
-        tvInternetStatus = (TextView) findViewById(R.id.tv_internet_status);
         busStopInfoWindowView = getLayoutInflater().inflate(R.layout.bus_stop_window_google, null);
         tvBusStopTitle = (TextView) busStopInfoWindowView.findViewById(R.id.tv_bus_stop_title);
         tvBusStopDescription = (TextView) busStopInfoWindowView.findViewById(R.id.tv_bus_stop_description);
         busInfoWindowView = getLayoutInflater().inflate(R.layout.bus_window_google, null);
         tvBusTitle = (TextView) busInfoWindowView.findViewById(R.id.tv_bus_title);
         tvBusDescription = (TextView) busInfoWindowView.findViewById(R.id.tv_bus_description);
-
-
-        pointABtn = (Button) findViewById(R.id.point_a_btn);
-        pointBBtn = (Button) findViewById(R.id.point_b_btn);
-
-        recyclerViewMap = (RecyclerView) findViewById(R.id.recyclerview_map);
 
 
         mActionBar = getSupportActionBar();
@@ -363,117 +325,87 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
 
 
-        bottomToolbar = (FrameLayout) findViewById(R.id.bottom_toolbar);
-        fabMain = (ImageButton) findViewById(R.id.fab_map);
-
-        linearLayoutAtoB = (LinearLayout) findViewById(R.id.linear_a_b_btns);
-
-        fabSearchAtoB = (ImageButton) findViewById(R.id.search_a_b);
-        fabSearchAtoB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        fabSearchAtoB.setOnClickListener(v -> {
 
 
-                if (mMarkerPointFrom == null) {
-                    Toast.makeText(MapGoogleActivity.this, getString(R.string.set_point_from), Toast.LENGTH_SHORT).show();
-                } else if (mMarkerPointTo == null) {
-                    Toast.makeText(MapGoogleActivity.this, getString(R.string.set_point_to), Toast.LENGTH_SHORT).show();
-                } else {
+            if (mMarkerPointFrom == null) {
+                Toast.makeText(MapGoogleActivity.this, getString(R.string.set_point_from), Toast.LENGTH_SHORT).show();
+            } else if (mMarkerPointTo == null) {
+                Toast.makeText(MapGoogleActivity.this, getString(R.string.set_point_to), Toast.LENGTH_SHORT).show();
+            } else {
 
-                    linearLayoutAtoB.setVisibility(View.GONE);
-                    recyclerViewMap.setHasFixedSize(true);
-                    recyclerViewMap.setVisibility(View.VISIBLE);
+                linearLayoutAtoB.setVisibility(View.GONE);
+                recyclerViewMap.setHasFixedSize(true);
+                recyclerViewMap.setVisibility(View.VISIBLE);
 
-                    LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
-                    llm.setOrientation(LinearLayoutManager.HORIZONTAL);
-                    recyclerViewMap.setLayoutManager(llm);
-
-                }
+                LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
+                llm.setOrientation(LinearLayoutManager.HORIZONTAL);
+                recyclerViewMap.setLayoutManager(llm);
 
             }
+
         });
 
-        fabMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bottomToolbar.setVisibility(View.VISIBLE);
-                fabMain.setVisibility(View.GONE);
-                btnShowNearestBusStops.setVisibility(View.GONE);
-            }
+        fabMain.setOnClickListener(v -> {
+            bottomToolbar.setVisibility(View.VISIBLE);
+            fabMain.setVisibility(View.GONE);
+            btnShowNearestBusStops.setVisibility(View.GONE);
         });
 
 
-        pointABtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        pointABtn.setOnClickListener(v -> {
 
-                pointABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_red_button));
-                pointABtn.setTextColor(getResources().getColor(R.color.splash_bg));
-                isFindRoutesMode = true;
-                currentPointType = PointType.FROM;
-                resetTimersAndClearMap();
-                if (mMarkerPointTo != null) {
-                    setMarkerPointTo(mMarkerPointTo.getPosition(), false);
-                }
-                showToast(getString(R.string.set_point_from));
+            pointABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_red_button));
+            pointABtn.setTextColor(getResources().getColor(R.color.splash_bg));
+            isFindRoutesMode = true;
+            currentPointType = PointType.FROM;
+            resetTimersAndClearMap();
+            if (mMarkerPointTo != null) {
+                setMarkerPointTo(mMarkerPointTo.getPosition(), false);
             }
+            showToast(getApplicationContext(), mToast, getString(R.string.set_point_from));
         });
 
-        pointBBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        pointBBtn.setOnClickListener(v -> {
 
-                pointBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_red_button));
-                pointBBtn.setTextColor(getResources().getColor(R.color.splash_bg));
+            pointBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_red_button));
+            pointBBtn.setTextColor(getResources().getColor(R.color.splash_bg));
 
-                isFindRoutesMode = true;
-                currentPointType = PointType.TO;
-                resetTimersAndClearMap();
-                if (mMarkerPointFrom != null) {
-                    setMarkerPointFrom(mMarkerPointFrom.getPosition(), false);
-                }
-                showToast(getString(R.string.set_point_to));
-
+            isFindRoutesMode = true;
+            currentPointType = PointType.TO;
+            resetTimersAndClearMap();
+            if (mMarkerPointFrom != null) {
+                setMarkerPointFrom(mMarkerPointFrom.getPosition(), false);
             }
+            showToast(getApplicationContext(), mToast, getString(R.string.set_point_to));
+
         });
 
 
-        ImageButton closeToolbar = (ImageButton) findViewById(R.id.close_toolbar_btn);
-        closeToolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resetTimersAndClearMap();
+        closeToolbar.setOnClickListener(v -> {
+            resetTimersAndClearMap();
 
-                resetFindRouteMode();
+            resetFindRouteMode();
 
 
-                mActionBar.setSubtitle("");
+            mActionBar.setSubtitle("");
 
-                pointABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_button));
-                pointBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_button));
-                pointABtn.setTextColor(getResources().getColor(R.color.black));
-                pointBBtn.setTextColor(getResources().getColor(R.color.black));
+            pointABtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_button));
+            pointBBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.rounded_button));
+            pointABtn.setTextColor(getResources().getColor(R.color.black));
+            pointBBtn.setTextColor(getResources().getColor(R.color.black));
 
-                bottomToolbar.setVisibility(View.INVISIBLE);
-                fabMain.setVisibility(View.VISIBLE);
-                btnShowNearestBusStops.setVisibility(View.VISIBLE);
-                recyclerViewMap.setVisibility(View.INVISIBLE);
-                linearLayoutAtoB.setVisibility(View.VISIBLE);
+            bottomToolbar.setVisibility(View.INVISIBLE);
+            fabMain.setVisibility(View.VISIBLE);
+            btnShowNearestBusStops.setVisibility(View.VISIBLE);
+            recyclerViewMap.setVisibility(View.INVISIBLE);
+            linearLayoutAtoB.setVisibility(View.VISIBLE);
 
-//                mMarkerPointFrom = null;
-//                mMarkerPointTo = null;
-            }
         });
 
 
         markers = new ArrayList<>();
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        // Left drawer
-        mLeftDrawer = findViewById(R.id.left_drawer);
-
-
-        listviewLeftMenu = (ListView) findViewById(R.id.lv_routes_menu);
         ArrayAdapter<String> leftAdapter = new LeftDrawerAdapter2(getApplicationContext(),
                 getResources().getStringArray(R.array.left_menu));
 
@@ -491,166 +423,147 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         contactCentrFragment = new ContactCentrFragment();
         complaintsFragment = new ComplaintsFragment();
 
-        if (getCurrentFragment() != fragment && getCurrentFragment() != scheduleFragment
-                || getCurrentFragment() != newsFragment && getCurrentFragment() != scheduleInsideFragment &&
-                getCurrentFragment() != transportFragment && getCurrentFragment() != contactCentrFragment &&
-                getCurrentFragment() != complaintsFragment) {
+        if (getCurrentFragment(this) != fragment && getCurrentFragment(this) != scheduleFragment
+                || getCurrentFragment(this) != newsFragment && getCurrentFragment(this) != scheduleInsideFragment &&
+                getCurrentFragment(this) != transportFragment && getCurrentFragment(this) != contactCentrFragment &&
+                getCurrentFragment(this) != complaintsFragment) {
 
 
             mActionBar.setSubtitle("");
 
             isRoutesMenu = true;
-            showWeather();
 
-//            mDrawerLayout.closeDrawer(mLeftDrawer);
-//            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, mRightDrawer);
-
-//            mDrawerLayout.openDrawer(mRightDrawer);
-//            ViewGroup.LayoutParams params0 = mMapFragment.getView().getLayoutParams();
-//            params0.height = FrameLayout.LayoutParams.MATCH_PARENT;
-//            params0.width = FrameLayout.LayoutParams.MATCH_PARENT;
-//            mMapFragment.getView().setLayoutParams(params0);
-
-
-            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
-            getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
+            removeFragments(this, fragment, transportFragment, contactCentrFragment,
+                    scheduleFragment, scheduleInsideFragment, complaintsFragment, newsFragment);
+//            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+//            getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
+//            getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
+//            getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
+//            getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
+//            getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
+//            getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
 
 
         }
 
 
         try {
-            listviewLeftMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            listviewLeftMenu.setOnItemClickListener((parent, view, position, id) -> {
 
-                    switch (position) {
-                        case 0: //menu routes
+                switch (position) {
+                    case 0: //menu routes
 
-                            getSupportFragmentManager().popBackStack();
+                        getSupportFragmentManager().popBackStack();
 
-                            mActionBar.setSubtitle("");
+                        mActionBar.setSubtitle("");
 
-                            isRoutesMenu = true;
-                            showWeather();
+                        isRoutesMenu = true;
 
-                            mDrawerLayout.closeDrawer(mLeftDrawer);
-                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, mRightDrawer);
+                        mDrawerLayout.closeDrawer(mLeftDrawer);
+                        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, mRightDrawer);
 
-                            mDrawerLayout.openDrawer(mRightDrawer);
-                            ViewGroup.LayoutParams params0 = mMapFragment.getView().getLayoutParams();
-                            params0.height = FrameLayout.LayoutParams.MATCH_PARENT;
-                            params0.width = FrameLayout.LayoutParams.MATCH_PARENT;
-                            mMapFragment.getView().setLayoutParams(params0);
+                        mDrawerLayout.openDrawer(mRightDrawer);
+                        ViewGroup.LayoutParams params0 = mMapFragment.getView().getLayoutParams();
+                        params0.height = FrameLayout.LayoutParams.MATCH_PARENT;
+                        params0.width = FrameLayout.LayoutParams.MATCH_PARENT;
+                        mMapFragment.getView().setLayoutParams(params0);
 
 
-                            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-                            getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
-                            getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
-                            getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
-                            getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
-                            getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
-                            getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
+                        getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                        getSupportFragmentManager().beginTransaction().remove(transportFragment).commit();
+                        getSupportFragmentManager().beginTransaction().remove(contactCentrFragment).commit();
+                        getSupportFragmentManager().beginTransaction().remove(scheduleFragment).commit();
+                        getSupportFragmentManager().beginTransaction().remove(scheduleInsideFragment).commit();
+                        getSupportFragmentManager().beginTransaction().remove(complaintsFragment).commit();
+                        getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
 
-                            break;
-                        case 1: //schedule
+                        break;
+                    case 1: //schedule
 
-                            getSupportFragmentManager().popBackStack();
-                            resetTimersAndClearMap();
+                        getSupportFragmentManager().popBackStack();
+                        resetTimersAndClearMap();
 
-                            hideMapFragment();
-                            hideWeather();
+                        hideMapFragment();
 
-                            mActionBar.setSubtitle("АВТОБУСЫ");
+                        mActionBar.setSubtitle("АВТОБУСЫ");
 
-                            mDrawerLayout.closeDrawer(mLeftDrawer);
-                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+                        mDrawerLayout.closeDrawer(mLeftDrawer);
+                        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
 
-                            getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.container, scheduleFragment).commit();
-                            break;
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, scheduleFragment).commit();
+                        break;
 
-                        case 2: //news
+                    case 2: //news
 
-                            getSupportFragmentManager().popBackStack();
-                            resetTimersAndClearMap();
+                        getSupportFragmentManager().popBackStack();
+                        resetTimersAndClearMap();
 
-                            mActionBar.setSubtitle("НОВОСТИ");
+                        mActionBar.setSubtitle("НОВОСТИ");
 
-                            hideMapFragment();
-                            hideWeather();
+                        hideMapFragment();
 
-                            mDrawerLayout.closeDrawer(mLeftDrawer);
-                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+                        mDrawerLayout.closeDrawer(mLeftDrawer);
+                        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
 
-                            getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
-                            break;
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
+                        break;
 
-                        case 3: //transport
+                    case 3: //transport
 
-                            getSupportFragmentManager().popBackStack();
-                            resetTimersAndClearMap();
+                        getSupportFragmentManager().popBackStack();
+                        resetTimersAndClearMap();
 
-                            mActionBar.setSubtitle("ТРАНСПОРТ СТОЛИЦЫ");
+                        mActionBar.setSubtitle("ТРАНСПОРТ СТОЛИЦЫ");
 
-                            hideMapFragment();
-                            hideWeather();
+                        hideMapFragment();
 
-                            mDrawerLayout.closeDrawer(mLeftDrawer);
-                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+                        mDrawerLayout.closeDrawer(mLeftDrawer);
+                        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
 
-                            getSupportFragmentManager().beginTransaction().replace(R.id.container, transportFragment).commit();
-                            break;
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, transportFragment).commit();
+                        break;
 
-                        case 4: //contact centr
+                    case 4: //contact centr
 
-                            getSupportFragmentManager().popBackStack();
-                            resetTimersAndClearMap();
+                        getSupportFragmentManager().popBackStack();
+                        resetTimersAndClearMap();
 
-                            mActionBar.setSubtitle("КОНТАКТ-ЦЕНТР");
+                        mActionBar.setSubtitle("КОНТАКТ-ЦЕНТР");
 
-                            hideMapFragment();
-                            hideWeather();
+                        hideMapFragment();
 
-                            mDrawerLayout.closeDrawer(mLeftDrawer);
-                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
-                            getSupportFragmentManager().beginTransaction().replace(R.id.container, contactCentrFragment).commit();
-                            break;
+                        mDrawerLayout.closeDrawer(mLeftDrawer);
+                        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, contactCentrFragment).commit();
+                        break;
 
-                        case 5: //complaints
+                    case 5: //complaints
 
-                            getSupportFragmentManager().popBackStack();
-                            resetTimersAndClearMap();
+                        getSupportFragmentManager().popBackStack();
+                        resetTimersAndClearMap();
 
-                            mActionBar.setSubtitle("ЖАЛОБЫ");
+                        mActionBar.setSubtitle("ЖАЛОБЫ");
 
-                            hideMapFragment();
-                            hideWeather();
+                        hideMapFragment();
 
-                            mDrawerLayout.closeDrawer(mLeftDrawer);
-                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
-                            getSupportFragmentManager().beginTransaction().replace(R.id.container, complaintsFragment).commit();
-                            break;
-                        case 6: //about app
+                        mDrawerLayout.closeDrawer(mLeftDrawer);
+                        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, complaintsFragment).commit();
+                        break;
+                    case 6: //about app
 
-                            getSupportFragmentManager().popBackStack();
-                            resetTimersAndClearMap();
+                        getSupportFragmentManager().popBackStack();
+                        resetTimersAndClearMap();
 
-                            mActionBar.setSubtitle("О ПРИЛОЖЕНИИ");
+                        mActionBar.setSubtitle("О ПРИЛОЖЕНИИ");
 
-                            hideMapFragment();
-                            hideWeather();
+                        hideMapFragment();
 
-                            mDrawerLayout.closeDrawer(mLeftDrawer);
-                            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
-                            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-                            break;
-                    }
+                        mDrawerLayout.closeDrawer(mLeftDrawer);
+                        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+                        break;
                 }
             });
         } catch (Exception e) {
@@ -659,12 +572,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
 
         mPagerAdapter = new MyPagerAdapter(this);
-        mViewPager = (ViewPager) findViewById(R.id.pager);
 
-        // Right drawer
-        mRightDrawer = findViewById(R.id.right_drawer);
 
-        etSearchRoute = (EditText) findViewById(R.id.et_search_route);
         etSearchRoute.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -726,7 +635,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             listViewRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
             listViewFavoriteRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
             listViewHistoryRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -742,7 +651,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         mPagerAdapter.addItem(listViewHistoryRoutes);
 
         mViewPager.setAdapter(mPagerAdapter);
-        TabPageIndicator pageIndicator = (TabPageIndicator) findViewById(R.id.indicator);
         pageIndicator.setViewPager(mViewPager);
         pageIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -776,8 +684,9 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
+//        Weather.fetchData(this);
+
         // enable ActionBar app icon to behave as action to toggle nav drawer
-        Weather.fetchData(this);
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
 //        mActionBar.setIcon(getResources().getDrawable(R.drawable.ic_menu_bus));
@@ -1091,7 +1000,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     public boolean onLongClick(View view) {
         switch (view.getId()) {
             case R.id.btn_show_nearest_bus_stops_for_custom_location:
-                showToast(getString(R.string.click_on_map));
+                showToast(getApplicationContext(), mToast, getString(R.string.click_on_map));
                 isFindRoutesMode = false;
                 isCustomLocationMode = true;
                 break;
@@ -1117,8 +1026,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onCameraChange(CameraPosition cameraPosition) {
-        LinearLayout parent = (LinearLayout) tvWeather.getParent();
-        final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) (parent).getLayoutParams();
 
         //if zoom is close than 14, show bus stops, otherwise clear them
         if (cameraPosition.zoom > 13) {
@@ -1134,13 +1041,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             clearBusStops();
         }
 
-
-        if (cameraPosition.tilt == 0) {
-            params.setMargins(5, 5, 0, 0);
-        } else {
-            params.setMargins(80, 5, 0, 0);
-        }
-        parent.setLayoutParams(params);
 
         if (cameraPosition.zoom > maxZoom)
             mMap.animateCamera(CameraUpdateFactory.zoomTo(maxZoom));
@@ -1174,18 +1074,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                     /*Variant #2*/
             switch (currentPointType) {
                 case FROM:
-
                     setMarkerPointFrom(latLng, true);
-//                    etPointFrom.setText(getString(R.string.point_a));
                     break;
                 case TO:
-
                     setMarkerPointTo(latLng, true);
-
-//                    etPointTo.setText(getString(R.string.point_b));
                     break;
             }
-//            mDrawerLayout.openDrawer(mLeftDrawer);
             return;
         }
         if (mCustomLocationMarker != null && isMarkerClicked) {
@@ -1297,13 +1191,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     public void setTitle(CharSequence title) {
         mTitle = title;
         if (getSupportActionBar() != null) getSupportActionBar().setTitle(mTitle);
-    }
-
-    // отображаем температуру в левом верхнем углу
-    @Override
-    public void setTemperature(int value) {
-        tvWeather.setText(String.format(getString(R.string.temperature), value));
-        tvWeather.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -1502,7 +1389,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             Log.d("astanaMapGoogle", "got in Timer Method for " + route.getNumber()); //29.07
             Log.d("astanaTimerMethod", "mSelected route is " + mSelectedRoute);
             mBuses = BusController.getRouteBuses(route);
-
 
 
             if (mBuses.size() > 0 && mSelectedRoute != null) {
@@ -1809,7 +1695,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                     prevDistance = 0;
                 }
                 prevDistance = distance;
-                showToast(bus.getName() + ". " + String.valueOf(distance) + ". " + String.valueOf(ignoreBusList.contains(bus)));
+                showToast(getApplicationContext(), mToast,
+                        bus.getName() + ". " + String.valueOf(distance) + ". " + String.valueOf(ignoreBusList.contains(bus)));
             }
         }
     }
@@ -1827,21 +1714,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-
-    private void drawRouteBusStops(Route route, boolean needClearMap) {
-        if (route == null)
-            return;
-        if (needClearMap)
-            mMap.clear();
-//        clearAllMapMarkers();
-        hashMapMarkerBusStops.clear();
-        if (!mSharedPreferences.getBoolean(KEY_SHOW_BUS_STOPS, true))
-            return;
-        drawBusStops(route);
-        if (route.getLinkedRoute() != null) {
-            drawBusStops(route.getLinkedRoute());
-        }
-    }
 
     private void drawBusStops(Route route) {
         List<BusStop> busStops = route.getBusStops();
@@ -1881,13 +1753,13 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         mActionBar.setSubtitle("");
         List<BusStop> nearestBusStops = BusStop.getNearestBusStops(mDbHelper, lat, lon);
         if (nearestBusStops == null) {
-            showToast(getString(R.string.your_location_undefined));
+            showToast(getApplicationContext(), mToast, getString(R.string.your_location_undefined));
             mMap.clear();
 //            clearAllMapMarkers();
             return;
         }
         if (nearestBusStops.size() == 0) {
-            showToast(getString(R.string.nearest_bus_stops_not_found));
+            showToast(getApplicationContext(), mToast, getString(R.string.nearest_bus_stops_not_found));
             mMap.clear();
 //            clearAllMapMarkers();
 
@@ -1919,11 +1791,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     Toast mToast;
 
-    private void showToast(String text) {
-        if (mToast != null) mToast.cancel();
-        mToast = Toast.makeText(this, text, Toast.LENGTH_LONG);
-        mToast.show();
-    }
 
     private void hideKeyboard(EditText editText) {
         InputMethodManager imm = (InputMethodManager) getSystemService(
@@ -1980,7 +1847,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 String appPackageName = "com.google.android.gms";
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (android.content.ActivityNotFoundException anfe) {
+                } catch (ActivityNotFoundException anfe) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                 }
                 finish();
@@ -1999,7 +1866,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 String appPackageName = getPackageName();
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (android.content.ActivityNotFoundException anfe) {
+                } catch (ActivityNotFoundException anfe) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                 }
                 SharedPreferences.Editor editor = getSharedPreferences(MAIN_PREFS, MODE_PRIVATE).edit();
@@ -2028,25 +1895,25 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     // callback для режима MultiSelect (маршруты)
     public class ModeCallback implements AbsListView.MultiChoiceModeListener {
         @Override
-        public boolean onCreateActionMode(android.view.ActionMode mode, android.view.Menu menu) {
-            android.view.MenuInflater inflater = MapGoogleActivity.this.getMenuInflater();
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            MenuInflater inflater = MapGoogleActivity.this.getMenuInflater();
             inflater.inflate(R.menu.several_routes_menu, menu);
             mode.setTitle(getString(R.string.select_several_routes));
             return true;
         }
 
         @Override
-        public boolean onPrepareActionMode(android.view.ActionMode actionMode, android.view.Menu menu) {
+        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
             return false;
         }
 
         @Override
-        public void onDestroyActionMode(android.view.ActionMode actionMode) {
+        public void onDestroyActionMode(ActionMode actionMode) {
         }
 
 
         @Override
-        public boolean onActionItemClicked(android.view.ActionMode mode, android.view.MenuItem item) {
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.show_routes_on_map:
                     isRouteChanged = true;
@@ -2083,11 +1950,11 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
 
         @Override
-        public void onItemCheckedStateChanged(android.view.ActionMode mode,
+        public void onItemCheckedStateChanged(ActionMode mode,
                                               int position, long id, boolean checked) {
             if (getListView().getCheckedItemCount() > Consts.MAX_ROUTES_ON_MAP) {
                 getListView().setItemChecked(position, !checked);
-                showToast(getString(R.string.max5_select_routes));
+                showToast(getApplicationContext(), mToast, getString(R.string.max5_select_routes));
             }
         }
     }
@@ -2128,33 +1995,28 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         atoBAdapter = new AtoBAdapter(routes);
 
         if (atoBAdapter.getItemCount() == 0) {
-
             Toast.makeText(MapGoogleActivity.this, "Нет маршрутов в выбранном направлении", Toast.LENGTH_SHORT).show();
         }
 
         recyclerViewMap.setAdapter(atoBAdapter);
 
         recyclerViewMap.addOnItemTouchListener(new AtoBAdapter(MapGoogleActivity.this, routes,
-                new AtoBAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View childView, int childAdapterPosition) {
+                (childView, childAdapterPosition) -> {
+
+                    resetFindRouteMode();
+                    Route route = routes.get(childAdapterPosition);
+
+                    mSelectedRoutes = null;
+                    hashMapMarkerBusStops.clear();
+                    routeForZoom = route;
+                    severalRoutes.clear();
 
 
-                        resetFindRouteMode();
-                        Route route = routes.get(childAdapterPosition);
+                    selectRoute(route, true, false);
 
-                        mSelectedRoutes = null;
-                        hashMapMarkerBusStops.clear();
-                        routeForZoom = route;
-                        severalRoutes.clear();
+                    mSelectedRoute = route;
+                    startBusTimer();
 
-
-                        selectRoute(route, true, false);
-
-                        mSelectedRoute = route;
-                        startBusTimer();
-
-                    }
                 }));
 
     }
@@ -2225,7 +2087,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onBackPressed() {
 
-
         if (mMapFragment != null && mMapFragment.getView() != null) {
 
             if (mMapFragment.getView().getWidth() != 0) {
@@ -2250,7 +2111,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 getSupportFragmentManager().beginTransaction().remove(newsFragment).commit();
 
                 isRoutesMenu = true;
-                showWeather();
 
                 mDrawerLayout.closeDrawer(mLeftDrawer);
                 mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, mRightDrawer);
@@ -2270,42 +2130,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
             }
         }
 
-    }
-
-
-    void hideWeather() {
-        LinearLayout parent = (LinearLayout) tvWeather.getParent();
-        parent.setVisibility(View.GONE);
-        btnShowNearestBusStops.setVisibility(View.GONE);
-    }
-
-    void showWeather() {
-        fabMain.setVisibility(View.VISIBLE);
-        LinearLayout parent = (LinearLayout) tvWeather.getParent();
-        parent.setVisibility(View.VISIBLE);
-        btnShowNearestBusStops.setVisibility(View.VISIBLE);
-    }
-
-
-    /**
-     * Alternative to myMap.clear() to avoid undesired exceptions
-     */
-    private void clearAllMapMarkers() {
-        // Clearing the current map markers being shown
-        // Note that we do not use myMap.clear() because that incur in the exception
-        // "java.lang.IllegalArgumentException: Released unknown bitmap reference"
-        try {
-            for (Map.Entry<Long, Marker> markerEntry : hashMapBusMarkers.entrySet()) {
-                markerEntry.getValue().remove();
-            }
-            for (Map.Entry<Marker, BusStop> markerEntry : hashMapMarkerBusStops.entrySet()) {
-                markerEntry.getKey().remove();
-            }
-            hashMapMarkerBusStops.clear();
-            hashMapBusMarkers.clear();
-        } catch (IllegalArgumentException e) {
-            // Manage here the exception (never raised but who knows...)
-        }
     }
 
 
@@ -2337,7 +2161,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         mActionBar.setSubtitle("НОВОСТИ");
 
         hideMapFragment();
-        hideWeather();
 
         mDrawerLayout.closeDrawer(mLeftDrawer);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
@@ -2346,11 +2169,4 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-    private Fragment getCurrentFragment() {
-        FragmentManager fragmentManager = this.getSupportFragmentManager();
-        int stackCount = fragmentManager.getBackStackEntryCount();
-        if (fragmentManager.getFragments() != null)
-            return fragmentManager.getFragments().get(stackCount > 0 ? stackCount - 1 : stackCount);
-        else return null;
-    }
 }

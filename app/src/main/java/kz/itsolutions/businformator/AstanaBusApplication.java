@@ -9,12 +9,11 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.crashlytics.android.Crashlytics;
-import com.crashlytics.android.answers.Answers;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
-import io.fabric.sdk.android.Fabric;
+//import com.crashlytics.android.Crashlytics;
+//import com.crashlytics.android.answers.Answers;
 
 
 public class AstanaBusApplication extends MultiDexApplication {

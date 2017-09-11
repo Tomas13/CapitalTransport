@@ -11,6 +11,8 @@ import com.viewpagerindicator.PageIndicator;
 import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.adapters.TrainingFragmentAdapter;
 
+import static kz.itsolutions.businformator.utils.Consts.KEY_SHOW_WELCOME_MESSAGE;
+
 public class TrainingActivity extends FragmentActivity implements View.OnClickListener {
     TrainingFragmentAdapter mAdapter;
     ViewPager mPager;
@@ -61,7 +63,7 @@ public class TrainingActivity extends FragmentActivity implements View.OnClickLi
                 if (mPager.getCurrentItem() == mAdapter.getCount() - 1) {
                     //Intent intent = new Intent(TrainingActivity.this, MapGoogleActivity.class);
                     Intent intent = new Intent(TrainingActivity.this, MapGoogleActivity.class);
-                    intent.putExtra(MapGoogleActivity.KEY_SHOW_WELCOME_MESSAGE, true);
+                    intent.putExtra(KEY_SHOW_WELCOME_MESSAGE, true);
                     startActivity(intent);
                     finish();
                 } else {

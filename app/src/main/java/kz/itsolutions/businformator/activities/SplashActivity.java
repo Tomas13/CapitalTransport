@@ -13,6 +13,8 @@ import kz.itsolutions.businformator.R;
 import kz.itsolutions.businformator.db.DBHelper;
 import kz.itsolutions.businformator.model.Route;
 
+import static kz.itsolutions.businformator.utils.Consts.MAIN_PREFS;
+
 
 public class SplashActivity extends Activity implements View.OnClickListener {
     ProgressBar progressBar;
@@ -30,7 +32,7 @@ public class SplashActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn_repeat_load).setOnClickListener(this);
         progressBar = ((ProgressBar) findViewById(R.id.splash_progress_bar));
         tvProgress = (TextView) findViewById(R.id.tv_progress);
-        prefs = getSharedPreferences(MapGoogleActivity.MAIN_PREFS, MODE_PRIVATE);
+        prefs = getSharedPreferences(MAIN_PREFS, MODE_PRIVATE);
         DBHelper.init(getApplicationContext());
 //        SplashActivity.setIsFree();
         try {
