@@ -60,7 +60,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efeff2ae-bbf0-4ea5-a695-8ad30f313bff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/ParameterRunnable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java" />
     </list>
@@ -99,8 +99,8 @@
       <file leaf-file-name="MapGoogleActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="781" column="0" selection-start-line="781" selection-start-column="0" selection-end-line="781" selection-end-column="0" />
+            <state relative-caret-position="17940">
+              <caret line="1746" column="85" selection-start-line="1746" selection-start-column="85" selection-end-line="1746" selection-end-column="85" />
               <folding>
                 <element signature="method#onItemCheckedStateChanged#0;class#MapGoogleActivity#0" expanded="false" />
                 <element signature="method#showRoutesOnMap#0;class#MapGoogleActivity#0" expanded="false" />
@@ -110,17 +110,33 @@
                 <element signature="method#leftDrawerOperations#0;class#MapGoogleActivity#0" expanded="false" />
                 <element signature="method#operationsOnOpenFragment#0;class#MapGoogleActivity#0" expanded="false" />
                 <element signature="method#setMapTransparent#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#onClick#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#onLongClick#0;class#MapGoogleActivity#0" expanded="false" />
                 <element signature="method#closeToolbarBtn#0;class#MapGoogleActivity#0" expanded="false" />
                 <element signature="method#fabMain#0;class#MapGoogleActivity#0" expanded="false" />
                 <element signature="method#pointABtn#0;class#MapGoogleActivity#0" expanded="false" />
-                <element signature="e#79742#79776#0" expanded="true" />
+                <element signature="e#78616#78650#0" expanded="true" />
                 <element signature="method#fabSearchAtoB#0;class#MapGoogleActivity#0" expanded="false" />
-                <element signature="e#79934#79968#0" expanded="true" />
-                <element signature="e#80094#80126#0" expanded="true" />
+                <element signature="e#78808#78842#0" expanded="true" />
+                <element signature="e#78968#79000#0" expanded="true" />
                 <element signature="method#pointBBtn#0;class#MapGoogleActivity#0" expanded="false" />
-                <element signature="e#81070#81102#0" expanded="true" />
-                <marker date="1505195781270" expanded="false" signature="39889:39913" ph="&quot;От&quot;" />
-                <marker date="1505195781270" expanded="false" signature="40026:40048" ph="&quot;До&quot;" />
+                <element signature="e#79944#79976#0" expanded="true" />
+                <marker date="1505197097830" expanded="false" signature="39889:39913" ph="&quot;От&quot;" />
+                <marker date="1505197097830" expanded="false" signature="40026:40048" ph="&quot;До&quot;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParameterRunnable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/ParameterRunnable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2555,7 +2571,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-en/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-kk/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/push/MyFirebaseMessagingService.java" />
@@ -2605,6 +2620,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/ModeCallback.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/Methods.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/ParameterRunnable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java" />
       </list>
     </option>
@@ -2794,8 +2810,15 @@
     <property name="SearchEverywhereHistoryKey" value="init&#9;PSI&#9;JAVA://kz.itsolutions.businformator.activities.MapGoogleActivity#init" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SHERLOCK\astrabus\app\src\main\assets" />
+      <recent name="D:\SHERLOCK\astrabus\app\src\main\res\drawable-hdpi" />
+      <recent name="D:\SHERLOCK\astrabus\app" />
+      <recent name="D:\SHERLOCK\astrabus\app\src\main\res\drawable" />
+      <recent name="D:\SHERLOCK\astrabus\app\libs" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="kz.itsolutions.businformator.activities" />
     </key>
     <key name="android.template.packageName">
       <recent name="kz.itsolutions.businformator.fragments" />
@@ -2806,12 +2829,8 @@
       <recent name="kz.itsolutions.businformator.adapters" />
       <recent name="kz.itsolutions.businformator.model" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\SHERLOCK\astrabus\app\src\main\assets" />
-      <recent name="D:\SHERLOCK\astrabus\app\src\main\res\drawable-hdpi" />
-      <recent name="D:\SHERLOCK\astrabus\app" />
-      <recent name="D:\SHERLOCK\astrabus\app\src\main\res\drawable" />
-      <recent name="D:\SHERLOCK\astrabus\app\libs" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -3322,7 +3341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505193933951</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="leftlistview refactor">
+      <created>1505195799311</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1505195799311</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3425,7 +3451,8 @@
     <MESSAGE value="method moved" />
     <MESSAGE value="ModeCallback moved to another class" />
     <MESSAGE value="timers to methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="timers to methods" />
+    <MESSAGE value="leftlistview refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="leftlistview refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3434,11 +3461,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_menu_bus.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/several_routes_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3457,13 +3479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/widgets/MyProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -3779,14 +3794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-23/android/content/Context.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="1262" column="25" selection-start-line="1262" selection-start-column="25" selection-end-line="1262" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
@@ -3813,10 +3820,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/widgets/MyProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-23/android/content/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="407" column="24" selection-start-line="407" selection-start-column="24" selection-end-line="407" selection-end-column="24" />
+          <folding>
+            <element signature="e#17993#17994#0" expanded="false" />
+            <element signature="e#18047#18048#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/ParameterRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="781" column="0" selection-start-line="781" selection-start-column="0" selection-end-line="781" selection-end-column="0" />
+        <state relative-caret-position="17940">
+          <caret line="1746" column="85" selection-start-line="1746" selection-start-column="85" selection-end-line="1746" selection-end-column="85" />
           <folding>
             <element signature="method#onItemCheckedStateChanged#0;class#MapGoogleActivity#0" expanded="false" />
             <element signature="method#showRoutesOnMap#0;class#MapGoogleActivity#0" expanded="false" />
@@ -3826,17 +3863,20 @@
             <element signature="method#leftDrawerOperations#0;class#MapGoogleActivity#0" expanded="false" />
             <element signature="method#operationsOnOpenFragment#0;class#MapGoogleActivity#0" expanded="false" />
             <element signature="method#setMapTransparent#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#onClick#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#onLongClick#0;class#MapGoogleActivity#0" expanded="false" />
             <element signature="method#closeToolbarBtn#0;class#MapGoogleActivity#0" expanded="false" />
             <element signature="method#fabMain#0;class#MapGoogleActivity#0" expanded="false" />
             <element signature="method#pointABtn#0;class#MapGoogleActivity#0" expanded="false" />
-            <element signature="e#79742#79776#0" expanded="true" />
+            <element signature="e#78616#78650#0" expanded="true" />
             <element signature="method#fabSearchAtoB#0;class#MapGoogleActivity#0" expanded="false" />
-            <element signature="e#79934#79968#0" expanded="true" />
-            <element signature="e#80094#80126#0" expanded="true" />
+            <element signature="e#78808#78842#0" expanded="true" />
+            <element signature="e#78968#79000#0" expanded="true" />
             <element signature="method#pointBBtn#0;class#MapGoogleActivity#0" expanded="false" />
-            <element signature="e#81070#81102#0" expanded="true" />
-            <marker date="1505195781270" expanded="false" signature="39889:39913" ph="&quot;От&quot;" />
-            <marker date="1505195781270" expanded="false" signature="40026:40048" ph="&quot;До&quot;" />
+            <element signature="e#79944#79976#0" expanded="true" />
+            <marker date="1505197097830" expanded="false" signature="39889:39913" ph="&quot;От&quot;" />
+            <marker date="1505197097830" expanded="false" signature="40026:40048" ph="&quot;До&quot;" />
           </folding>
         </state>
       </provider>

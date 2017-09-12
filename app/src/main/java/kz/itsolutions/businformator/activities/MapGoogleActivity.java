@@ -1301,24 +1301,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    public class ParameterRunnable implements Runnable {
-        String mMessage;
 
-        public ParameterRunnable(String message) {
-            this.mMessage = message;
-        }
-
-        public ParameterRunnable(int stringId) {
-            this.mMessage = getString(stringId);
-        }
-
-        @Override
-        public void run() {
-            setErrorTextMessage(mMessage);
-        }
-    }
-
-    private void setErrorTextMessage(String message) {
+    public void setErrorTextMessage(String message) {
         if (tvInternetStatus == null) return;
         tvInternetStatus.setText(message);
         tvInternetStatus.setVisibility(View.VISIBLE);
@@ -1327,14 +1311,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     private void TimerMethod(List<Route> routes) {
         try {
             mBuses = BusController.getSeveralRouteBuses(routes);
-            //Log.d("1274", mBuses.toString());
-        } catch (HttpException e) {
-            e.printStackTrace();
-            mBuses = null;
-        } catch (IOException e) {
-            e.printStackTrace();
-            mBuses = null;
-        } catch (JSONException e) {
+        } catch (HttpException | IOException | JSONException e) {
             e.printStackTrace();
             mBuses = null;
         }
@@ -1732,16 +1709,14 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         notHaveGmsDialog = new AlertDialog.Builder(MapGoogleActivity.this);
         notHaveGmsDialog.setTitle(getString(R.string.attention));  // заголовок
         notHaveGmsDialog.setMessage(getString(R.string.you_not_have_gms)); // сообщение
-        notHaveGmsDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1) {
-                String appPackageName = "com.google.android.gms";
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                }
-                finish();
+        notHaveGmsDialog.setPositiveButton(R.string.ok, (dialog, arg1) -> {
+            String appPackageName = "com.google.android.gms";
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            } catch (ActivityNotFoundException anfe) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
             }
+            finish();
         });
         notHaveGmsDialog.setCancelable(false);
     }
@@ -1751,33 +1726,25 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         voteAppDialog = new AlertDialog.Builder(MapGoogleActivity.this);
         voteAppDialog.setTitle(getString(R.string.attention));
         voteAppDialog.setMessage(getString(R.string.vote_application));
-        voteAppDialog.setPositiveButton(R.string.vote, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1) {
-                String appPackageName = getPackageName();
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                }
-                SharedPreferences.Editor editor = getSharedPreferences(MAIN_PREFS, MODE_PRIVATE).edit();
-                editor.putBoolean(KEY_NOT_SHOW_VOTE_DIALOG, true);
-                editor.apply();
-                dialog.dismiss();
+        voteAppDialog.setPositiveButton(R.string.vote, (dialog, arg1) -> {
+            String appPackageName = getPackageName();
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            } catch (ActivityNotFoundException anfe) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
             }
+            SharedPreferences.Editor editor = getSharedPreferences(MAIN_PREFS, MODE_PRIVATE).edit();
+            editor.putBoolean(KEY_NOT_SHOW_VOTE_DIALOG, true);
+            editor.apply();
+            dialog.dismiss();
         });
-        voteAppDialog.setNegativeButton(R.string.not_ask, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1) {
-                SharedPreferences.Editor editor = getSharedPreferences(MAIN_PREFS, MODE_PRIVATE).edit();
-                editor.putBoolean(KEY_NOT_SHOW_VOTE_DIALOG, true);
-                editor.apply();
-                dialog.dismiss();
-            }
+        voteAppDialog.setNegativeButton(R.string.not_ask, (dialog, arg1) -> {
+            SharedPreferences.Editor editor = getSharedPreferences(MAIN_PREFS, MODE_PRIVATE).edit();
+            editor.putBoolean(KEY_NOT_SHOW_VOTE_DIALOG, true);
+            editor.apply();
+            dialog.dismiss();
         });
-        voteAppDialog.setNeutralButton(R.string.later, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1) {
-                dialog.dismiss();
-            }
-        });
+        voteAppDialog.setNeutralButton(R.string.later, (dialog, arg1) -> dialog.dismiss());
         voteAppDialog.setCancelable(true);
     }
 
