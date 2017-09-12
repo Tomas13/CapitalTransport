@@ -134,7 +134,7 @@ import static kz.itsolutions.businformator.utils.Consts.REQUEST_LOCATION;
 
 public class MapGoogleActivity extends AppCompatActivity implements View.OnClickListener,
         View.OnLongClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMapClickListener,
-        GoogleMap.OnCameraChangeListener, ActivityCompat.OnRequestPermissionsResultCallback {
+        GoogleMap.OnCameraChangeListener, ActivityCompat.OnRequestPermissionsResultCallback, MapGoogleView {
 
     ArrayList<Route> severalRoutes = new ArrayList<>(); // for drawing bus stops for several routes
     Route routeForZoom = null; //route for drawing bus stops
@@ -222,6 +222,54 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     boolean isMarkerClicked, isSessionFromWidget, needFinishWhenOnPause, isFindRoutesMode, isCustomLocationMode,
             isShowBusStopsMode, showBusStopsForRoute;
     AlertDialog.Builder notHaveGmsDialog, voteAppDialog;
+
+    @Override
+    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+        if (getListView().getCheckedItemCount() > Consts.MAX_ROUTES_ON_MAP) {
+            getListView().setItemChecked(position, !checked);
+            showToast(getApplicationContext(), mToast, getString(R.string.max5_select_routes));
+        }
+    }
+
+    @Override
+    public void showRoutesOnMap(ActionMode mode, MenuItem menu) {
+        isRouteChanged = true;
+        mSelectedRoute = null;
+        SparseBooleanArray array = getListView().getCheckedItemPositions();
+        isMultiSelectRoutes = true;
+        ArrayList<Route> selectedRoutes = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            if (array.valueAt(i))
+                selectedRoutes.add(getAdapter().getItem(array.keyAt(i)));
+        }
+        mSelectedRoutes = selectedRoutes;
+
+
+        if (selectedRoutes.size() == 1) {
+            routeForZoom = selectedRoutes.get(0);
+            severalRoutes.clear();
+            selectRoute(routeForZoom, false, false);
+        } else {
+            severalRoutes = selectedRoutes;
+            routeForZoom = null;
+            drawRoutes(selectedRoutes);
+        }
+        isFindRoutesMode = false;
+        isMultiSelectRoutes = false;
+        mDrawerLayout.closeDrawer(mRightDrawer);
+        mDrawerLayout.closeDrawer(mLeftDrawer);
+        mode.finish();
+
+    }
+
+
+    @Override
+    public void onCreateActionMode(ActionMode mode, Menu menu) {
+        MenuInflater inflater = MapGoogleActivity.this.getMenuInflater();
+        inflater.inflate(R.menu.several_routes_menu, menu);
+        mode.setTitle(getString(R.string.select_several_routes));
+
+    }
 
     private enum PointType {FROM, TO}
 
@@ -626,9 +674,9 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         listViewFavoriteRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listViewHistoryRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 
-        listViewRoutes.setMultiChoiceModeListener(new ModeCallback());
-        listViewFavoriteRoutes.setMultiChoiceModeListener(new ModeCallback());
-        listViewHistoryRoutes.setMultiChoiceModeListener(new ModeCallback());
+        listViewRoutes.setMultiChoiceModeListener(new ModeCallback(this));
+        listViewFavoriteRoutes.setMultiChoiceModeListener(new ModeCallback(this));
+        listViewHistoryRoutes.setMultiChoiceModeListener(new ModeCallback(this));
 
         mViewPager.setOffscreenPageLimit(3);
         mPagerAdapter.addItem(listViewRoutes);
@@ -1868,72 +1916,10 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-    // callback для режима MultiSelect (маршруты)
-    public class ModeCallback implements AbsListView.MultiChoiceModeListener {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            MenuInflater inflater = MapGoogleActivity.this.getMenuInflater();
-            inflater.inflate(R.menu.several_routes_menu, menu);
-            mode.setTitle(getString(R.string.select_several_routes));
-            return true;
-        }
+   MenuInflater getMenuInf(){
+       return MapGoogleActivity.this.getMenuInflater();
+   }
 
-        @Override
-        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-            return false;
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode actionMode) {
-        }
-
-
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.show_routes_on_map:
-                    isRouteChanged = true;
-                    mSelectedRoute = null;
-                    SparseBooleanArray array = getListView().getCheckedItemPositions();
-                    isMultiSelectRoutes = true;
-                    ArrayList<Route> selectedRoutes = new ArrayList<>();
-                    for (int i = 0; i < array.size(); i++) {
-                        if (array.valueAt(i))
-                            selectedRoutes.add(getAdapter().getItem(array.keyAt(i)));
-                    }
-                    mSelectedRoutes = selectedRoutes;
-
-
-                    if (selectedRoutes.size() == 1) {
-                        routeForZoom = selectedRoutes.get(0);
-                        severalRoutes.clear();
-                        selectRoute(routeForZoom, false, false);
-                    } else {
-                        severalRoutes = selectedRoutes;
-                        routeForZoom = null;
-                        drawRoutes(selectedRoutes);
-                    }
-                    isFindRoutesMode = false;
-                    isMultiSelectRoutes = false;
-                    mDrawerLayout.closeDrawer(mRightDrawer);
-                    mDrawerLayout.closeDrawer(mLeftDrawer);
-                    mode.finish();
-                    break;
-                default:
-                    break;
-            }
-            return true;
-        }
-
-        @Override
-        public void onItemCheckedStateChanged(ActionMode mode,
-                                              int position, long id, boolean checked) {
-            if (getListView().getCheckedItemCount() > Consts.MAX_ROUTES_ON_MAP) {
-                getListView().setItemChecked(position, !checked);
-                showToast(getApplicationContext(), mToast, getString(R.string.max5_select_routes));
-            }
-        }
-    }
 
     /*
     * проверяем кол-во запусков приложения
