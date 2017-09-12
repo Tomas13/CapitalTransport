@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -22,9 +23,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
 
 import kz.itsolutions.businformator.R;
 
+import static kz.itsolutions.businformator.utils.Consts.LOG_TAG;
 import static kz.itsolutions.businformator.utils.Consts.urlJsonObj;
 
 /**
@@ -94,6 +97,28 @@ public class Methods {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, mRightDrawer);
 
         activity.getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
+    }
+
+
+
+    static void stopBusTimer(Timer busTimer){
+        if (busTimer != null) {
+
+            busTimer.cancel();
+            busTimer.purge();     //29.07
+            busTimer = null;
+            Log.v(LOG_TAG, "stop BusTimer");
+        }
+    }
+
+
+
+    static void stopBusesTimer(Timer busesTimer) {
+        if (busesTimer != null) {
+            busesTimer.cancel();
+            busesTimer = null;
+            Log.v(LOG_TAG, "stop busesTimer");
+        }
     }
 
 

@@ -120,6 +120,8 @@ import static kz.itsolutions.businformator.activities.Methods.getCurrentFragment
 import static kz.itsolutions.businformator.activities.Methods.removeFragments;
 import static kz.itsolutions.businformator.activities.Methods.showNewsFragment;
 import static kz.itsolutions.businformator.activities.Methods.showToast;
+import static kz.itsolutions.businformator.activities.Methods.stopBusTimer;
+import static kz.itsolutions.businformator.activities.Methods.stopBusesTimer;
 import static kz.itsolutions.businformator.utils.Consts.KEY_IS_SHOWN_SEARCH_MENU;
 import static kz.itsolutions.businformator.utils.Consts.KEY_LAST_OPENED_TAB;
 import static kz.itsolutions.businformator.utils.Consts.KEY_NOT_SHOW_VOTE_DIALOG;
@@ -767,8 +769,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
                 }
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
                 mDrawerToggle.syncState();
-                stopBusTimer();
-                stopBusesTimer();
+                stopBusTimer(busTimer);
+                stopBusesTimer(busesTimer);
                 if (drawerView.getId() == R.id.right_drawer)
                     startRoutesStatisticsTimer();
             }
@@ -1171,7 +1173,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
 
     // обновляем дату просмотра маршрута, используется для сортировки на вкладке "История" в правом боковом меню
     private void updateLastSeenDate(final Route route) {
-        Thread thread = new Thread() {
+        Thread thread =  new Thread() {
             @Override
             public void run() {
                 try {
@@ -1276,8 +1278,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onPause() {
         super.onPause();
-        stopBusTimer();
-        stopBusesTimer();
+        stopBusTimer(busTimer);
+        stopBusesTimer(busesTimer);
         stopRoutesStatisticsTimer();
         if (needFinishWhenOnPause && isSessionFromWidget) {
             finish();
@@ -1327,8 +1329,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         isShowBusStopsMode = false;
 
 
-        stopBusTimer();
-        stopBusesTimer();
+        stopBusTimer(busTimer);
+        stopBusesTimer(busesTimer);
         if (mSelectedRoute == null) {
             Log.v(LOG_TAG, "mSelectedRoute == null, timer not started");
             return;
@@ -1347,19 +1349,10 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }, 0, Consts.BUS_TIMER_INTERVAL);
     }
 
-    private void stopBusTimer() {
-        if (busTimer != null) {
-
-            busTimer.cancel();
-            busTimer.purge();     //29.07
-            busTimer = null;
-            Log.v(LOG_TAG, "stop BusTimer");
-        }
-    }
 
     private void startBusesTimer() {
         isShowBusStopsMode = false;
-        stopBusesTimer();
+        stopBusesTimer(busesTimer);
         if (mSelectedRoutes == null || mSelectedRoutes.size() == 0) {
             Log.v(LOG_TAG, "mSelectedRoutes == null || mSelectedRoutes.size() == 0, timer not started");
             return;
@@ -1374,13 +1367,6 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         }, 0, Consts.BUS_TIMER_INTERVAL);
     }
 
-    private void stopBusesTimer() {
-        if (busesTimer != null) {
-            busesTimer.cancel();
-            busesTimer = null;
-            Log.v(LOG_TAG, "stop busesTimer");
-        }
-    }
 
     private void startRoutesStatisticsTimer() {
         stopRoutesStatisticsTimer();
@@ -1406,7 +1392,7 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         try {
             if (route == null) {
                 mBuses = null;  //28.07
-                stopBusTimer();
+                stopBusTimer(busTimer);
                 return;
             }
 
@@ -1772,8 +1758,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         isShowBusStopsMode = true;
         tvInternetStatus.setVisibility(View.GONE);
         mSelectedRoute = null;
-        stopBusTimer();
-        stopBusesTimer();
+        stopBusTimer(busTimer);
+        stopBusesTimer(busesTimer);
         mActionBar.setSubtitle("");
         List<BusStop> nearestBusStops = BusStop.getNearestBusStops(mDbHelper, lat, lon);
         if (nearestBusStops == null) {
@@ -1916,9 +1902,9 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-   MenuInflater getMenuInf(){
-       return MapGoogleActivity.this.getMenuInflater();
-   }
+    MenuInflater getMenuInf() {
+        return MapGoogleActivity.this.getMenuInflater();
+    }
 
 
     /*
@@ -2035,8 +2021,8 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         mSelectedRoutes = null;
         mBuses = null;
         routeForZoom = null;
-        stopBusTimer();
-        stopBusesTimer();
+        stopBusTimer(busTimer);
+        stopBusesTimer(busesTimer);
         stopRoutesStatisticsTimer();
         mMap.clear();
 
