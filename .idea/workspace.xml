@@ -60,11 +60,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efeff2ae-bbf0-4ea5-a695-8ad30f313bff" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/AugmentedRealityActivity.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/Methods.java" afterPath="$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/Methods.java" />
     </list>
     <ignored path="astrabus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,24 +96,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MapGoogleActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapGoogleActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="1676" column="80" selection-start-line="1676" selection-start-column="80" selection-end-line="1676" selection-end-column="80" />
+            <state relative-caret-position="329">
+              <caret line="781" column="0" selection-start-line="781" selection-start-column="0" selection-end-line="781" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1505192431598" expanded="false" signature="44856:44880" ph="&quot;От&quot;" />
-                <marker date="1505192431598" expanded="false" signature="44993:45015" ph="&quot;До&quot;" />
+                <element signature="method#onItemCheckedStateChanged#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#showRoutesOnMap#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#onRequestPermissionsResult#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#beforeTextChanged#0;class#17133:17904" expanded="false" />
+                <element signature="method#onTextChanged#0;class#17133:17904" expanded="false" />
+                <element signature="method#leftDrawerOperations#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#operationsOnOpenFragment#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#setMapTransparent#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#closeToolbarBtn#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#fabMain#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="method#pointABtn#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="e#79742#79776#0" expanded="true" />
+                <element signature="method#fabSearchAtoB#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="e#79934#79968#0" expanded="true" />
+                <element signature="e#80094#80126#0" expanded="true" />
+                <element signature="method#pointBBtn#0;class#MapGoogleActivity#0" expanded="false" />
+                <element signature="e#81070#81102#0" expanded="true" />
+                <marker date="1505195781270" expanded="false" signature="39889:39913" ph="&quot;От&quot;" />
+                <marker date="1505195781270" expanded="false" signature="40026:40048" ph="&quot;До&quot;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MapGooglePresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGooglePresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
+            <state relative-caret-position="-1">
               <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -2767,7 +2791,7 @@
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/jean/Projects/Astra/CapitalTransport/app/build.gradle" />
+    <property name="SearchEverywhereHistoryKey" value="init&#9;PSI&#9;JAVA://kz.itsolutions.businformator.activities.MapGoogleActivity#init" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -3291,7 +3315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505189930784</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="timers to methods">
+      <created>1505193933951</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1505193933951</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3393,7 +3424,8 @@
     <MESSAGE value="refactor. Added butterknife" />
     <MESSAGE value="method moved" />
     <MESSAGE value="ModeCallback moved to another class" />
-    <option name="LAST_COMMIT_MESSAGE" value="ModeCallback moved to another class" />
+    <MESSAGE value="timers to methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="timers to methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3402,13 +3434,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/db/DBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="160" column="16" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_menu_bus.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3696,13 +3721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGooglePresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/map_google_activity.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3769,24 +3787,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="1676" column="80" selection-start-line="1676" selection-start-column="80" selection-end-line="1676" selection-end-column="80" />
+        <state relative-caret-position="-1">
+          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1505192431598" expanded="false" signature="44856:44880" ph="&quot;От&quot;" />
-            <marker date="1505192431598" expanded="false" signature="44993:45015" ph="&quot;До&quot;" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/Methods.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGooglePresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+        <state relative-caret-position="150">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.android/build-cache/338c4aa7edacbb686d24fe76c3d49769ffe4f01d/output/jars/classes.jar!/com/google/android/gms/analytics/Tracker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kz/itsolutions/businformator/activities/MapGoogleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="781" column="0" selection-start-line="781" selection-start-column="0" selection-end-line="781" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#onItemCheckedStateChanged#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#showRoutesOnMap#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#beforeTextChanged#0;class#17133:17904" expanded="false" />
+            <element signature="method#onTextChanged#0;class#17133:17904" expanded="false" />
+            <element signature="method#leftDrawerOperations#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#operationsOnOpenFragment#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#setMapTransparent#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#closeToolbarBtn#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#fabMain#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="method#pointABtn#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="e#79742#79776#0" expanded="true" />
+            <element signature="method#fabSearchAtoB#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="e#79934#79968#0" expanded="true" />
+            <element signature="e#80094#80126#0" expanded="true" />
+            <element signature="method#pointBBtn#0;class#MapGoogleActivity#0" expanded="false" />
+            <element signature="e#81070#81102#0" expanded="true" />
+            <marker date="1505195781270" expanded="false" signature="39889:39913" ph="&quot;От&quot;" />
+            <marker date="1505195781270" expanded="false" signature="40026:40048" ph="&quot;До&quot;" />
           </folding>
         </state>
       </provider>
