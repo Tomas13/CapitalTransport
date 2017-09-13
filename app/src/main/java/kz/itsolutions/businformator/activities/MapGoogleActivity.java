@@ -117,6 +117,8 @@ import kz.itsolutions.businformator.widgets.MyProvider;
 import kz.itsolutions.businformator.widgets.SingleWidget;
 import kz.itsolutions.businformator.widgets.tabPageIndicator.TabPageIndicator;
 
+import static butterknife.ButterKnife.findById;
+
 import static kz.itsolutions.businformator.activities.Methods.getCurrentFragment;
 import static kz.itsolutions.businformator.activities.Methods.removeFragments;
 import static kz.itsolutions.businformator.activities.Methods.showNewsFragment;
@@ -345,11 +347,12 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         btnShowNearestBusStops.setOnClickListener(this);
         btnShowNearestBusStops.setOnLongClickListener(this);
         busStopInfoWindowView = getLayoutInflater().inflate(R.layout.bus_stop_window_google, null);
-        tvBusStopTitle = (TextView) busStopInfoWindowView.findViewById(R.id.tv_bus_stop_title);
-        tvBusStopDescription = (TextView) busStopInfoWindowView.findViewById(R.id.tv_bus_stop_description);
+//        tvBusStopTitle = (TextView) busStopInfoWindowView.findViewById(R.id.tv_bus_stop_title);
+        tvBusStopTitle = busStopInfoWindowView.findViewById(R.id.tv_bus_stop_title);
+        tvBusStopDescription = busStopInfoWindowView.findViewById(R.id.tv_bus_stop_description);
         busInfoWindowView = getLayoutInflater().inflate(R.layout.bus_window_google, null);
-        tvBusTitle = (TextView) busInfoWindowView.findViewById(R.id.tv_bus_title);
-        tvBusDescription = (TextView) busInfoWindowView.findViewById(R.id.tv_bus_description);
+        tvBusTitle = busInfoWindowView.findViewById(R.id.tv_bus_title);
+        tvBusDescription = busInfoWindowView.findViewById(R.id.tv_bus_description);
 
         markers = new ArrayList<>();
 
@@ -459,17 +462,17 @@ public class MapGoogleActivity extends AppCompatActivity implements View.OnClick
         View page1 = getLayoutInflater().inflate(R.layout.drawer_routes, null);
         View page2 = getLayoutInflater().inflate(R.layout.drawer_routes, null);
         View page3 = getLayoutInflater().inflate(R.layout.drawer_routes, null);
-        listViewRoutes = (ListView) page1.findViewById(R.id.listView);
+        listViewRoutes = page1.findViewById(R.id.listView);
         listViewRoutes.setOnItemClickListener((parent, view, position, id) -> listViewRoutes.setItemChecked(position, true));
 
-        listViewFavoriteRoutes = (ListView) page2.findViewById(R.id.listView);
+        listViewFavoriteRoutes = page2.findViewById(R.id.listView);
         listViewFavoriteRoutes.setOnItemClickListener((parent, view, position, id) -> listViewFavoriteRoutes.setItemChecked(position, true));
         // TODO: empty view for all list views
         LayoutInflater inflater = getLayoutInflater();
         View v = inflater.inflate(R.layout.empty_view, null);
         listViewFavoriteRoutes.setEmptyView(v.findViewById(android.R.id.empty));
 
-        listViewHistoryRoutes = (ListView) page3.findViewById(R.id.listView);
+        listViewHistoryRoutes = page3.findViewById(R.id.listView);
         listViewHistoryRoutes.setOnItemClickListener((parent, view, position, id) -> listViewHistoryRoutes.setItemChecked(position, true));
 
         listViewRoutes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
